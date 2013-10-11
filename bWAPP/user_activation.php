@@ -1,0 +1,177 @@
+<?php
+
+/*
+
+bWAPP or a buggy web application is a free and open source web application
+build to allow security enthusiasts, students and developers to better secure web applications.
+It is for educational purposes only.
+
+Please feel free to grab the code and make any improvements you want.
+Just say thanks.
+https://twitter.com/MME_IT
+
+© 2013 MME BVBA. All rights reserved.
+
+*/
+
+include("connect_i.php");
+
+$message = "";
+
+if(isset($_GET["user"]) && isset($_GET["activation_code"]) )
+{
+    
+    $login = $_GET["user"];
+    $login = mysqli_real_escape_string($link, $login);    
+    
+    $activation_code = $_GET["activation_code"];
+    $activation_code = mysqli_real_escape_string($link, $activation_code);               
+                
+    $sql = "SELECT * FROM users WHERE login = '" . $login . "' AND BINARY activation_code = '" . $activation_code . "'";
+                
+    // Debugging
+    // echo $sql;    
+
+    $recordset = $link->query($sql);             
+                             
+    if (!$recordset)
+    {
+
+        die("Error: " . $link->error);
+
+    }
+                
+    // Debugging                 
+    // echo "<br />Affected rows: ";                
+    // printf($link->affected_rows);
+                
+    $row = $recordset->fetch_object();   
+                                                                           
+    if ($row)
+    {
+
+        // Debugging              
+        // echo "<br />Row: "; 
+        // print_r($row); 
+                    
+        $sql = "UPDATE users SET activation_code = NULL, activated = 1 WHERE login = '" . $login . "'";
+
+        // Debugging
+        // echo $sql;      
+
+        $recordset = $link->query($sql);
+
+        if (!$recordset)
+        {
+
+            die("Error: " . $link->error);
+
+        }
+                    
+        // Debugging                  
+        // echo "<br />Affected rows: ";                
+        // printf($link->affected_rows);
+
+        $message = "<font color=\"green\">User activated!</font>";
+
+    }
+                
+    else
+    {
+
+        $message = "<font color=\"red\">User not or already activated!</font>";
+
+    }
+
+}
+
+else
+
+{
+    
+    $message = "<font color=\"red\">Not a valid input!</font>";
+
+}
+
+?>
+<!DOCTYPE html>
+<html>
+    
+<head>
+        
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Architects+Daughter">
+<link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+
+<!--<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>-->
+<script src="js/html5.js"></script>
+
+<title>bWAPP - User Activation</title>
+
+</head>
+
+<body>
+    
+<header>
+
+<h1>bWAPP</h1>
+
+<h2>an extremely buggy web application !</h2>
+
+</header>    
+
+<div id="menu">
+      
+    <table>
+        
+        <tr>
+            
+            <td><a href="login.php">Login</a></td>
+            <td><font color="#ffb717">User Activation</font></td>            
+            
+        </tr>
+        
+    </table>   
+   
+</div> 
+
+<div id="main">
+
+    <h1>User Activation</h1>
+
+    <p><?php
+
+    echo $message;
+
+    $link->close();
+
+    ?></p>
+
+</div>
+    
+<div id="side">    
+    
+    <a href="http://itsecgames.blogspot.com" target="blank_" class="button"><img src="./images/blogger.png"></a>
+    <a href="http://be.linkedin.com/in/malikmesellem" target="blank_" class="button"><img src="./images/linkedin.png"></a>
+    <a href="http://twitter.com/MME_IT" target="blank_" class="button"><img src="./images/twitter.png"></a>
+    <a href="http://www.facebook.com/pages/MME-IT-Audits-Security/104153019664877" target="blank_" class="button"><img src="./images/facebook.png"></a>
+
+</div>     
+    
+<div id="disclaimer">
+          
+    <p>bWAPP or a buggy web application is for educational purposes only / © 2013 <b>MME BVBA</b>. All rights reserved.</p>
+   
+</div>
+    
+<div id="bee">
+    
+    <img src="./images/bee_1.png">
+    
+</div>
+      
+</body>
+    
+</html>

