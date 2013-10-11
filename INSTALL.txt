@@ -71,17 +71,22 @@ No! I will not explain how to install Apache/IIS, PHP and MySQL :)
 */ You are ready to explore and exploit the bee!
 
 
-This project is part of the ITSEC GAMES project. 
-ITSEC GAMES are a fun approach to IT security education. IT security, ethical hacking, training and fun... all mixed together.
+This project is part of the ITSEC GAMES project. ITSEC GAMES are a fun approach to IT security education. 
+IT security, ethical hacking, training and fun... all mixed together.
 You can find more about the ITSEC GAMES and bWAPP projects on our blog.
 
-We offer a 2-day comprehensive web security course 'Attacking and Defending Web Apps with bWAPP'.
+We offer a 2-day comprehensive web security course 'Attacking & Defending Web Apps with bWAPP'.
 This course can be scheduled on demand, at your location!
 More info: http://goo.gl/ASuPa1 (pdf)
 
+We also offer a 4-hour workshop 'Plant the Flags with bWAPP', with the focus on attack techniques.
+Master modern martial arts and become a web ninja :)
+Perfect for your conference, convention or group event.
+More info: http://goo.gl/fAwCex (pdf)
+
 Enjoy!
 
-Regards
+Cheers
 
 Malik Mesellem
 Twitter: @MME_IT
