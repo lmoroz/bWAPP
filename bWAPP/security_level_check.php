@@ -2,19 +2,25 @@
 
 /*
 
-bWAPP or a buggy web application is a free and open source web application
-build to allow security enthusiasts, students and developers to better secure web applications.
+bWAPP, or a buggy web application, is a free and open source deliberately insecure web application.
+It helps security enthusiasts, developers and students to discover and to prevent web vulnerabilities.
+bWAPP covers all major known web vulnerabilities, including all risks from the OWASP Top 10 project!
 It is for educational purposes only.
 
-Please feel free to grab the code and make any improvements you want.
-Just say thanks.
-https://twitter.com/MME_IT
+Enjoy!
+
+Malik Mesellem
+Twitter: @MME_IT
 
 © 2013 MME BVBA. All rights reserved.
 
 */
 
-if(!(isset($_COOKIE["security_level"])))
+include("admin/settings.php");
+
+// if(!(isset($_COOKIE["security_level"])))
+
+if(!(isset($_COOKIE["security_level"])) && $_SERVER["REMOTE_ADDR"] != $remote_IP)
 {
 
     header("location: security_level_set.php");

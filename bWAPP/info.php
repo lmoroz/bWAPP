@@ -2,13 +2,15 @@
 
 /*
 
-bWAPP or a buggy web application is a free and open source web application
-build to allow security enthusiasts, students and developers to better secure web applications.
+bWAPP, or a buggy web application, is a free and open source deliberately insecure web application.
+It helps security enthusiasts, developers and students to discover and to prevent web vulnerabilities.
+bWAPP covers all major known web vulnerabilities, including all risks from the OWASP Top 10 project!
 It is for educational purposes only.
 
-Please feel free to grab the code and make any improvements you want.
-Just say thanks.
-https://twitter.com/MME_IT
+Enjoy!
+
+Malik Mesellem
+Twitter: @MME_IT
 
 © 2013 MME BVBA. All rights reserved.
 
@@ -39,7 +41,7 @@ https://twitter.com/MME_IT
 
 <h1>bWAPP</h1>
 
-<h2>an extremely buggy web application !</h2>
+<h2>an extremely buggy web app !</h2>
 
 </header>    
 
@@ -65,8 +67,10 @@ https://twitter.com/MME_IT
     
     <h1>Info</h1>
 
-    <p>bWAPP or <i>a buggy web application</i> is a free and open source web application build to allow security enthusiasts,
-    students and developers to better secure web applications. bWAPP contains all vulnerabilities from the OWASP Top 10 project. It is for educational purposes only.</p>  
+    <p>bWAPP, or a buggy web application, is a free and open source deliberately insecure web application.<br />
+    It helps security enthusiasts, developers and students to discover and to prevent web vulnerabilities.<br />
+    bWAPP covers all major known web vulnerabilities, including all risks from the OWASP Top 10 project!<br />
+    It is for educational purposes only.</p>
 
     <p>bWAPP is a PHP application that uses a MySQL database. It can be hosted on Linux and Windows using Apache/IIS and MySQL.
     It can also be installed with WAMP or XAMPP.</p>

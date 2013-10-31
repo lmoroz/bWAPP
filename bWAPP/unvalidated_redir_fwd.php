@@ -2,13 +2,15 @@
 
 /*
 
-bWAPP or a buggy web application is a free and open source web application
-build to allow security enthusiasts, students and developers to better secure web applications.
+bWAPP, or a buggy web application, is a free and open source deliberately insecure web application.
+It helps security enthusiasts, developers and students to discover and to prevent web vulnerabilities.
+bWAPP covers all major known web vulnerabilities, including all risks from the OWASP Top 10 project!
 It is for educational purposes only.
 
-Please feel free to grab the code and make any improvements you want.
-Just say thanks.
-https://twitter.com/MME_IT
+Enjoy!
+
+Malik Mesellem
+Twitter: @MME_IT
 
 © 2013 MME BVBA. All rights reserved.
 
@@ -101,7 +103,7 @@ if(isset($_REQUEST["url"]) && ($_COOKIE["security_level"] != "1" && $_COOKIE["se
 
 <h1>bWAPP</h1>
 
-<h2>an extremely buggy web application !</h2>
+<h2>an extremely buggy web app !</h2>
 
 </header>    
 
@@ -119,7 +121,7 @@ if(isset($_REQUEST["url"]) && ($_COOKIE["security_level"] != "1" && $_COOKIE["se
             <td><a href="credits.php">Credits</a></td>
             <td><a href="http://itsecgames.blogspot.com" target="_blank">Blog</a></td>
             <td><a href="logout.php" onclick="return confirm('Are you sure you want to leave?');">Logout</a></td>
-            <td><font color="red">Welcome <?php echo ucwords($_SESSION["login"])?></font></td>
+            <td><font color="red">Welcome <?php if(isset($_SESSION["login"])){echo ucwords($_SESSION["login"]);}?></font></td>
             
         </tr>
         
@@ -131,7 +133,7 @@ if(isset($_REQUEST["url"]) && ($_COOKIE["security_level"] != "1" && $_COOKIE["se
     
     <h1>Unvalidated Redirects and Forwards</h1>
 
-    <p>Beam Me Up, <?php echo ucwords($_SESSION["login"]) ?>...</p>
+    <p>Beam Me Up, <?php if(isset($_SESSION["login"])){echo ucwords($_SESSION["login"]);} ?>...</p>
 
     <form action="<?php echo($_SERVER["SCRIPT_NAME"]);?>" method="POST">
 

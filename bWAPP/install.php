@@ -2,13 +2,15 @@
 
 /*
 
-bWAPP or a buggy web application is a free and open source web application
-build to allow security enthusiasts, students and developers to better secure web applications.
+bWAPP, or a buggy web application, is a free and open source deliberately insecure web application.
+It helps security enthusiasts, developers and students to discover and to prevent web vulnerabilities.
+bWAPP covers all major known web vulnerabilities, including all risks from the OWASP Top 10 project!
 It is for educational purposes only.
 
-Please feel free to grab the code and make any improvements you want.
-Just say thanks.
-https://twitter.com/MME_IT
+Enjoy!
+
+Malik Mesellem
+Twitter: @MME_IT
 
 © 2013 MME BVBA. All rights reserved.
 
@@ -67,9 +69,9 @@ if(isset($_REQUEST["install"]) && $_REQUEST["install"] == "yes")
 
         }
 
-        // Populates the table 'users' with the default user
+        // Populates the table 'users' with the default users
         $sql = "INSERT INTO users (login, password, email, secret, activation_code, activated, reset_code, admin) VALUES";
-        $sql.= "('administrator', 'f494a6bb2db46bc9be853cb4d345edd599b80ae9', 'bwapp-admin@mailinator.com', 'a buggy web application!', NULL, 1, NULL, 1),";
+        $sql.= "('A.I.M.', '6885858486f31043e5839c735d99457f045affd0', 'bwapp-aim@mailinator.com', 'A.I.M. or Authentication Is Missing', NULL, 1, NULL, 1),";
         $sql.= "('bee', '6885858486f31043e5839c735d99457f045affd0', 'bwapp-bee@mailinator.com', 'Any bugs?', NULL, 1, NULL, 0)";
                 
         $recordset = $link->query($sql);             
@@ -109,12 +111,15 @@ if(isset($_REQUEST["install"]) && $_REQUEST["install"] == "yes")
         }
 
         // Populates the table 'movies'
-        $sql = "INSERT INTO movies (title, release_year, genre, main_character, imdb) VALUES ('Iron Man', '2008', 'action', 'Tony Stark', 'tt0371746'),";
+        $sql = "INSERT INTO movies (title, release_year, genre, main_character, imdb) VALUES ('G.I. Joe: Retaliation', '2013', 'action', 'Cobra Commander', 'tt1583421'),";
+        $sql.= "('Iron Man', '2008', 'action', 'Tony Stark', 'tt0371746'),";
+        $sql.= "('Man of Steel', '2013', 'action', 'Clark Kent', 'tt0770828'),";
+        $sql.= "('Terminator Salvation', '2009', 'sci-fi', 'John Connor', 'tt0438488'),";
         $sql.= "('The Amazing Spider-Man', '2012', 'action', 'Peter Parker', 'tt0948470'),";
-        $sql.= "('The Incredible Hulk', '2008', 'action', 'Bruce Banner', 'tt0800080'),";
-        $sql.= "('The Dark Knight Rises', '2012', 'action', 'Bruce Wayne', 'tt1345836'),";
         $sql.= "('The Cabin in the Woods', '2011', 'horror', 'Some zombies', 'tt1259521'),";
-        $sql.= "('Terminator Salvation', '2009', 'sci-fi', 'John Connor', 'tt0438488')";
+        $sql.= "('The Dark Knight Rises', '2012', 'action', 'Bruce Wayne', 'tt1345836'),";
+        $sql.= "('The Incredible Hulk', '2008', 'action', 'Bruce Banner', 'tt0800080'),";
+        $sql.= "('World War Z', '2013', 'horror', 'Gerry Lane', 'tt0816711')";
 
         $recordset = $link->query($sql);             
 
@@ -199,7 +204,7 @@ if(isset($_REQUEST["install"]) && $_REQUEST["install"] == "yes")
 
 <h1>bWAPP</h1>
 
-<h2>an extremely buggy web application !</h2>
+<h2>an extremely buggy web app !</h2>
 
 </header>    
 

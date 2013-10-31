@@ -2,13 +2,15 @@
 
 /*
 
-bWAPP or a buggy web application is a free and open source web application
-build to allow security enthusiasts, students and developers to better secure web applications.
+bWAPP, or a buggy web application, is a free and open source deliberately insecure web application.
+It helps security enthusiasts, developers and students to discover and to prevent web vulnerabilities.
+bWAPP covers all major known web vulnerabilities, including all risks from the OWASP Top 10 project!
 It is for educational purposes only.
 
-Please feel free to grab the code and make any improvements you want.
-Just say thanks.
-https://twitter.com/MME_IT
+Enjoy!
+
+Malik Mesellem
+Twitter: @MME_IT
 
 © 2013 MME BVBA. All rights reserved.
 
@@ -57,7 +59,7 @@ if(isset($_POST["form"]) && isset($_POST["bug"]))
 
 <h1>bWAPP</h1>
 
-<h2>an extremely buggy web application !</h2>
+<h2>an extremely buggy web app !</h2>
 
 </header>
    
@@ -75,7 +77,7 @@ if(isset($_POST["form"]) && isset($_POST["bug"]))
             <td><a href="credits.php">Credits</a></td>
             <td><a href="http://itsecgames.blogspot.com" target="_blank">Blog</a></td>
             <td><a href="logout.php" onclick="return confirm('Are you sure you want to leave?');">Logout</a></td>
-            <td><font color="red">Welcome <?php echo ucwords($_SESSION["login"])?></font></td>
+            <td><font color="red">Welcome <?php if(isset($_SESSION["login"])){echo ucwords($_SESSION["login"]);}?></font></td>
             
         </tr>
         
@@ -86,10 +88,11 @@ if(isset($_POST["form"]) && isset($_POST["bug"]))
 <div id="main">
         
     <h1>Portal</h1>
-    
-    <p>bWAPP or <i>a buggy web application</i> is build to allow security enthusiasts, students and developers to better secure web applications.
-    bWAPP prepares you to conduct successful penetration testing and ethical hacking projects.<br />
-    bWAPP contains all vulnerabilities from the OWASP Top 10 project. It is for educational purposes only.</p>
+
+    <p>bWAPP, or a buggy web application, is a free and open source deliberately insecure web application.<br />
+    It helps security enthusiasts, developers and students to discover and to prevent web vulnerabilities.<br />
+    bWAPP covers all major known web vulnerabilities, including all risks from the OWASP Top 10 project!<br />
+    It is for educational purposes only.</p>
 
     <p><i>Which bug do you want to hack today? :-)</i></p>
 
@@ -133,8 +136,14 @@ if(isset($_POST["form"]) && isset($_POST["bug"]))
     <a href="http://twitter.com/MME_IT" target="blank_" class="button"><img src="./images/twitter.png"></a>
     <a href="http://www.facebook.com/pages/MME-IT-Audits-Security/104153019664877" target="blank_" class="button"><img src="./images/facebook.png"></a>
 
-</div>     
-    
+</div>
+
+<div id="sponsor">    
+
+    <img src="./images/owasp.png">
+
+</div>
+
 <div id="disclaimer">
           
     <p>bWAPP or a buggy web application is for educational purposes only / © 2013 <b>MME BVBA</b>. All rights reserved.</p>

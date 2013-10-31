@@ -2,8 +2,33 @@
 bWAPP - Release notes
 /////////////////////
 
+v1.7
+****
+
+Release date: 31/10/2013
+
+Number of bugs: > 60
+
+New features:
+
+- HTTP Verb Tampering
+- A.I.M., a no-authentication mode for testing web scanners and crawlers
+- settings.php file, used for general application settings
+- OWASP logo
+
+New features exploitable on bee-box:
+
+- Local Privilege Escalation (udev)
+
+Modifications:
+
+- Rearrangement to OWASP Top 10 2013
+- Added some new movies :)
+- Introduction text
+
+
 v1.6
-*****
+****
 
 Release date: 5/10/2013
 
@@ -26,7 +51,7 @@ Modifications:
 
 
 v1.5
-*****
+****
 
 Release date: 09/09/2013
 
@@ -55,7 +80,7 @@ Modifications:
 
 
 v1.4
-*****
+****
 
 Release date: 15/07/2013
 
@@ -83,7 +108,7 @@ Modifications:
 
 
 v1.3
-*****
+****
 
 Release date: 20/01/2013
 
@@ -107,7 +132,7 @@ Modifications
 
 
 v1.2
-*****
+****
 
 Release date: 17/01/2013
 
