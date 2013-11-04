@@ -1,1 +1,1 @@
-Merci pour votre intérêt dans bWAPP!
+<font color="green">Merci pour votre intérêt dans bWAPP!</font>

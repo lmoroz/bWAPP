@@ -21,35 +21,43 @@ include("security_level_check.php");
 include("functions_external.php");
 include("selections.php");
 
-function commandi($data)
+$language = "";
+
+if(isset($_GET["language"]))
 {
-         
+
     switch($_COOKIE["security_level"])
     {
-        
-        case "0" : 
-            
-            $data = no_check($data);            
+
+        case "0" :
+
+            $language = $_GET["language"];
+
             break;
-        
+
         case "1" :
-            
-            $data = commandi_check_1($data);
-            break;
-        
-        case "2" :            
-                       
-            $data = commandi_check_2($data);            
-            break;
-        
-        default : 
-            
-            $data = no_check($data);            
-            break;   
 
-    }       
+            $language = $_GET["language"] . ".php";
 
-    return $data;
+            break;
+
+        case "2" :
+
+            $available_languages = array("lang_en.php", "lang_fr.php", "lang_nl.php");
+            
+            $language = $_GET["language"] . ".php";
+
+            // $language = rlfi_check_1($language);
+
+            break;
+
+        default :
+
+            $language = $_GET["language"];         
+
+            break;
+
+    }
 
 }
 
@@ -68,7 +76,7 @@ function commandi($data)
 <!--<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>-->
 <script src="js/html5.js"></script>
 
-<title>bWAPP - Command Injection</title>
+<title>bWAPP - Missing Functional Level Access</title>
 
 </head>
 
@@ -96,7 +104,7 @@ function commandi($data)
             <td><a href="credits.php">Credits</a></td>
             <td><a href="http://itsecgames.blogspot.com" target="_blank">Blog</a></td>
             <td><a href="logout.php" onclick="return confirm('Are you sure you want to leave?');">Logout</a></td>
-            <td><font color="red">Welcome <?php if(isset($_SESSION["login"])){echo ucwords($_SESSION["login"]);}?></font></td>
+            <td><font color="red">Welcome <?php if(isset($_SESSION["login"])){if(isset($_SESSION["login"])){echo ucwords($_SESSION["login"]);};}?></font></td>
             
         </tr>
         
@@ -105,45 +113,75 @@ function commandi($data)
 </div> 
 
 <div id="main">
-    
-    <h1>Command Injection</h1>
 
-    <form action="<?php echo($_SERVER["SCRIPT_NAME"]);?>" method="POST">
+    <h1>Server Side Request Forgery</h1>
 
-        <p>
+    <form action="<?php echo($_SERVER["SCRIPT_NAME"]);?>" method="GET">
 
-        <label for="target">DNS lookup:</label>
-        <input type="text" id="target" name="target" value="www.nsa.gov">    
+        <p>Select a language:
 
-        <button type="submit" name="form" value="submit">Lookup</button>
+        <select name="language">
+
+<?php
+
+if($_COOKIE["security_level"] == "1" || $_COOKIE["security_level"] == "2")
+{
+
+?>
+            <option value="lang_en">English</option>
+            <option value="lang_fr">Français</option>
+            <option value="lang_nl">Nederlands</option>
+
+<?php
+
+}
+
+else
+{
+
+?>
+            <option value="lang_en.php">English</option>
+            <option value="lang_fr.php">Français</option>
+            <option value="lang_nl.php">Nederlands</option>
+
+<?php
+
+}
+
+?>
+        </select>
+
+        <button type="submit" name="action" value="go">Go</button>
 
         </p>
-
+        
     </form>
-    <?php
+    
+<p>HINT: Server Side Request Forgery (SSRF) is all about bypassing access controls such as firewalls.<br />
+Use this web server as a proxy to conduct <a href="../evil/ssrf.txt" target="_blank">port scanning</a> of hosts in the internal network...</p>
 
-    if(isset($_POST["target"])) 
-    {   
+<?php
+    
+if(isset($_GET["language"]))
+{
 
-        $target = $_POST["target"];  
+    if($_COOKIE["security_level"] == "2")
+    {
 
-        if($target == "")
-        {   
-
-            echo "<font color=\"red\">Enter a domain name...</font>";
-
-        }   
-
-        else            
-        {
-
-            echo "<p align=\"left\">" . shell_exec("nslookup  " . commandi($target)) . "</p>";
-
-        }
+        if(in_array($language, $available_languages)) include($language);
 
     }
 
-    ?>    
+    else
+    {
+
+        include($language);
+
+    } 
+
+}
+?>
+    
 </div>
     
 <div id="side">    

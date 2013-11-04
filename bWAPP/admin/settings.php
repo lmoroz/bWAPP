@@ -16,12 +16,14 @@ Twitter: @MME_IT
 
 */
 
-// A.I.M., a no-authentication mode for testing web scanners and crawlers
+// A.I.M. IP address
+// A no-authentication mode for testing web scanners and crawlers
 // Evil bees are HUNGRY ;)
 // URL: http://itsecgames.com/bWAPP/aim.php
 $remote_IP = "6.6.6.6";
 
-// Credentials, used on some pages
+// Credentials
+// Static credentials, used on some pages
 $login = "bee";
 $password = "bug";
 

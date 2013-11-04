@@ -18,40 +18,7 @@ Twitter: @MME_IT
 
 include("security.php");
 include("security_level_check.php");
-include("functions_external.php");
 include("selections.php");
-
-function commandi($data)
-{
-         
-    switch($_COOKIE["security_level"])
-    {
-        
-        case "0" : 
-            
-            $data = no_check($data);            
-            break;
-        
-        case "1" :
-            
-            $data = commandi_check_1($data);
-            break;
-        
-        case "2" :            
-                       
-            $data = commandi_check_2($data);            
-            break;
-        
-        default : 
-            
-            $data = no_check($data);            
-            break;   
-
-    }       
-
-    return $data;
-
-}
 
 ?>
 <!DOCTYPE html>
@@ -67,12 +34,14 @@ function commandi($data)
 
 <!--<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>-->
 <script src="js/html5.js"></script>
+<script src="js/xss_ajax_2.js"></script>
+<script src="js/json2.js"></script>
 
-<title>bWAPP - Command Injection</title>
+<title>bWAPP - XSS</title>
 
 </head>
 
-<body>
+<body onload="process()">
     
 <header>
 
@@ -105,45 +74,18 @@ function commandi($data)
 </div> 
 
 <div id="main">
-    
-    <h1>Command Injection</h1>
 
-    <form action="<?php echo($_SERVER["SCRIPT_NAME"]);?>" method="POST">
+    <h1>XSS - Reflected (AJAX/JSON)</h1>
 
-        <p>
+    <p>
 
-        <label for="target">DNS lookup:</label>
-        <input type="text" id="target" name="target" value="www.nsa.gov">    
+    <label for="title">Search for a movie:</label>
+    <input type="text" id="title" name="title">
 
-        <button type="submit" name="form" value="submit">Lookup</button>
+    <div id="result"></div>
 
-        </p>
-
-    </form>
-    <?php
-
-    if(isset($_POST["target"])) 
-    {   
-
-        $target = $_POST["target"];  
-
-        if($target == "")
-        {   
-
-            echo "<font color=\"red\">Enter a domain name...</font>";
-
-        }   
-
-        else            
-        {
-
-            echo "<p align=\"left\">" . shell_exec("nslookup  " . commandi($target)) . "</p>";
-
-        }
-
-    }
-
-    ?>    
+    </p>    
+ 
 </div>
     
 <div id="side">    

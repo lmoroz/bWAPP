@@ -18,40 +18,44 @@ Twitter: @MME_IT
 
 include("security.php");
 include("security_level_check.php");
-include("functions_external.php");
 include("selections.php");
-
-function commandi($data)
+ 
+switch($_COOKIE["security_level"])
 {
-         
-    switch($_COOKIE["security_level"])
-    {
-        
-        case "0" : 
-            
-            $data = no_check($data);            
-            break;
-        
-        case "1" :
-            
-            $data = commandi_check_1($data);
-            break;
-        
-        case "2" :            
-                       
-            $data = commandi_check_2($data);            
-            break;
-        
-        default : 
-            
-            $data = no_check($data);            
-            break;   
 
-    }       
+    case "0" :
+        
+        if(!(isset($_REQUEST["PHPSESSID"])))
+        {
 
-    return $data;
+            $session_id = session_id();
+            header("location: smgmt_sessionid_url.php?PHPSESSID=". $session_id );
+	
+        }
 
-}
+        break;
+
+    case "1" :
+
+        break;
+
+    case "2" :            
+
+        break;
+
+    default : 
+        
+        if(!(isset($_REQUEST["PHPSESSID"])))
+        {
+
+            $session_id = session_id();
+            header("location: smgmt_sessionid_url.php?PHPSESSID=". $session_id );
+	
+        }
+
+        break;   
+
+}       
 
 ?>
 <!DOCTYPE html>
@@ -68,7 +72,7 @@ function commandi($data)
 <!--<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>-->
 <script src="js/html5.js"></script>
 
-<title>bWAPP - Command Injection</title>
+<title>bWAPP - Session Management</title>
 
 </head>
 
@@ -106,44 +110,10 @@ function commandi($data)
 
 <div id="main">
     
-    <h1>Command Injection</h1>
+    <h1>Session Mgmt. - Session ID in URL</h1>
 
-    <form action="<?php echo($_SERVER["SCRIPT_NAME"]);?>" method="POST">
+    <p>Session IDs should never be exposed in the URL!</p>
 
-        <p>
-
-        <label for="target">DNS lookup:</label>
-        <input type="text" id="target" name="target" value="www.nsa.gov">    
-
-        <button type="submit" name="form" value="submit">Lookup</button>
-
-        </p>
-
-    </form>
-    <?php
-
-    if(isset($_POST["target"])) 
-    {   
-
-        $target = $_POST["target"];  
-
-        if($target == "")
-        {   
-
-            echo "<font color=\"red\">Enter a domain name...</font>";
-
-        }   
-
-        else            
-        {
-
-            echo "<p align=\"left\">" . shell_exec("nslookup  " . commandi($target)) . "</p>";
-
-        }
-
-    }
-
-    ?>    
 </div>
     
 <div id="side">    

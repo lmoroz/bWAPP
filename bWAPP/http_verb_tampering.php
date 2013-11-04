@@ -27,12 +27,11 @@ $message = "";
 if($_COOKIE["security_level"] != "1" && $_COOKIE["security_level"] != "2") 
 {
 
-    if(isset($_REQUEST["password_new"]) && isset($_REQUEST["password_conf"]) && isset($_REQUEST["password_curr"]))
+    if(isset($_REQUEST["password_new"]) && isset($_REQUEST["password_conf"]))
     {
 
         $password_new = $_REQUEST["password_new"];
-        $password_conf = $_REQUEST["password_conf"];
-        $password_curr = $_REQUEST["password_curr"];
+        $password_conf = $_REQUEST["password_conf"];        
 
         if($password_new == "")
         {
@@ -59,10 +58,7 @@ if($_COOKIE["security_level"] != "1" && $_COOKIE["security_level"] != "2")
                 $password_new = mysqli_real_escape_string($link, $password_new);
                 $password_new = hash("sha1", $password_new, false);
 
-                $password_curr = mysqli_real_escape_string($link, $password_curr);
-                $password_curr = hash("sha1", $password_curr, false);                
-
-                $sql = "SELECT password FROM users WHERE login = '" . $login . "' AND password = '" . $password_curr . "'";
+                $sql = "SELECT password FROM users WHERE login = '" . $login . "'";
 
                 $recordset = $link->query($sql);             
 
@@ -96,7 +92,7 @@ if($_COOKIE["security_level"] != "1" && $_COOKIE["security_level"] != "2")
                 else
                 {
 
-                    $message = "<font color=\"red\">The current password is not valid!</font>";
+                    $message = "<font color=\"red\">The password has not been changed!</font>";
 
                 }              
 
@@ -112,12 +108,11 @@ if($_COOKIE["security_level"] != "1" && $_COOKIE["security_level"] != "2")
 else
 {
 
-    if(isset($_POST["password_new"]) && isset($_POST["password_conf"]) && isset($_POST["password_curr"]))
+    if(isset($_POST["password_new"]) && isset($_POST["password_conf"]))
     {
 
         $password_new = $_POST["password_new"];
-        $password_conf = $_POST["password_conf"];
-        $password_curr = $_POST["password_curr"];
+        $password_conf = $_POST["password_conf"];        
 
         if($password_new == "")
         {
@@ -142,12 +137,9 @@ else
                 $login = $_SESSION["login"];
 
                 $password_new = mysqli_real_escape_string($link, $password_new);
-                $password_new = hash("sha1", $password_new, false);
+                $password_new = hash("sha1", $password_new, false);            
 
-                $password_curr = mysqli_real_escape_string($link, $password_curr);
-                $password_curr = hash("sha1", $password_curr, false);                
-
-                $sql = "SELECT password FROM users WHERE login = '" . $login . "' AND password = '" . $password_curr . "'";
+                $sql = "SELECT password FROM users WHERE login = '" . $login . "'";
 
                 $recordset = $link->query($sql);             
 
@@ -181,7 +173,7 @@ else
                 else
                 {
 
-                    $message = "<font color=\"red\">The current password is not valid!</font>";
+                    $message = "<font color=\"red\">The password has not been changed!</font>";
 
                 }              
 
@@ -251,9 +243,6 @@ else
     <p>Please change your password <b><?php if(isset($_SESSION["login"])){echo ucwords($_SESSION["login"]);} ?></b>.</p>
 
     <form action="<?php echo($_SERVER["SCRIPT_NAME"]);?>" method="POST"> 
-
-        <p><label for="password_curr">Current password:</label><br />
-        <input type="password" id="password_curr" name="password_curr"></p>       
 
         <p><label for="password_new">New password:</label><br />
         <input type="password" id="password_new" name="password_new"></p>
@@ -339,7 +328,7 @@ foreach ($bugs as $key => $value)
    // echo " filename: " . $bug[1] . "<br />";
    
    echo "<option value='$key'>$bug[0]</option>";
- 
+
 }
 
 ?>

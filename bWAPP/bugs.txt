@@ -23,10 +23,13 @@ Session Management - Administrative Portals,smgmt_admin_portal.php
 Session Management - Cookies (HTTPOnly),smgmt_cookies_httponly.php
 Session Management - Cookies (Secure),smgmt_cookies_secure.php
 Session Management - Strong Sessions,smgmt_strong_sessions.php
+Session Management - Session ID in URL,smgmt_sessionid_url.php
 /,portal.php
 / A3 - Cross-Site Scripting (XSS) /,portal.php
 Cross-Site Scripting - Reflected (GET),xss_get.php
 Cross-Site Scripting - Reflected (POST),xss_post.php
+Cross-Site Scripting - Reflected (AJAX/XML),xss_ajax_1-1.php
+Cross-Site Scripting - Reflected (AJAX/JSON),xss_ajax_2-1.php
 Cross-Site Scripting - Reflected (Back Button),xss_back_button.php
 Cross-Site Scripting - Reflected (Eval),xss_eval.php?date=Date()
 Cross-Site Scripting - Reflected (HREF),xss_href-1.php
@@ -62,6 +65,7 @@ Directory Traversal - Directories,directory_traversal_2.php?directory=documents
 Remote & Local File Inclusion,rlfi.php
 Restrict Device Access,restrict_device_access.php
 Restrict Folder Access,restrict_folder_access.php
+Server Side Request Forgery,ssrf.php
 /,portal.php
 / A8 - Cross-Site Request Forgery (CSRF) /,portal.php
 Cross-Site Request Forgery (Password),csrf_1.php
@@ -85,7 +89,5 @@ Information Disclosure - Headers,information_disclosure_2.php
 Information Disclosure - PHP version,information_disclosure_1.php
 Information Disclosure - Robots File,information_disclosure_3.php
 Unrestricted File Upload,unrestricted_file_upload.php
----------------------------  Extras  ---------------------------,portal.php
+---------------------------  Extras  --------------------------,portal.php
 A.I.M.,aim.php
-----------------------  Coming soon  ----------------------,portal.php
-AJAX / JSON / Web Services,portal.php

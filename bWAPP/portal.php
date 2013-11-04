@@ -98,7 +98,7 @@ if(isset($_POST["form"]) && isset($_POST["bug"]))
 
     <form action="<?php echo($_SERVER["SCRIPT_NAME"]);?>" method="POST">
         
-        <select name="bug" size="9">
+        <select name="bug" size="9" id="select_portal">
      
             <?php
 
@@ -140,7 +140,8 @@ if(isset($_POST["form"]) && isset($_POST["bug"]))
 
 <div id="sponsor">    
 
-    <img src="./images/owasp.png">
+    <a href="https://www.owasp.org" target="_blank"><img src="./images/owasp.png"></a>&nbsp;&nbsp;
+    <a href="https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project" target="_blank"><img src="./images/zap.png"></a>
 
 </div>
 
@@ -151,9 +152,9 @@ if(isset($_POST["form"]) && isset($_POST["bug"]))
 </div>
     
 <div id="bee">
-    
+
     <img src="./images/bee_1.png">
-    
+
 </div>
     
     <div id="security_level">

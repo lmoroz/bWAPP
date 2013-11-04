@@ -84,6 +84,12 @@ form {
         padding: 0px;  
 }
 
+select {
+        font-family: Arial;
+        font-size: 14px;
+        padding: 2px;
+}
+
 header {
         font-family: "Architects Daughter", "Helvetica Neue", Helvetica, Arial, serif; 
         background: #ffb717 url("../images/bg_1.jpg") 0px 0px repeat-x;
@@ -219,7 +225,7 @@ header h2 {
         min-height: 100px;
         position: absolute;
         top: 500px;
-        left: 400px;
+        left: 440px;
 }
 
 .button {
@@ -251,7 +257,7 @@ header h2 {
         top: 15px;
         /*left: 750px;*/
         right: 30px;
-        min-width: 380px;
+        min-width: 430px;
 }
 
 #security_level {
@@ -263,7 +269,7 @@ header h2 {
         top: 88px;
         /*left: 750px;*/
         right: 30px;
-        min-width: 380px;
+        min-width: 430px;
 }
 
 #bee {
@@ -284,4 +290,11 @@ header h2 {
         border: 1px solid #ebebeb;
         padding: 10px; 
         vertical-align: middle;
+}
+
+#select_portal {
+        font-size: 14px;
+        font-family: Arial;
+        width: 350px;
+        padding: 1px;
 }

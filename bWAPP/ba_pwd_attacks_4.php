@@ -129,7 +129,7 @@ if(isset($_POST["form"]))
         else        
         {
 
-            $message = "<font color=\"red\">Invalid credentials!</font>";
+            $message = "<font color=\"red\">Invalid credentials! Did you forgot your password?</font>";
 
         }
     

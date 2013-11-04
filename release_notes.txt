@@ -9,12 +9,19 @@ Release date: 31/10/2013
 
 Number of bugs: > 60
 
-New features:
+New bugs:
 
 - HTTP Verb Tampering
+- Server Side Request Forgery
+- Session ID in URL
+- XSS - Reflected (AJAX/JSON)
+- XSS - Reflected (AJAX/XML)
+
+New features:
+
 - A.I.M., a no-authentication mode for testing web scanners and crawlers
-- settings.php file, used for general application settings
-- OWASP logo
+- Settings file, used for general application settings
+- OWASP & ZAP logo
 
 New features exploitable on bee-box:
 

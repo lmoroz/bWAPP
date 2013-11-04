@@ -11,12 +11,13 @@ It is for educational purposes only.
 
 It includes:
 
-*/ Injection vulnerabilities like SQL, XML/XPath, LDAP, HTML, Command and SMTP injection
+*/ Injection vulnerabilities like SQL, XML/XPath, JSON, LDAP, HTML, Command and SMTP injection
 */ Cross-Site Scripting (XSS), Cross-Site Tracing (XST) and Cross-Site Request Forgery (CSRF)
 */ Malicious, unrestricted file uploads
 */ Authentication, authorization and session management issues
 */ Arbitrary file access and directory traversals
 */ Local and remote file inclusions (LFI/RFI)
+*/ Server Side Request Forgery (SSRF)
 */ Configuration issues: Man-in-the-Middle, Cross-domain policy file, information disclosures,...
 */ HTTP parameter pollution and HTTP response splitting
 */ Denial-of-Service (DoS) attacks
@@ -24,11 +25,8 @@ It includes:
 */ Unvalidated redirects and forwards
 */ Parameter tampering
 */ Insecure cryptographic storage
+*/ AJAX issues
 */ and much more...
-
-Upcoming bugs:
-
-*/ AJAX, JSON, Web Services
 
 bWAPP is a PHP application that uses a MySQL database. It can be hosted on Linux and Windows using Apache/IIS and MySQL. It can be installed with WAMP or XAMPP.
 
