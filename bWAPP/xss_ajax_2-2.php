@@ -16,6 +16,7 @@ Twitter: @MME_IT
 
 */
 
+
 include("security.php");
 include("security_level_check.php");
 include("functions_external.php");
@@ -29,22 +30,9 @@ if(isset($_GET["title"]))
     // Retrieves the movie title
     $title = $_GET["title"];
 
-    if($_COOKIE["security_level"] != "1" && $_COOKIE["security_level"] != "2")
-    {   
-
-        // Generates the output depending on the movie title received from the client
-        if (in_array(strtoupper($title), $movies))
-            echo '{"movies":[{"response":"Yes! We have that movie..."}]}';
-        else if (trim($title) == "")
-            echo '{"movies":[{"response":"HINT: our master really loves Marvel movies :)"}]}';
-         else
-            echo '{"movies":[{"response":"' . $title . '??? Sorry, we don\'t have that movie :("}]}';
-
-    }
-
-    else      
+    if($_COOKIE["security_level"] == "2")
     {
-
+        
         // Generates the JSON output
         header("Content-Type: text/json; charset=utf-8");
         
@@ -92,10 +80,39 @@ if(isset($_GET["title"]))
         }
 
         // Returns the JSON representation
-        echo json_encode($movies);
+        // This function is safe
+        echo json_encode($movies); 
 
     }
 
+    else      
+    {
+
+        if($_COOKIE["security_level"] == "1")
+        {
+
+            // Generates the JSON output
+            header("Content-Type: text/json; charset=utf-8");
+
+        }
+
+        // Generates the output depending on the movie title received from the client
+        if (in_array(strtoupper($title), $movies))
+            echo '{"movies":[{"response":"Yes! We have that movie..."}]}';
+        else if (trim($title) == "")
+            echo '{"movies":[{"response":"HINT: our master really loves Marvel movies :)"}]}';
+         else
+            echo '{"movies":[{"response":"' . $title . '??? Sorry, we don\'t have that movie :("}]}';
+
+    }
+
+}
+
+else 
+{
+    
+    echo "<font color=\"red\">Try harder :p</font>";
+    
 }
 
 // Multiple entries

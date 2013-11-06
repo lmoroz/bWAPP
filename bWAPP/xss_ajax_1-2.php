@@ -83,4 +83,11 @@ if(isset($_GET["title"]))
 
 }
 
+else 
+{
+    
+    echo "<font color=\"red\">Try harder :p</font>";
+    
+}
+
 ?>

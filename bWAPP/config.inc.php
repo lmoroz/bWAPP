@@ -19,7 +19,7 @@ Twitter: @MME_IT
 // Connection settings
 $server = "localhost";
 $username = "root";
-$password = "";
+$password = "bug";
 $database = "bWAPP";
 
 ?>

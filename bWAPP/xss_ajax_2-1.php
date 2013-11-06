@@ -34,7 +34,6 @@ include("selections.php");
 
 <!--<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>-->
 <script src="js/html5.js"></script>
-<script src="js/xss_ajax_2.js"></script>
 <script src="js/json2.js"></script>
 
 <title>bWAPP - XSS</title>
@@ -81,36 +80,151 @@ include("selections.php");
 
     <label for="title">Search for a movie:</label>
     <input type="text" id="title" name="title">
+    
+    </p>
 
     <div id="result"></div>
+    
+    <script>
+    
+        // Stores the reference to the XMLHttpRequest object
+        var xmlHttp = createXmlHttpRequestObject(); 
 
-    </p>    
- 
+        // Retrieves the XMLHttpRequest object
+        function createXmlHttpRequestObject() 
+        {	
+            // Stores the reference to the XMLHttpRequest object
+            var xmlHttp;
+            // If running Internet Explorer 6 or older
+            if(window.ActiveXObject)
+            {
+                try
+                {
+                    xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                catch (e)
+                {
+                    xmlHttp = false;
+                }
+            }
+            // If running Mozilla or other browsers
+            else
+            {
+                try
+                {
+                    xmlHttp = new XMLHttpRequest();
+                }
+                catch (e)
+                {
+                    xmlHttp = false;
+                }
+            }
+            // Returns the created object or displays an error message
+            if(!xmlHttp)
+                alert("Error creating the XMLHttpRequest object.");
+            else 
+                return xmlHttp;
+        }
+
+        // Makes an asynchronous HTTP request using the XMLHttpRequest object 
+        function process()
+        {
+            // Proceeds only if the xmlHttp object isn't busy
+            if (xmlHttp.readyState == 4 || xmlHttp.readyState == 0)
+            {
+                // Retrieves the movie title typed by the user on the form
+                // title = document.getElementById("title").value;
+                title = encodeURIComponent(document.getElementById("title").value);
+                // Executes the 'xss_ajax_1-2.php' page from the server
+                xmlHttp.open("GET", "xss_ajax_2-2.php?title=" + title, true);  
+                // Defines the method to handle server responses
+                xmlHttp.onreadystatechange = handleServerResponse;
+                // Makes the server request
+                xmlHttp.send(null);
+            }
+            else
+                // If the connection is busy, try again after one second  
+                setTimeout("process()", 1000);
+        }
+
+        // Callback function executed when a message is received from the server
+        function handleServerResponse()
+        {
+            // Move forward only if the transaction has completed
+            if (xmlHttp.readyState == 4)
+            {
+                // Status of 200 indicates the transaction completed successfully
+                if (xmlHttp.status == 200)
+                {
+                    // Extracts the JSON retrieved from the server
+<?php
+
+                if($_COOKIE["security_level"] == "2")
+                {
+
+?>
+                    JSONResponse = JSON.parse(xmlHttp.responseText);
+<?php
+
+                }
+
+                else
+                {
+?>
+                    JSONResponse = eval("(" + xmlHttp.responseText + ")");
+<?php
+
+                    }
+
+?>
+                    // Generates HTML output
+                    // var result = "";
+                    // Obtains the value of the JSON response
+                    result = JSONResponse.movies[0].response;
+                    // Iterates through the arrays and create an HTML structure
+                    //for (var i=0; i<JSONResponse.movies.length; i++)
+                    //    result += JSONResponse.movies[i].response + "<br/>";
+                    // Obtains a reference to the <div> element on the page
+                    // Displays the data received from the server
+                    document.getElementById("result").innerHTML = result;
+                    // Restart sequence
+                    setTimeout("process()", 1000);
+                } 
+                // A HTTP status different than 200 signals an error
+                else 
+                {
+                    alert("There was a problem accessing the server: " + xmlHttp.statusText);
+                }
+            }
+        }
+
+    </script>
+
 </div>
     
 <div id="side">    
-    
+
     <a href="http://itsecgames.blogspot.com" target="blank_" class="button"><img src="./images/blogger.png"></a>
     <a href="http://be.linkedin.com/in/malikmesellem" target="blank_" class="button"><img src="./images/linkedin.png"></a>
     <a href="http://twitter.com/MME_IT" target="blank_" class="button"><img src="./images/twitter.png"></a>
     <a href="http://www.facebook.com/pages/MME-IT-Audits-Security/104153019664877" target="blank_" class="button"><img src="./images/facebook.png"></a>
 
 </div>     
-    
+
 <div id="disclaimer">
-          
+ 
     <p>bWAPP or a buggy web application is for educational purposes only / © 2013 <b>MME BVBA</b>. All rights reserved.</p>
-   
+
 </div>
-    
+
 <div id="bee">
-    
+
     <img src="./images/bee_1.png">
-    
+
 </div>
-    
+
 <div id="security_level">
-  
+
     <form action="<?php echo($_SERVER["SCRIPT_NAME"]);?>" method="POST">
         
         <label>Set your security level:</label><br />
@@ -120,52 +234,51 @@ include("selections.php");
             <option value="0">low</option>
             <option value="1">medium</option>
             <option value="2">high</option> 
-            
+
         </select>
-        
+
         <button type="submit" name="form_security_level" value="submit">Set</button>
         <font size="4">Current: <b><?php echo $security_level?></b></font>
-        
-    </form>   
-    
+
+    </form>
+
 </div>
-    
+
 <div id="bug">
 
     <form action="<?php echo($_SERVER["SCRIPT_NAME"]);?>" method="POST">
-        
+
         <label>Choose your bug:</label><br />
-        
+
         <select name="bug">
-   
+
 <?php
 
 // Lists the options from the array 'bugs' (bugs.txt)
 foreach ($bugs as $key => $value)
 {
-    
+
    $bug = explode(",", trim($value));
-   
+
    // Debugging
    // echo "key: " . $key;
    // echo " value: " . $bug[0];
    // echo " filename: " . $bug[1] . "<br />";
-   
+
    echo "<option value='$key'>$bug[0]</option>";
- 
+
 }
 
 ?>
 
-
         </select>
-        
+
         <button type="submit" name="form_bug" value="submit">Hack</button>
-        
+
     </form>
-    
+
 </div>
-      
+
 </body>
-    
+
 </html>

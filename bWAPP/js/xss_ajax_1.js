@@ -25,7 +25,7 @@ function createXmlHttpRequestObject()
         {
             xmlHttp = new XMLHttpRequest();
         }
-    catch (e)
+        catch (e)
         {
             xmlHttp = false;
         }
