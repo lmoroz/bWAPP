@@ -12,7 +12,7 @@ Enjoy!
 Malik Mesellem
 Twitter: @MME_IT
 
-© 2013 MME BVBA. All rights reserved.
+© 2014 MME BVBA. All rights reserved.
 
 */
 
@@ -25,11 +25,14 @@ switch($_COOKIE["security_level"])
 
     case "0" :
         
-        if(!(isset($_REQUEST["PHPSESSID"])))
+        if(!(isset($_GET["PHPSESSID"])))
         {
 
             $session_id = session_id();
+            
             header("location: smgmt_sessionid_url.php?PHPSESSID=". $session_id );
+            
+            exit;
 	
         }
 
@@ -45,11 +48,14 @@ switch($_COOKIE["security_level"])
 
     default : 
         
-        if(!(isset($_REQUEST["PHPSESSID"])))
+        if(!(isset($_GET["PHPSESSID"])))
         {
 
             $session_id = session_id();
+            
             header("location: smgmt_sessionid_url.php?PHPSESSID=". $session_id );
+            
+            exit;
 	
         }
 
@@ -127,7 +133,7 @@ switch($_COOKIE["security_level"])
     
 <div id="disclaimer">
           
-    <p>bWAPP or a buggy web application is for educational purposes only / © 2013 <b>MME BVBA</b>. All rights reserved.</p>
+    <p>bWAPP is for educational purposes only / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and receive our cheat sheet, updated on a regular basis / &copy; 2014 MME BVBA</p>
    
 </div>
     

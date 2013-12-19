@@ -1,6 +1,42 @@
 
+---------------------
 bWAPP - Release notes
-/////////////////////
+---------------------
+
+v1.8
+****
+
+Release date: 15/12/2013
+
+Number of bugs: > 65
+
+New bugs:
+
+- SQL Injection - Blind (Web Services/SOAP)
+
+New bugs exploitable on bee-box v1.2:
+
+- Insecure FTP
+- Insecure WebDAV
+- Server-Side Includes Injection
+
+New features:
+
+- NSA backdoor file
+- Unprotected Admin Portal > a shortcut to the 'settings' file
+- WSDL file (Web Services/SOAP)
+
+Bug fixes:
+
+- Issue with 'Restrict Folder Access'
+- Issue with 'Session ID in URL'
+
+Modifications:
+
+- A.I.M. feature > list of IP addresses
+- Unrestricted File Upload > unsafe black-list in security level medium
+- table 'movies' > extra column: tickets_stock
+
 
 v1.7
 ****
@@ -12,7 +48,7 @@ Number of bugs: > 60
 New bugs:
 
 - HTTP Verb Tampering
-- Server Side Request Forgery
+- Server Side Request Forgery (SSRF)
 - Session ID in URL
 - XSS - Reflected (AJAX/JSON)
 - XSS - Reflected (AJAX/XML)
@@ -23,7 +59,7 @@ New features:
 - Settings file, used for general application settings
 - OWASP & ZAP logo
 
-New features exploitable on bee-box:
+New bugs exploitable on bee-box:
 
 - Local Privilege Escalation (udev)
 

@@ -12,7 +12,7 @@ Enjoy!
 Malik Mesellem
 Twitter: @MME_IT
 
-© 2013 MME BVBA. All rights reserved.
+© 2014 MME BVBA. All rights reserved.
 
 */
 
@@ -99,7 +99,7 @@ if(isset($_REQUEST["install"]) && $_REQUEST["install"] == "yes")
         // Creates the table 'movies' 
         $sql = "CREATE TABLE IF NOT EXISTS movies (id int(10) NOT NULL AUTO_INCREMENT,title varchar(100) DEFAULT NULL,";
         $sql.= "release_year varchar(100) DEFAULT NULL,genre varchar(100) DEFAULT NULL,main_character varchar(100) DEFAULT NULL,";
-        $sql.= "imdb varchar(100) DEFAULT NULL,PRIMARY KEY (id)) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1";
+        $sql.= "imdb varchar(100) DEFAULT NULL,tickets_stock int(10) DEFAULT NULL,PRIMARY KEY (id)) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1";
 
         $recordset = $link->query($sql);             
 
@@ -111,15 +111,16 @@ if(isset($_REQUEST["install"]) && $_REQUEST["install"] == "yes")
         }
 
         // Populates the table 'movies'
-        $sql = "INSERT INTO movies (title, release_year, genre, main_character, imdb) VALUES ('G.I. Joe: Retaliation', '2013', 'action', 'Cobra Commander', 'tt1583421'),";
-        $sql.= "('Iron Man', '2008', 'action', 'Tony Stark', 'tt0371746'),";
-        $sql.= "('Man of Steel', '2013', 'action', 'Clark Kent', 'tt0770828'),";
-        $sql.= "('Terminator Salvation', '2009', 'sci-fi', 'John Connor', 'tt0438488'),";
-        $sql.= "('The Amazing Spider-Man', '2012', 'action', 'Peter Parker', 'tt0948470'),";
-        $sql.= "('The Cabin in the Woods', '2011', 'horror', 'Some zombies', 'tt1259521'),";
-        $sql.= "('The Dark Knight Rises', '2012', 'action', 'Bruce Wayne', 'tt1345836'),";
-        $sql.= "('The Incredible Hulk', '2008', 'action', 'Bruce Banner', 'tt0800080'),";
-        $sql.= "('World War Z', '2013', 'horror', 'Gerry Lane', 'tt0816711')";
+        $sql = "INSERT INTO movies (title, release_year, genre, main_character, imdb, tickets_stock) VALUES ('G.I. Joe: Retaliation', '2013', 'action', 'Cobra Commander', 'tt1583421', 100),";
+        $sql.= "('Iron Man', '2008', 'action', 'Tony Stark', 'tt0371746', 53),";
+        $sql.= "('Man of Steel', '2013', 'action', 'Clark Kent', 'tt0770828', 78),";
+        $sql.= "('Terminator Salvation', '2009', 'sci-fi', 'John Connor', 'tt0438488', 100),";
+        $sql.= "('The Amazing Spider-Man', '2012', 'action', 'Peter Parker', 'tt0948470', 13),";
+        $sql.= "('The Cabin in the Woods', '2011', 'horror', 'Some zombies', 'tt1259521', 666),";
+        $sql.= "('The Dark Knight Rises', '2012', 'action', 'Bruce Wayne', 'tt1345836', 3),";
+        $sql.= "('The Fast and the Furious', '2001', 'action', 'Brian O\'Connor', 'tt0232500', 40),";
+        $sql.= "('The Incredible Hulk', '2008', 'action', 'Bruce Banner', 'tt0800080', 23),";
+        $sql.= "('World War Z', '2013', 'horror', 'Gerry Lane', 'tt0816711', 0)";
 
         $recordset = $link->query($sql);             
 
@@ -267,7 +268,7 @@ if(isset($_REQUEST["install"]) && $_REQUEST["install"] == "yes")
     
 <div id="disclaimer">
           
-    <p>bWAPP or a buggy web application is for educational purposes only / © 2013 <b>MME BVBA</b>. All rights reserved.</p>
+    <p>bWAPP is for educational purposes only / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and receive our cheat sheet, updated on a regular basis / &copy; 2014 MME BVBA</p>
    
 </div>
     

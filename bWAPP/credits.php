@@ -12,7 +12,7 @@ Enjoy!
 Malik Mesellem
 Twitter: @MME_IT
 
-© 2013 MME BVBA. All rights reserved.
+© 2014 MME BVBA. All rights reserved.
 
 */
 
@@ -75,16 +75,16 @@ include("selections.php");
     
     <h1>Credits</h1>   
 
-    <p>O yeah... who am I? Well my name is Malik. I'm a security consultant working for his own company, <a href="http://www.mmeit.be/en" target="_blank">MME</a>.<br />
+    <p>O yeah... who am I? Well my name is Malik. I'm a security consultant working for my own company, <a href="http://www.mmeit.be/en" target="_blank">MME</a>.<br />
     We are performing security audits, including penetration testing and vulnerability assessments, for medium and large-sized companies.</p>
 
-    <p>bWAPP or <i>a buggy web application</i> is part of the ITSEC Games project. ITSEC Games are a fun approach to IT security education.
+    <p>bWAPP, or <i>a buggy web application</i>, is part of the ITSEC Games project. ITSEC Games are a fun approach to IT security education.
     IT security, ethical hacking, training and fun... all mixed together.<br />    
     You can find more about the ITSEC Games and bWAPP projects on our <a href="http://itsecgames.blogspot.com" target="_blank">blog</a>.</p>    
 
-    <p>Please don't hesitate to <a href="mailto:malik@itsecgames.com">contact</a> me if you have questions or if you want a summary of the solutions!</p>
+    <p>Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and receive our cheat sheet, updated on a regular basis.</p>
 
-    <p>Regards</p>
+    <p>Cheers</p>
 
     <p>Malik Mesellem</p>
 
@@ -101,7 +101,7 @@ include("selections.php");
     
 <div id="disclaimer">
           
-    <p>bWAPP or a buggy web application is for educational purposes only / © 2013 <b>MME BVBA</b>. All rights reserved.</p>
+    <p>bWAPP is for educational purposes only / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and receive our cheat sheet, updated on a regular basis / &copy; 2014 MME BVBA</p>
    
 </div>
     

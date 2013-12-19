@@ -1,6 +1,7 @@
 
+--------------
 bWAPP - README
-//////////////
+--------------
 
 bWAPP, or a buggy web application, is a deliberately insecure web application.
 bWAPP helps security enthusiasts, developers and students to discover and to prevent web vulnerabilities.
@@ -11,7 +12,7 @@ It is for educational purposes only.
 
 It includes:
 
-*/ Injection vulnerabilities like SQL, XML/XPath, JSON, LDAP, HTML, Command and SMTP injection
+*/ Injection vulnerabilities like SQL, SSI, XML/XPath, JSON, LDAP, HTML, Command and SMTP injection
 */ Cross-Site Scripting (XSS), Cross-Site Tracing (XST) and Cross-Site Request Forgery (CSRF)
 */ Malicious, unrestricted file uploads
 */ Authentication, authorization and session management issues
@@ -25,7 +26,9 @@ It includes:
 */ Unvalidated redirects and forwards
 */ Parameter tampering
 */ Insecure cryptographic storage
-*/ AJAX issues
+*/ AJAX and Web Services issues (JSON/XML/SOAP)
+*/ Cookie poisoning
+*/ Insecure WebDAV and FTP
 */ and much more...
 
 bWAPP is a PHP application that uses a MySQL database. It can be hosted on Linux and Windows using Apache/IIS and MySQL. It can be installed with WAMP or XAMPP.

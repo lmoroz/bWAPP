@@ -61,8 +61,8 @@ HTML5 Web Storage (Secret),insecure_crypt_storage_1.php
 Text Files (Accounts),insecure_crypt_storage_2.php
 /,portal.php
 / A8 - Failure to Restrict URL Access /,portal.php
-Authorization Testing - Restrict Device Access,at_restrict_device_access.php
-Authorization Testing - Restrict Folder Access,at_restrict_folder_access.php
+Authorization Testing - Restrict Device Access,restrict_device_access.php
+Authorization Testing - Restrict Folder Access,restrict_folder_access.php
 /,portal.php
 / A9 - Insufficient Transport Layer Protection /,portal.php
 Insufficient Transport Layer Protection,insuff_transport_layer_protect.php

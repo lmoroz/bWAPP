@@ -12,7 +12,7 @@ Enjoy!
 Malik Mesellem
 Twitter: @MME_IT
 
-© 2013 MME BVBA. All rights reserved.
+© 2014 MME BVBA. All rights reserved.
 
 */
 
@@ -26,6 +26,8 @@ if($_COOKIE["security_level"] == "2")
 {
     
     header("Location: mysqli_ps.php");
+    
+    exit;
     
 }
 
@@ -280,7 +282,7 @@ mysql_close($link);
     
 <div id="disclaimer">
           
-    <p>bWAPP or a buggy web application is for educational purposes only / © 2013 <b>MME BVBA</b>. All rights reserved.</p>
+    <p>bWAPP is for educational purposes only / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and receive our cheat sheet, updated on a regular basis / &copy; 2014 MME BVBA</p>
    
 </div>
     

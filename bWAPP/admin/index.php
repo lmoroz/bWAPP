@@ -12,7 +12,7 @@ Enjoy!
 Malik Mesellem
 Twitter: @MME_IT
 
-© 2013 MME BVBA. All rights reserved.
+© 2014 MME BVBA. All rights reserved.
 
 */
 
@@ -124,7 +124,7 @@ else
         <tr height="30">
 
             <td>A.I.M. IP Address</td>
-            <td align="center"><?php echo $remote_IP ?></td>
+            <td align="center"><?php echo $remote_IP[0] ?></td>
             <td>A no-authentication mode for testing web scanners and crawlers</td>
 
         </tr>
@@ -152,7 +152,7 @@ else
     
 <div id="disclaimer">
           
-    <p>bWAPP or a buggy web application is for educational purposes only / © 2013 <b>MME BVBA</b>. All rights reserved.</p>
+    <p>bWAPP is for educational purposes only / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and receive our cheat sheet, updated on a regular basis / &copy; 2014 MME BVBA</p>
    
 </div>
     

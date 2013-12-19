@@ -12,7 +12,7 @@ Enjoy!
 Malik Mesellem
 Twitter: @MME_IT
 
-© 2013 MME BVBA. All rights reserved.
+© 2014 MME BVBA. All rights reserved.
 
 */
 
@@ -37,7 +37,7 @@ if(isset($_POST["form"]))
         
         case "1" :
             
-            $file_error = file_upload_check_1($_FILES["file"], array("jpg","png"));
+            $file_error = file_upload_check_1($_FILES["file"]);
             
             if(!$file_error)
             {
@@ -50,7 +50,7 @@ if(isset($_POST["form"]))
         
         case "2" :            
                        
-            $file_error = file_upload_check_1($_FILES["file"], array("jpg","png"));
+            $file_error = file_upload_check_2($_FILES["file"], array("jpg","png"));
             
             if(!$file_error)
             {
@@ -128,13 +128,13 @@ if(isset($_POST["form"]))
 
     <form action="<?php echo($_SERVER["SCRIPT_NAME"]);?>" method="POST" enctype="multipart/form-data">
 
-        <p><label for="file">Please upload an image:</label><br />    
+        <p><label for="file">Please upload an image:</label><br />
         <input type="file" name="file"></p>
 
-        <input type="hidden" name="MAX_FILE_SIZE" value="10">   
+        <input type="hidden" name="MAX_FILE_SIZE" value="10">
         <!-- <input type="hidden" name="MAX_FILE_SIZE" value="100000"> -->
 
-        <button type="submit" name="form" value="upload">Upload</button> 
+        <input type="submit" name="form" value="Upload">
 
     </form>
 
@@ -174,7 +174,7 @@ if(isset($_POST["form"]))
     
 <div id="disclaimer">
           
-    <p>bWAPP or a buggy web application is for educational purposes only / © 2013 <b>MME BVBA</b>. All rights reserved.</p>
+    <p>bWAPP is for educational purposes only / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and receive our cheat sheet, updated on a regular basis / &copy; 2014 MME BVBA</p>
    
 </div>
     

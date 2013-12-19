@@ -12,7 +12,7 @@ Enjoy!
 Malik Mesellem
 Twitter: @MME_IT
 
-© 2013 MME BVBA. All rights reserved.
+© 2014 MME BVBA. All rights reserved.
 
 */
 
@@ -30,7 +30,7 @@ if(isset($_SERVER["HTTP_ORIGIN"]) and $_SERVER["HTTP_ORIGIN"] == "http://intrane
 else
 {
 
-    echo "This is just a normal page with no secrets ;)";
+    echo "This is just a normal page with no secrets :)";
 
 }
 

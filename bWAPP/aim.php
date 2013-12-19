@@ -12,7 +12,7 @@ Enjoy!
 Malik Mesellem
 Twitter: @MME_IT
 
-© 2013 MME BVBA. All rights reserved.
+© 2014 MME BVBA. All rights reserved.
 
 */
 
@@ -36,13 +36,13 @@ Twitter: @MME_IT
 
 <p>A no-authentication mode for testing web scanners and crawlers.</p>
 
-<p><u>Procedure</u></p>
+<p><u>Steps</u></p>
 
-<p>1. Change the IP address in the 'settings.php' file to your IP.</p>
+<p>1. Change the IP address in the settings file to your IP (admin/settings.php).</p>
 
-<p>2. Point your scanner or crawler to this URL.</p>
+<p>2. Point your web scanner, crawler or attack tool to this URL.</p>
 
-<p>3. All hell breaks loose, evil bees are HUNGRY ;)</p>
+<p>3. All hell breaks loose, evil bees are HUNGRY :)</p>
 
 <p><img src="./images/evil_bee.png"></p>
 

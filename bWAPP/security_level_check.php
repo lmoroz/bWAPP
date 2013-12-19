@@ -12,7 +12,7 @@ Enjoy!
 Malik Mesellem
 Twitter: @MME_IT
 
-© 2013 MME BVBA. All rights reserved.
+© 2014 MME BVBA. All rights reserved.
 
 */
 
@@ -20,7 +20,7 @@ include("admin/settings.php");
 
 // if(!(isset($_COOKIE["security_level"])))
 
-if(!(isset($_COOKIE["security_level"])) && $_SERVER["REMOTE_ADDR"] != $remote_IP)
+if(!(isset($_COOKIE["security_level"])) && !(in_array($_SERVER["REMOTE_ADDR"], $remote_IP)))
 {
 
     header("location: security_level_set.php");

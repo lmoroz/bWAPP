@@ -12,7 +12,7 @@ Enjoy!
 Malik Mesellem
 Twitter: @MME_IT
 
-© 2013 MME BVBA. All rights reserved.
+© 2014 MME BVBA. All rights reserved.
 
 */
 
@@ -211,7 +211,85 @@ function sqli_check_3($link, $data)
     
 }
 
-function file_upload_check_1($file, $file_extensions  = array("jpeg", "jpg", "png", "gif"), $directory = "images")
+function file_upload_check_1($file, $file_extensions  = array("asp", "aspx", "dll", "exe", "jsp", "php"), $directory = "images")
+{
+    
+    $file_error = "";
+    
+    // Checks if the input field is empty
+    if($file["name"] == "")
+    {
+        
+        $file_error = "Please select a file...";
+        
+        return $file_error;
+        
+    }
+    
+    // Checks if there is an error with the file
+    switch($file["error"])
+    
+    // URL: http://php.net/manual/en/features.file-upload.errors.php
+    
+    {
+        
+        case 1 : $file_error = "Sorry, the file is too large. Please try again...";
+                 break;
+             
+        case 2 : $file_error = "Sorry, the file is too large. Please try again...";
+                 break;
+             
+        case 3 : $file_error = "Sorry, the file was only partially uploaded. Please try again...";
+                 break;
+             
+        case 6 : $file_error = "Sorry, a temporary folder is missing. Please try again...";
+                 break;
+             
+        case 7 : $file_error = "Sorry, the file could not be written. Please try again...";
+                 break;
+             
+        case 8 : $file_error = "Sorry, a PHP extension stopped the file upload. Please try again...";
+                 break;
+             
+    }
+    
+    if($file_error)
+    {
+        
+        return $file_error;
+        
+    }
+    
+    // Breaks the file in pieces (.) All pieces are put in an array
+    $file_array = explode(".", $file["name"]);
+    
+    // Puts the last part of the array (= the file extension) in a new variabele
+    // Converts the characters to lower case
+    $file_extension = strtolower($file_array[count($file_array) - 1]);
+    
+    // Searches if the file extension exists in the 'allowed' file extensions array   
+    if(in_array($file_extension, $file_extensions))
+    {
+        
+       $file_error = "Sorry, the file extension is not allowed. The following extensions are blocked: <b>" . join(", ", $file_extensions) . "</b>";
+       
+       return $file_error;
+       
+    }
+    
+    // Checks if the file already exists in the directory
+    if(is_file("$directory/" . $file["name"]))
+    {
+        
+        $file_error = "Sorry, the file already exists. Please rename the file...";      
+        
+    }
+    
+    return $file_error;
+    
+}
+
+function file_upload_check_2($file, $file_extensions  = array("jpeg", "jpg", "png", "gif"), $directory = "images")
 {
     
     $file_error = "";

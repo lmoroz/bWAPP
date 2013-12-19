@@ -12,15 +12,15 @@ Enjoy!
 Malik Mesellem
 Twitter: @MME_IT
 
-© 2013 MME BVBA. All rights reserved.
+© 2014 MME BVBA. All rights reserved.
 
 */
 
 // A.I.M. IP address
 // A no-authentication mode for testing web scanners and crawlers
-// Evil bees are HUNGRY ;)
+// Evil bees are HUNGRY :)
 // URL: http://itsecgames.com/bWAPP/aim.php
-$remote_IP = "6.6.6.6";
+$remote_IP = array("6.6.6.6", "6.6.6.7");
 
 // Credentials
 // Static credentials, used on some pages

@@ -12,7 +12,7 @@ Enjoy!
 Malik Mesellem
 Twitter: @MME_IT
 
-© 2013 MME BVBA. All rights reserved.
+© 2014 MME BVBA. All rights reserved.
 
 */
 
@@ -20,7 +20,7 @@ include("admin/settings.php");
 
 session_start();
 
-if($_SERVER["REMOTE_ADDR"] == $remote_IP)
+if(in_array($_SERVER["REMOTE_ADDR"], $remote_IP))
 {
 
     ini_set("display_errors", 0);

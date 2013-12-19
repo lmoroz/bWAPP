@@ -12,7 +12,7 @@ Enjoy!
 Malik Mesellem
 Twitter: @MME_IT
 
-© 2013 MME BVBA. All rights reserved.
+© 2014 MME BVBA. All rights reserved.
 
 */
 
@@ -94,7 +94,7 @@ if(isset($_POST["form"]) && isset($_POST["bug"]))
     bWAPP covers all major known web vulnerabilities, including all risks from the OWASP Top 10 project!<br />
     It is for educational purposes only.</p>
 
-    <p><i>Which bug do you want to hack today? :-)</i></p>
+    <p><i>Which bug do you want to hack today? :)</i></p>
 
     <form action="<?php echo($_SERVER["SCRIPT_NAME"]);?>" method="POST">
         
@@ -147,7 +147,7 @@ if(isset($_POST["form"]) && isset($_POST["bug"]))
 
 <div id="disclaimer">
           
-    <p>bWAPP or a buggy web application is for educational purposes only / © 2013 <b>MME BVBA</b>. All rights reserved.</p>
+    <p>bWAPP is for educational purposes only / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and receive our cheat sheet, updated on a regular basis / &copy; 2014 MME BVBA</p>
    
 </div>
     

@@ -1,6 +1,7 @@
 
+---------------
 bWAPP - INSTALL
-///////////////
+---------------
 
 It's pretty easy to install bWAPP from scratch.
 
