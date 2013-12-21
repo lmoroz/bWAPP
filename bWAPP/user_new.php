@@ -284,9 +284,9 @@ if(isset($_REQUEST["action"]))
             <td><a href="login.php">Login</font></a></td>
             <td><font color="#ffb717">New User</font></td>
             <td><a href="info.php">Info</a></td>
+			<td><a href="training.php">Talks & Training</a></td>
             <td><a href="http://itsecgames.blogspot.com" target="_blank">Blog</a></td>
-            <td><a href="http://www.mmeit.be/en/training.htm" target="_blank">ITSEC Training</a></td>
-            
+			
         </tr>
         
     </table>   

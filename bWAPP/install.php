@@ -224,8 +224,8 @@ if(isset($_REQUEST["install"]) && $_REQUEST["install"] == "yes")
             <td><a href="login.php">Login</a></td>
             <td><a href="user_new.php">New User</a></td>
             <td><a href="info.php">Info</a></td>
+			<td><a href="training.php">Talks & Training</a></td>
             <td><a href="http://itsecgames.blogspot.com" target="_blank">Blog</a></td>
-            <td><a href="http://www.mmeit.be/en/training.htm" target="_blank">ITSEC Training</a></td>
         <?php            
             
         }
@@ -236,8 +236,8 @@ if(isset($_REQUEST["install"]) && $_REQUEST["install"] == "yes")
  
             <td><font color="#ffb717">Install</font></td>
             <td><a href="info_install.php">Info</a></td>
+			<td><a href="training_install.php">Talks & Training</a></td>
             <td><a href="http://itsecgames.blogspot.com" target="_blank">Blog</a></td> 
-            <td><a href="http://www.mmeit.be/en/training.htm" target="_blank">ITSEC Training</a></td>
         <?php            
             
         }

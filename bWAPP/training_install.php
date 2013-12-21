@@ -16,10 +16,6 @@ Twitter: @MME_IT
 
 */
 
-include("security.php");
-include("security_level_check.php");
-include("selections.php");
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -35,7 +31,7 @@ include("selections.php");
 <!--<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>-->
 <script src="js/html5.js"></script>
 
-<title>bWAPP - Credits</title>
+<title>bWAPP - Talks & Training</title>
 
 </head>
 
@@ -52,19 +48,14 @@ include("selections.php");
 <div id="menu">
       
     <table>
-        
-        <tr>
-            
-            <td><a href="portal.php">Bugs</a></td>
-            <td><a href="password_change.php">Change Password</a></td>
-            <td><a href="user_extra.php">Create User</a></td>
-            <td><a href="security_level_set.php">Set Security Level</a></td>
-            <td><a href="reset.php" onclick="return confirm('All settings will be cleared. Are you sure?');">Reset</a></td>            
-            <td><font color="#ffb717">Credits</font></td>
+
+        <tr>            
+			
+			<td><a href="install.php">Install</a></td>
+            <td><a href="info_install.php">Info</a></td>
+			<td><font color="#ffb717">Talks & Training</font></td>
             <td><a href="http://itsecgames.blogspot.com" target="_blank">Blog</a></td>
-            <td><a href="logout.php" onclick="return confirm('Are you sure you want to leave?');">Logout</a></td>
-            <td><font color="red">Welcome <?php if(isset($_SESSION["login"])){echo ucwords($_SESSION["login"]);}?></font></td>
-            
+
         </tr>
         
     </table>   
@@ -73,13 +64,10 @@ include("selections.php");
 
 <div id="main">
     
-    <h1>Credits</h1>   
-
-    <p>O yeah... who am I? Well my name is Malik Mesellem. I'm a security consultant working for his own company, <a href="http://www.mmeit.be/en" target="_blank">MME</a>.<br />
-    MME is specialized in Penetration Testing, Ethical Hacking, InfoSec Training and Evil Bee Hunting.</p>
-
-	<p>Download our <a href="http://goo.gl/uVBGnq" target="_blank">What is bWAPP?</a> introduction tutorial, including free exercises...<br />
-	I'm also happy to give free bWAPP talks at your security convention or seminar!</p>
+	<h1>Talks & Training</h1>
+	
+	<p>We are happy to give free bWAPP talks at your security convention or seminar!<br />
+	Meet us at <a href="http://www.infosecurity.be" target="_blank">Infosecurity</a> in Brussels Expo Belgium, on March 26th 2014, for our next bWAPP presentation.</p>
 
     <p>Interested in hands-on skills training? We offer the following exclusive courses and workshops:
  
@@ -93,12 +81,13 @@ include("selections.php");
 
     </ul></p>
 
-	<p>All our courses and workshops can be scheduled on demand, at your location.</p>
+	<p>All our courses and workshops can be scheduled on demand, at your location.<br />
+	Don't hesitate to contact us for price information.</p>
 	
-	<p>Don't hesitate to contact me if you have any questions!</p>
+	<p>Hope to see you soon!</p>
 
 </div>
-    
+
 <div id="side">    
     
     <a href="http://itsecgames.blogspot.com" target="blank_" class="button"><img src="./images/blogger.png"></a>
@@ -117,63 +106,6 @@ include("selections.php");
 <div id="bee">
     
     <img src="./images/bee_1.png">
-    
-</div>
-    
-    <div id="security_level">
-  
-    <form action="<?php echo($_SERVER["SCRIPT_NAME"]);?>" method="POST">
-        
-        <label>Set your security level:</label><br />
-        
-        <select name="security_level">
-            
-            <option value="0">low</option>
-            <option value="1">medium</option>
-            <option value="2">high</option> 
-            
-        </select>
-        
-        <button type="submit" name="form_security_level" value="submit">Set</button>
-        <font size="4">Current: <b><?php echo $security_level?></b></font>
-        
-    </form>   
-    
-</div>
-    
-<div id="bug">
-
-    <form action="<?php echo($_SERVER["SCRIPT_NAME"]);?>" method="POST">
-        
-        <label>Choose your bug:</label><br />
-        
-        <select name="bug">
-   
-<?php
-
-// Lists the options from the array 'bugs' (bugs.txt)
-foreach ($bugs as $key => $value)
-{
-    
-   $bug = explode(",", trim($value));
-   
-   // Debugging
-   // echo "key: " . $key;
-   // echo " value: " . $bug[0];
-   // echo " filename: " . $bug[1] . "<br />";
-   
-   echo "<option value='$key'>$bug[0]</option>";
- 
-}
-
-?>
-
-
-        </select>
-        
-        <button type="submit" name="form_bug" value="submit">Hack</button>
-        
-    </form>
     
 </div>
       

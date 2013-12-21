@@ -153,9 +153,9 @@ if(isset($_POST["form"]))
             <td><font color="#ffb717">Login</font></td>
             <td><a href="user_new.php">New User</a></td>
             <td><a href="info.php">Info</a></td>
+			<td><a href="training.php">Talks & Training</a></td>
             <td><a href="http://itsecgames.blogspot.com" target="_blank">Blog</a></td>
-            <td><a href="http://www.mmeit.be/en/training.htm" target="_blank">ITSEC Training</a></td>
-            
+			
         </tr>
         
     </table>   

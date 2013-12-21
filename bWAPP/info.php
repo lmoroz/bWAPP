@@ -54,9 +54,9 @@ Twitter: @MME_IT
             <td><a href="login.php">Login</a></td>
             <td><a href="user_new.php">New User</a></td>
             <td><font color="#ffb717">Info</font></td>
+			<td><a href="training.php">Talks & Training</a></td>
             <td><a href="http://itsecgames.blogspot.com" target="_blank">Blog</a></td>
-            <td><a href="http://www.mmeit.be/en/training.htm" target="_blank">ITSEC Training</a></td>
-           
+			
         </tr>
         
     </table>   
@@ -67,23 +67,24 @@ Twitter: @MME_IT
     
     <h1>Info</h1>
 
-    <p>bWAPP, or a buggy web application, is a free and open source deliberately insecure web application.<br />
-    It helps security enthusiasts, developers and students to discover and to prevent web vulnerabilities.<br />
-    bWAPP covers all major known web vulnerabilities, including all risks from the OWASP Top 10 project!<br />
-    It is for educational purposes only.</p>
+	<p>bWAPP, or a <i>buggy web application</i>, is a free and open source deliberately insecure web application.<br />
+	It helps security enthusiasts, developers and students to discover and to prevent web vulnerabilities.<br />
+	bWAPP prepares to conduct successful penetration testing and ethical hacking projects.</p>
+	
+	<p>What makes bWAPP so unique? Well, it has over 60 web vulnerabilities!<br />
+	It covers all major known web bugs, including all risks from the <a href="http://www.owasp.org" target="blank">OWASP</a> Top 10 project.</p>
 
-    <p>bWAPP is a PHP application that uses a MySQL database. It can be hosted on Linux and Windows using Apache/IIS and MySQL.
-    It can also be installed with WAMP or XAMPP.</p>
+	<p>bWAPP is a PHP application that uses a MySQL database. It can be hosted on Linux, Windows and Mac with Apache/IIS and MySQL.
+	It can also be installed with WAMP or XAMPP.<br />
+	Another possibility is to download the <i>bee-box</i>, a custom Linux VM pre-installed with bWAPP.</p>
+	
+	<p>Download our <a href="http://goo.gl/uVBGnq" target="_blank">What is bWAPP?</a> introduction tutorial, including free exercises...</p>
+	
+	<p>bWAPP is for educational purposes. Education, the most powerful weapon which we can use to change the world.</p>
 
-    <p>This project is part of the ITSEC Games project. ITSEC Games are a fun approach to IT security education.<br />
-    IT security, ethical hacking, training and fun... all mixed together.<br />
-    You can find more about the ITSEC Games and bWAPP projects on our <a href="http://itsecgames.blogspot.com" target="_blank">blog</a>.</p>
-
-    <p>Please don't hesitate to <a href="mailto:malik@itsecgames.com">contact</a> me if you have questions or if you want a summary of the solutions!</p>
-
-    <p>Regards</p>
-
-    <p>Malik Mesellem</p>
+	<p>Have fun with this free and open source project!</p>
+	
+	<p>Cheers, Malik Mesellem</p>
 
 </div>
     

@@ -78,6 +78,7 @@ Cross-Site Request Forgery (Transfer Amount),csrf_2.php
 Cross-Site Request Forgery (Secret),csrf_3.php
 /,portal.php
 / A9 - Using Known Vulnerable Components /,portal.php
+PHP CGI Remote Code Execution,php_cgi.php
 PHP Eval Function,php_eval.php
 /,portal.php
 / A10 - Unvalidated Redirects and Forwards /,portal.php

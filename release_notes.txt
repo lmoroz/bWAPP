@@ -18,6 +18,7 @@ New bugs exploitable on bee-box v1.2:
 
 - Insecure FTP
 - Insecure WebDAV
+- PHP CGI Remote Code Execution
 - Server-Side Includes Injection
 
 New features:

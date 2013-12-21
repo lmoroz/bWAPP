@@ -35,7 +35,7 @@ include("selections.php");
 <!--<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>-->
 <script src="js/html5.js"></script>
 
-<title>bWAPP - Credits</title>
+<title>bWAPP - Using Known Vulnerable Components</title>
 
 </head>
 
@@ -60,7 +60,7 @@ include("selections.php");
             <td><a href="user_extra.php">Create User</a></td>
             <td><a href="security_level_set.php">Set Security Level</a></td>
             <td><a href="reset.php" onclick="return confirm('All settings will be cleared. Are you sure?');">Reset</a></td>            
-            <td><font color="#ffb717">Credits</font></td>
+            <td><a href="credits.php">Credits</a></td>
             <td><a href="http://itsecgames.blogspot.com" target="_blank">Blog</a></td>
             <td><a href="logout.php" onclick="return confirm('Are you sure you want to leave?');">Logout</a></td>
             <td><font color="red">Welcome <?php if(isset($_SESSION["login"])){echo ucwords($_SESSION["login"]);}?></font></td>
@@ -72,30 +72,14 @@ include("selections.php");
 </div> 
 
 <div id="main">
+  
+    <h1>PHP CGI Remote Code Execution</h1>
+
+    <p>The <a href="./admin/phpinfo.php" target="_blank">admin</a> directory is using PHP in CGI mode.</p>
     
-    <h1>Credits</h1>   
-
-    <p>O yeah... who am I? Well my name is Malik Mesellem. I'm a security consultant working for his own company, <a href="http://www.mmeit.be/en" target="_blank">MME</a>.<br />
-    MME is specialized in Penetration Testing, Ethical Hacking, InfoSec Training and Evil Bee Hunting.</p>
-
-	<p>Download our <a href="http://goo.gl/uVBGnq" target="_blank">What is bWAPP?</a> introduction tutorial, including free exercises...<br />
-	I'm also happy to give free bWAPP talks at your security convention or seminar!</p>
-
-    <p>Interested in hands-on skills training? We offer the following exclusive courses and workshops:
- 
-    <ul>
-
-        <li>Attacking & Defending Web Apps with bWAPP : 2-day Web Application Security course (<a href="http://goo.gl/ASuPa1" target="_blank">pdf</a>)</li>
-        <li>Plant the Flags with bWAPP : 4-hour offensive Web Application Hacking workshop (<a href="http://goo.gl/fAwCex" target="_blank">pdf</a>)</li>
-		<li>Ethical Hacking Basics : 1-day Ethical Hacking course (<a href="http://goo.gl/09ccSf" target="_blank">pdf</a>)</li>
-		<li>Ethical Hacking Advanced : 1-day comprehensive Ethical Hacking course (<a href="http://goo.gl/PHLnQF" target="_blank">pdf</a>)</li>
-		<li>Windows Server 2012 Security : 2-day Windows Security course (<a href="http://goo.gl/4C0JfW" target="_blank">pdf</a>)</li>
-
-    </ul></p>
-
-	<p>All our courses and workshops can be scheduled on demand, at your location.</p>
+    <p>HINT: a public <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1823" target="_blank">exploit</a> is available!</p>
 	
-	<p>Don't hesitate to contact me if you have any questions!</p>
+	<p>(this vulnerability is exploitable on <a href="http://sourceforge.net/projects/bwapp/files/bee-box/" target="_blank">bee-box</a> v1.2 and above only)</p>
 
 </div>
     
@@ -120,7 +104,7 @@ include("selections.php");
     
 </div>
     
-    <div id="security_level">
+<div id="security_level">
   
     <form action="<?php echo($_SERVER["SCRIPT_NAME"]);?>" method="POST">
         
