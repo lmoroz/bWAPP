@@ -19,9 +19,9 @@ Twitter: @MME_IT
 ?>
 <!DOCTYPE html>
 <html>
-    
+
 <head>
-        
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Architects+Daughter">
@@ -36,79 +36,79 @@ Twitter: @MME_IT
 </head>
 
 <body>
-    
+
 <header>
 
 <h1>bWAPP</h1>
 
 <h2>an extremely buggy web app !</h2>
 
-</header>    
+</header>
 
 <div id="menu">
-      
+
     <table>
-        
-        <tr>            
-            
+
+        <tr>
+
             <td><a href="login.php">Login</a></td>
             <td><a href="user_new.php">New User</a></td>
             <td><font color="#ffb717">Info</font></td>
-			<td><a href="training.php">Talks & Training</a></td>
+            <td><a href="training.php">Talks & Training</a></td>
             <td><a href="http://itsecgames.blogspot.com" target="_blank">Blog</a></td>
-			
+
         </tr>
-        
-    </table>   
-   
-</div> 
 
-<div id="main">
-    
-    <h1>Info</h1>
-
-	<p>bWAPP, or a <i>buggy web application</i>, is a free and open source deliberately insecure web application.<br />
-	It helps security enthusiasts, developers and students to discover and to prevent web vulnerabilities.<br />
-	bWAPP prepares to conduct successful penetration testing and ethical hacking projects.</p>
-	
-	<p>What makes bWAPP so unique? Well, it has over 60 web vulnerabilities!<br />
-	It covers all major known web bugs, including all risks from the <a href="http://www.owasp.org" target="blank">OWASP</a> Top 10 project.</p>
-
-	<p>bWAPP is a PHP application that uses a MySQL database. It can be hosted on Linux, Windows and Mac with Apache/IIS and MySQL.
-	It can also be installed with WAMP or XAMPP.<br />
-	Another possibility is to download the <i>bee-box</i>, a custom Linux VM pre-installed with bWAPP.</p>
-	
-	<p>Download our <a href="http://goo.gl/uVBGnq" target="_blank">What is bWAPP?</a> introduction tutorial, including free exercises...</p>
-	
-	<p>bWAPP is for educational purposes. Education, the most powerful weapon which we can use to change the world.</p>
-
-	<p>Have fun with this free and open source project!</p>
-	
-	<p>Cheers, Malik Mesellem</p>
+    </table>
 
 </div>
-    
-<div id="side">    
-    
+
+<div id="main">
+
+    <h1>Info</h1>
+
+    <p>bWAPP, or a <i>buggy web application</i>, is a free and open source deliberately insecure web application.<br />
+    It helps security enthusiasts, developers and students to discover and to prevent web vulnerabilities.<br />
+    bWAPP prepares to conduct successful penetration testing and ethical hacking projects.</p>
+
+    <p>What makes bWAPP so unique? Well, it has over 60 web vulnerabilities!<br />
+    It covers all major known web bugs, including all risks from the <a href="http://www.owasp.org" target="blank">OWASP</a> Top 10 project.</p>
+
+    <p>bWAPP is a PHP application that uses a MySQL database. It can be hosted on Linux, Windows and Mac with Apache/IIS and MySQL.
+    It can also be installed with WAMP or XAMPP.<br />
+    Another possibility is to download the <i>bee-box</i>, a custom Linux VM pre-installed with bWAPP.</p>
+
+    <p>Download our <a href="http://goo.gl/uVBGnq" target="_blank">What is bWAPP?</a> introduction tutorial, including free exercises...</p>
+
+    <p>bWAPP is for educational purposes. Education, the most powerful weapon which we can use to change the world.</p>
+
+    <p>Have fun with this free and open source project!</p>
+
+    <p>Cheers, Malik Mesellem</p>
+
+</div>
+
+<div id="side">
+
     <a href="http://itsecgames.blogspot.com" target="blank_" class="button"><img src="./images/blogger.png"></a>
     <a href="http://be.linkedin.com/in/malikmesellem" target="blank_" class="button"><img src="./images/linkedin.png"></a>
     <a href="http://twitter.com/MME_IT" target="blank_" class="button"><img src="./images/twitter.png"></a>
     <a href="http://www.facebook.com/pages/MME-IT-Audits-Security/104153019664877" target="blank_" class="button"><img src="./images/facebook.png"></a>
 
 </div>     
-    
+
 <div id="disclaimer">
-          
+
     <p>bWAPP is for educational purposes only / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and receive our cheat sheet, updated on a regular basis / &copy; 2014 MME BVBA</p>
-   
+
 </div>
-    
+
 <div id="bee">
-    
+
     <img src="./images/bee_1.png">
-    
+
 </div>
-      
+
 </body>
-    
+
 </html>

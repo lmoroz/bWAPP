@@ -23,9 +23,9 @@ include("selections.php");
 ?>
 <!DOCTYPE html>
 <html>
-    
+
 <head>
-        
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Architects+Daughter">
@@ -40,115 +40,117 @@ include("selections.php");
 </head>
 
 <body>
-    
+
 <header>
 
 <h1>bWAPP</h1>
 
 <h2>an extremely buggy web app !</h2>
 
-</header>    
+</header>
 
 <div id="menu">
-      
+
     <table>
-        
+
         <tr>
-            
+
             <td><a href="portal.php">Bugs</a></td>
             <td><a href="password_change.php">Change Password</a></td>
             <td><a href="user_extra.php">Create User</a></td>
             <td><a href="security_level_set.php">Set Security Level</a></td>
-            <td><a href="reset.php" onclick="return confirm('All settings will be cleared. Are you sure?');">Reset</a></td>            
+            <td><a href="reset.php" onclick="return confirm('All settings will be cleared. Are you sure?');">Reset</a></td>          
             <td><font color="#ffb717">Credits</font></td>
             <td><a href="http://itsecgames.blogspot.com" target="_blank">Blog</a></td>
             <td><a href="logout.php" onclick="return confirm('Are you sure you want to leave?');">Logout</a></td>
             <td><font color="red">Welcome <?php if(isset($_SESSION["login"])){echo ucwords($_SESSION["login"]);}?></font></td>
-            
+
         </tr>
-        
-    </table>   
-   
-</div> 
+
+    </table>
+
+</div>
 
 <div id="main">
-    
-    <h1>Credits</h1>   
 
-    <p>O yeah... who am I? Well my name is Malik Mesellem. I'm a security consultant working for his own company, <a href="http://www.mmeit.be/en" target="_blank">MME</a>.<br />
+    <h1>Credits</h1>
+
+    <p>O yeah... who am I? Well my name is Malik. I'm a security consultant working for his own company, <a href="http://www.mmeit.be/en" target="_blank">MME</a>.<br />
     MME is specialized in Penetration Testing, Ethical Hacking, InfoSec Training and Evil Bee Hunting.</p>
 
-	<p>Download our <a href="http://goo.gl/uVBGnq" target="_blank">What is bWAPP?</a> introduction tutorial, including free exercises...<br />
-	I'm also happy to give free bWAPP talks at your security convention or seminar!</p>
+    <p>Download our <a href="http://goo.gl/uVBGnq" target="_blank">What is bWAPP?</a> introduction tutorial, including free exercises...<br />
+    I'm also happy to give free bWAPP talks at your security convention or seminar!</p>
 
     <p>Interested in hands-on skills training? We offer the following exclusive courses and workshops:
- 
+
     <ul>
 
         <li>Attacking & Defending Web Apps with bWAPP : 2-day Web Application Security course (<a href="http://goo.gl/ASuPa1" target="_blank">pdf</a>)</li>
         <li>Plant the Flags with bWAPP : 4-hour offensive Web Application Hacking workshop (<a href="http://goo.gl/fAwCex" target="_blank">pdf</a>)</li>
-		<li>Ethical Hacking Basics : 1-day Ethical Hacking course (<a href="http://goo.gl/09ccSf" target="_blank">pdf</a>)</li>
-		<li>Ethical Hacking Advanced : 1-day comprehensive Ethical Hacking course (<a href="http://goo.gl/PHLnQF" target="_blank">pdf</a>)</li>
-		<li>Windows Server 2012 Security : 2-day Windows Security course (<a href="http://goo.gl/4C0JfW" target="_blank">pdf</a>)</li>
+        <li>Ethical Hacking Basics : 1-day Ethical Hacking course (<a href="http://goo.gl/09ccSf" target="_blank">pdf</a>)</li>
+        <li>Ethical Hacking Advanced : 1-day comprehensive Ethical Hacking course (<a href="http://goo.gl/PHLnQF" target="_blank">pdf</a>)</li>
+        <li>Windows Server 2012 Security : 2-day Windows Security course (<a href="http://goo.gl/4C0JfW" target="_blank">pdf</a>)</li>
 
-    </ul></p>
+    </ul>
 
-	<p>All our courses and workshops can be scheduled on demand, at your location.</p>
-	
-	<p>Don't hesitate to contact me if you have any questions!</p>
+    </p>
+
+    <p>All our courses and workshops can be scheduled on demand, at your location.</p>
+
+    <p>Don't hesitate to contact me if you have any questions!</p>
 
 </div>
-    
-<div id="side">    
-    
+
+<div id="side">
+
     <a href="http://itsecgames.blogspot.com" target="blank_" class="button"><img src="./images/blogger.png"></a>
     <a href="http://be.linkedin.com/in/malikmesellem" target="blank_" class="button"><img src="./images/linkedin.png"></a>
     <a href="http://twitter.com/MME_IT" target="blank_" class="button"><img src="./images/twitter.png"></a>
     <a href="http://www.facebook.com/pages/MME-IT-Audits-Security/104153019664877" target="blank_" class="button"><img src="./images/facebook.png"></a>
 
-</div>     
-    
+</div>
+
 <div id="disclaimer">
-          
+
     <p>bWAPP is for educational purposes only / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and receive our cheat sheet, updated on a regular basis / &copy; 2014 MME BVBA</p>
-   
+
 </div>
-    
+
 <div id="bee">
-    
+
     <img src="./images/bee_1.png">
-    
+
 </div>
-    
-    <div id="security_level">
-  
+
+<div id="security_level">
+
     <form action="<?php echo($_SERVER["SCRIPT_NAME"]);?>" method="POST">
-        
+
         <label>Set your security level:</label><br />
-        
+
         <select name="security_level">
-            
+
             <option value="0">low</option>
             <option value="1">medium</option>
-            <option value="2">high</option> 
-            
+            <option value="2">high</option>
+
         </select>
-        
+
         <button type="submit" name="form_security_level" value="submit">Set</button>
         <font size="4">Current: <b><?php echo $security_level?></b></font>
-        
-    </form>   
-    
+
+    </form>
+
 </div>
-    
+
 <div id="bug">
 
     <form action="<?php echo($_SERVER["SCRIPT_NAME"]);?>" method="POST">
-        
+
         <label>Choose your bug:</label><br />
-        
+
         <select name="bug">
-   
+
 <?php
 
 // Lists the options from the array 'bugs' (bugs.txt)
@@ -161,7 +163,7 @@ foreach ($bugs as $key => $value)
    // echo "key: " . $key;
    // echo " value: " . $bug[0];
    // echo " filename: " . $bug[1] . "<br />";
-   
+
    echo "<option value='$key'>$bug[0]</option>";
  
 }
@@ -170,13 +172,13 @@ foreach ($bugs as $key => $value)
 
 
         </select>
-        
+
         <button type="submit" name="form_bug" value="submit">Hack</button>
-        
+
     </form>
-    
+
 </div>
-      
+
 </body>
-    
+
 </html>

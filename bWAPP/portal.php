@@ -157,7 +157,7 @@ if(isset($_POST["form"]) && isset($_POST["bug"]))
 
 </div>
     
-    <div id="security_level">
+<div id="security_level">
   
     <form action="<?php echo($_SERVER["SCRIPT_NAME"]);?>" method="POST">
         
