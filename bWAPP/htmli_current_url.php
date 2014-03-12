@@ -45,8 +45,8 @@ switch($_COOKIE["security_level"])
 
     default :
 
-        // $url = $_SERVER["HTTP_HOST"] . urldecode($_SERVER["REQUEST_URI"]);
-        $url = "<script>document.write(document.URL)</script>";            
+        // $url = "http://" . $_SERVER["HTTP_HOST"] . urldecode($_SERVER["REQUEST_URI"]);
+        $url = "http://" . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];               
         break;
 
 }
