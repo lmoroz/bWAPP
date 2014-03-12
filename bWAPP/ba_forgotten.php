@@ -140,7 +140,7 @@ if(isset($_POST["action"]))
 
                     ini_set( "SMTP", $_POST["server"]);
 
-                //Debugging
+                // Debugging
                 // $debug = "true";     
 
                 }
@@ -283,7 +283,7 @@ if(isset($_POST["action"]))
     
     <h1>Broken Auth. - Forgotten Function</h1>
 
-    <p>You forgot your secret.</p>
+    <p>Apparently you forgot your secret?</p>
 
     <form action="<?php echo($_SERVER["SCRIPT_NAME"]);?>" method="POST"> 
 
@@ -330,7 +330,7 @@ if(isset($_POST["action"]))
     
 <div id="disclaimer">
           
-    <p>bWAPP is for educational purposes only / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and receive our cheat sheet, updated on a regular basis / &copy; 2014 MME BVBA</p>
+    <p>bWAPP is for educational purposes only / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and ask for our cheat sheet, containing all solutions! / Need a <a href="http://www.mmeit.be/bWAPP/training.htm" target="_blank">training</a>? / &copy; 2014 MME BVBA</p>
    
 </div>
     

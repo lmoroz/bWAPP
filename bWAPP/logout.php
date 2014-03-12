@@ -30,6 +30,6 @@ setcookie("top_security_nossl", "", time()-3600, "/", "", false, false);
 setcookie("top_security_ssl", "", time()-3600, "/", "", false, false);
 setcookie("movie_genre", "", time()-3600, "/", "", false, false);
 
-header("location: login.php");
+header("Location: login.php");
 
 ?>

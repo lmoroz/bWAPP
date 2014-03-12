@@ -27,27 +27,27 @@ $url= "";
 switch($_COOKIE["security_level"])
 {
 
-    case "0" : 
+    case "0" :
 
         // $url = "http://" . $_SERVER["HTTP_HOST"] . urldecode($_SERVER["REQUEST_URI"]);
-        $url = "<script>document.write(document.URL)</script>";            
+        $url = "http://" . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];               
         break;
 
     case "1" :
 
-        $url = "http://" . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
+        $url = "<script>document.write(document.URL)</script>";
         break;
 
-    case "2" :            
+    case "2" :
 
         $url = "http://" . $_SERVER["HTTP_HOST"] . xss_check_3($_SERVER["REQUEST_URI"]);
         break;
 
-    default : 
+    default :
 
         // $url = $_SERVER["HTTP_HOST"] . urldecode($_SERVER["REQUEST_URI"]);
         $url = "<script>document.write(document.URL)</script>";            
-        break;  
+        break;
 
 }
 
@@ -121,7 +121,7 @@ switch($_COOKIE["security_level"])
     
 <div id="disclaimer">
           
-    <p>bWAPP is for educational purposes only / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and receive our cheat sheet, updated on a regular basis / &copy; 2014 MME BVBA</p>
+    <p>bWAPP is for educational purposes only / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and ask for our cheat sheet, containing all solutions! / Need a <a href="http://www.mmeit.be/bWAPP/training.htm" target="_blank">training</a>? / &copy; 2014 MME BVBA</p>
    
 </div>
     

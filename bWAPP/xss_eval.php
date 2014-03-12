@@ -19,6 +19,7 @@ Twitter: @MME_IT
 include("security.php");
 include("security_level_check.php");
 include("functions_external.php");
+include("admin/settings.php");
 
 $bugs = file("bugs.txt");
 
@@ -31,7 +32,7 @@ if(isset($_POST["form_bug"]) && isset($_POST["bug"]))
             // Debugging
             // print_r($bug);
             
-            header("location: " . $bug[1]);
+            header("Location: " . $bug[1]);
             
             exit;
    
@@ -58,7 +59,7 @@ if(isset($_POST["form_security_level"]) && isset($_POST["security_level"]))
         case "2" :
 
             $security_level_cookie = "2";
-            break;
+            break;     
 
         default : 
 
@@ -67,9 +68,21 @@ if(isset($_POST["form_security_level"]) && isset($_POST["security_level"]))
 
     }
 
-    setcookie("security_level", $security_level_cookie, time()+60*60*24*365, "/", "", false, false);
+    if($evil_bee == 1)
+    {
 
-    header("location: xss_eval.php?date=Date()");
+        setcookie("security_level", "666", time()+60*60*24*365, "/", "", false, false);
+
+    }
+    
+    else        
+    {
+      
+        setcookie("security_level", $security_level_cookie, time()+60*60*24*365, "/", "", false, false);
+        
+    }
+
+    header("Location: xss_eval.php?date=Date()");
     
     exit;
 
@@ -95,8 +108,13 @@ if(isset($_COOKIE["security_level"]))
             
             $security_level = "high";
             break;
-        
-        default : 
+
+        case "666" :
+
+            $security_level = "666";
+            break;
+
+        default :
             
             $security_level = "low";
             break;
@@ -273,7 +291,7 @@ function xss($data)
     
 <div id="disclaimer">
           
-    <p>bWAPP is for educational purposes only / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and receive our cheat sheet, updated on a regular basis / &copy; 2014 MME BVBA</p>
+    <p>bWAPP is for educational purposes only / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and ask for our cheat sheet, containing all solutions! / Need a <a href="http://www.mmeit.be/bWAPP/training.htm" target="_blank">training</a>? / &copy; 2014 MME BVBA</p>
    
 </div>
     

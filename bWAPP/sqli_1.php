@@ -107,14 +107,14 @@ function sqli($data)
 
 <div id="main">
     
-    <h1>SQL Injection (Search)</h1>
+    <h1>SQL Injection (Search/GET)</h1>
 
     <form action="<?php echo($_SERVER["SCRIPT_NAME"]); ?>" method="GET">
 
         <p>
 
         <label for="title">Search for a movie:</label>
-        <input type="text" id="title" name="title">    
+        <input type="text" id="title" name="title" size="25">    
 
         <button type="submit" name="action" value="search">Search</button>
 
@@ -135,10 +135,10 @@ function sqli($data)
         </tr>
 <?php
 
-if(isset($_REQUEST["title"])) 
+if(isset($_GET["title"])) 
 {   
 
-    $title = $_REQUEST["title"];
+    $title = $_GET["title"];
 
     $sql = "SELECT * FROM movies WHERE title LIKE '%" . sqli($title) . "%'";
 
@@ -252,7 +252,7 @@ else
     
 <div id="disclaimer">
           
-    <p>bWAPP is for educational purposes only / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and receive our cheat sheet, updated on a regular basis / &copy; 2014 MME BVBA</p>
+    <p>bWAPP is for educational purposes only / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and ask for our cheat sheet, containing all solutions! / Need a <a href="http://www.mmeit.be/bWAPP/training.htm" target="_blank">training</a>? / &copy; 2014 MME BVBA</p>
    
 </div>
     

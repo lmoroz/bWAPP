@@ -75,10 +75,10 @@ include("selections.php");
 
     <h1>Credits</h1>
 
-    <p>O yeah... who am I? Well my name is Malik. I'm a security consultant working for his own company, <a href="http://www.mmeit.be/en" target="_blank">MME</a>.<br />
-    MME is specialized in Penetration Testing, Ethical Hacking, InfoSec Training and Evil Bee Hunting.</p>
+    <p>O yeah... who am I? Well my name is Malik. I'm a security consultant working for my own company, <a href="http://www.mmeit.be/en" target="_blank">MME</a>.<br />
+    We are specialized in Penetration Testing, Ethical Hacking, InfoSec Training, and Evil Bee Hunting.</p>
 
-    <p>Download our <a href="http://goo.gl/uVBGnq" target="_blank">What is bWAPP?</a> introduction tutorial, including free exercises...<br />
+    <p>Download our <a href="http://goo.gl/uVBGnq" target="_blank">What is bWAPP?</a> introduction tutorial, including free materials and exercises...<br />
     I'm also happy to give free bWAPP talks at your security convention or seminar!</p>
 
     <p>Interested in hands-on skills training? We offer the following exclusive courses and workshops:
@@ -95,9 +95,7 @@ include("selections.php");
 
     </p>
 
-    <p>All our courses and workshops can be scheduled on demand, at your location.</p>
-
-    <p>Don't hesitate to contact me if you have any questions!</p>
+    <p>All our courses and workshops can be scheduled on demand, at your location!</p>
 
 </div>
 
@@ -112,7 +110,7 @@ include("selections.php");
 
 <div id="disclaimer">
 
-    <p>bWAPP is for educational purposes only / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and receive our cheat sheet, updated on a regular basis / &copy; 2014 MME BVBA</p>
+    <p>bWAPP is for educational purposes only / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and ask for our cheat sheet, containing all solutions! / Need a <a href="http://www.mmeit.be/bWAPP/training.htm" target="_blank">training</a>? / &copy; 2014 MME BVBA</p>
 
 </div>
 

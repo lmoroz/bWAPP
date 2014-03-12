@@ -1,26 +1,32 @@
-----------------------  bWAPP v1.8  -----------------------,portal.php
+----------------------  bWAPP v1.9  -----------------------,portal.php
 / A1 - Injection /,portal.php
 HTML Injection - Reflected (GET),htmli_get.php
 HTML Injection - Reflected (POST),htmli_post.php
 HTML Injection - Reflected (Current URL),htmli_current_url.php
 HTML Injection - Stored (Blog),htmli_stored.php
 Server-Side Includes Injection,ssii.php
-SQL Injection (Search),sqli_1.php
-SQL Injection (Select),sqli_2.php
-SQL Injection (Login),sqli_3.php
+SQL Injection (Search/GET),sqli_1.php
+SQL Injection (Search/POST),sqli_6.php
+SQL Injection (Search/CAPTCHA),sqli_9.php
+SQL Injection (Select/GET),sqli_2.php
+SQL Injection (Login Form),sqli_3.php
+SQL Injection - Stored (Blog),sqli_7.php
+SQL Injection - Stored (XML),sqli_8-1.php
 SQL Injection - Blind (Search),sqli_4.php
 SQL Injection - Blind (Web Services/SOAP),sqli_5.php
+XML/XPath Injection (Search),xmli_2.php
+XML/XPath Injection (Login Form),xmli_1.php
+OS Command Injection,commandi.php
+OS Command Injection - Blind,commandi_blind.php
 LDAP Injection (Search),ldapi.php
-XML and XPath Injection (Login),xmli_1.php
-XML and XPath Injection (Search),xmli_2.php
-Command Injection,commandi.php
 Mail Injection (SMTP),maili.php
 /,portal.php
-/ A2 - Broken Auth. and Session Mgmt. /,portal.php
+/ A2 - Broken Auth. & Session Mgmt. /,portal.php
 Broken Authentication - Forgotten Function,ba_forgotten.php
 Broken Authentication - Insecure Login Forms,ba_insecure_login.php
 Broken Authentication - Logout Management,ba_logout.php
 Broken Authentication - Password Attacks,ba_pwd_attacks.php
+Broken Authentication - Weak Passwords,ba_weak_pwd.php
 Session Management - Administrative Portals,smgmt_admin_portal.php
 Session Management - Cookies (HTTPOnly),smgmt_cookies_httponly.php
 Session Management - Cookies (Secure),smgmt_cookies_secure.php
@@ -34,29 +40,34 @@ Cross-Site Scripting - Reflected (JSON),xss_json.php
 Cross-Site Scripting - Reflected (AJAX/JSON),xss_ajax_2-1.php
 Cross-Site Scripting - Reflected (AJAX/XML),xss_ajax_1-1.php
 Cross-Site Scripting - Reflected (Back Button),xss_back_button.php
+Cross-Site Scripting - Reflected (Custom Header),xss_custom_header.php
 Cross-Site Scripting - Reflected (Eval),xss_eval.php?date=Date()
 Cross-Site Scripting - Reflected (HREF),xss_href-1.php
 Cross-Site Scripting - Reflected (PHP_SELF),xss_php_self.php
 Cross-Site Scripting - Reflected (Referer),xss_referer.php
 Cross-Site Scripting - Reflected (User-Agent),xss_user_agent.php
 Cross-Site Scripting - Stored (Blog),xss_stored_1.php
+Cross-Site Scripting - Stored (Change Secret),xss_stored_3.php
 Cross-Site Scripting - Stored (Cookies),xss_stored_2.php
 /,portal.php
 / A4 - Insecure Direct Object References /,portal.php
-Insecure Direct Object References (Secret),insecure_direct_object_ref_1.php
-Insecure Direct Object References (Price),insecure_direct_object_ref_2.php
+Insecure DOR (Change Secret),insecure_direct_object_ref_1.php
+Insecure DOR (Reset Secret),insecure_direct_object_ref_3.php
+Insecure DOR (Order Tickets),insecure_direct_object_ref_2.php
 /,portal.php
 / A5 - Security Misconfiguration /,portal.php
 Arbitrary File Access (Samba),sm_samba.php
 Cross-Domain Policy File (Flash),sm_cross_domain_policy.php
 Cross-Origin Resource Sharing (AJAX),sm_cors.php
 Cross-Site Tracing (XST),sm_xst.php
-Denial-of-Service (Slow HTTP DoS),sm_dos.php
-Insecure FTP,sm_ftp.php
-Insecure WebDAV,sm_webdav.php
+Denial-of-Service (Slow HTTP DoS),sm_dos_1.php
+Denial-of-Service (XML Bomb),sm_dos_2.php
+Insecure FTP Configuration,sm_ftp.php
+Insecure WebDAV Configuration,sm_webdav.php
 Local Privilege Escalation (udev),sm_local_priv_esc.php
 Man-in-the-Middle Attack (HTTP),sm_mitm_1.php
 Man-in-the-Middle Attack (SMTP),sm_mitm_2.php
+Old/Backup & Unreferenced Files,sm_obu_files.php
 Robots File,sm_robots.php
 /,portal.php
 / A6 - Sensitive Data Exposure /,portal.php
@@ -67,22 +78,24 @@ Text Files (Accounts),insecure_crypt_storage_2.php
 / A7 - Missing Functional Level Access /,portal.php
 Directory Traversal - Files,directory_traversal_1.php?page=message.txt
 Directory Traversal - Directories,directory_traversal_2.php?directory=documents
-Remote & Local File Inclusion,rlfi.php
+Remote & Local File Inclusion (RFI/LFI),rlfi.php
 Restrict Device Access,restrict_device_access.php
 Restrict Folder Access,restrict_folder_access.php
-Server Side Request Forgery,ssrf.php
+Server Side Request Forgery (SSRF),ssrf.php
+XML External Entity Attacks (XXE),xxe-1.php
 /,portal.php
 / A8 - Cross-Site Request Forgery (CSRF) /,portal.php
-Cross-Site Request Forgery (Password),csrf_1.php
+Cross-Site Request Forgery (Change Password),csrf_1.php
+Cross-Site Request Forgery (Change Secret),csrf_3.php
 Cross-Site Request Forgery (Transfer Amount),csrf_2.php
-Cross-Site Request Forgery (Secret),csrf_3.php
 /,portal.php
 / A9 - Using Known Vulnerable Components /,portal.php
 PHP CGI Remote Code Execution,php_cgi.php
 PHP Eval Function,php_eval.php
 /,portal.php
-/ A10 - Unvalidated Redirects and Forwards /,portal.php
-Unvalidated Redirects and Forwards,unvalidated_redir_fwd.php
+/ A10 - Unvalidated Redirects & Forwards /,portal.php
+Unvalidated Redirects & Forwards (1),unvalidated_redir_fwd_1.php
+Unvalidated Redirects & Forwards (2),unvalidated_redir_fwd_2.php
 /,portal.php
 / Other bugs... /,portal.php
 ClickJacking (Movie Tickets),clickjacking.php
@@ -97,5 +110,11 @@ Information Disclosure - Robots File,information_disclosure_3.php
 Unrestricted File Upload,unrestricted_file_upload.php
 ---------------------------  Extras  --------------------------,portal.php
 A.I.M. - No-authentication Mode,aim.php
+Client Access Policy File,../ClientAccessPolicy.xml
+Cross-Domain Policy File,../crossdomain.xml
+Evil 666 Fuzzing Page,666
+Manual Intervention Required!,manual_interv.php
 Unprotected Admin Portal,admin/index.php
-WSDL file (Web Services/SOAP),ws_soap.php
+We Steal Secrets... (html),secret_html.php
+We Steal Secrets... (plain),secret.php
+WSDL File (Web Services/SOAP),ws_soap.php

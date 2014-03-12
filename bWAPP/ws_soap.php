@@ -4,10 +4,11 @@
 function get_tickets_stock($title)
 {
 
-	include("connect.php");	
+	include("connect.php");        
 	$sql = "SELECT tickets_stock FROM movies WHERE title = '" . $title . "'";
 	$recordset = mysql_query($sql, $link);
-	$row = mysql_fetch_array($recordset);
+        $row = mysql_fetch_array($recordset);
+        mysql_close($link);
 	return $row["tickets_stock"];
 
 }

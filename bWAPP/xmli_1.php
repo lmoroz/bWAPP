@@ -85,7 +85,7 @@ if(isset($_REQUEST["login"]) & isset($_REQUEST["password"]))
     if($result)
     {
     
-        $message = "Welcome " . ucwords($result[0]->login) . ". Your secret: <b>" . $result[0]->secret . "</b>";
+        $message = "<font color=\"green\">Welcome " . ucwords($result[0]->login) . ". Your secret: <b>" . $result[0]->secret . "</b></font>";
  
     }
     
@@ -177,7 +177,7 @@ if(isset($_REQUEST["login"]) & isset($_REQUEST["password"]))
 <!--<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>-->
 <script src="js/html5.js"></script>
 
-<title>bWAPP - XML and XPath Injection</title>
+<title>bWAPP - XML/XPath Injection</title>
 
 </head>
 
@@ -215,9 +215,9 @@ if(isset($_REQUEST["login"]) & isset($_REQUEST["password"]))
 
 <div id="main">
 
-    <h1>XML and XPath Injection (Login)</h1>
+    <h1>XML/XPath Injection (Login Form)</h1>
 
-    <p>Enter your credentials.</p>
+    <p>Enter your 'superhero' credentials.</p>
 
     <form action="<?php echo($_SERVER["SCRIPT_NAME"]);?>" method="GET">
 
@@ -250,7 +250,7 @@ if(isset($_REQUEST["login"]) & isset($_REQUEST["password"]))
     
 <div id="disclaimer">
           
-    <p>bWAPP is for educational purposes only / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and receive our cheat sheet, updated on a regular basis / &copy; 2014 MME BVBA</p>
+    <p>bWAPP is for educational purposes only / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and ask for our cheat sheet, containing all solutions! / Need a <a href="http://www.mmeit.be/bWAPP/training.htm" target="_blank">training</a>? / &copy; 2014 MME BVBA</p>
    
 </div>
     

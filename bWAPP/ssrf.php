@@ -21,46 +21,6 @@ include("security_level_check.php");
 include("functions_external.php");
 include("selections.php");
 
-$language = "";
-
-if(isset($_GET["language"]))
-{
-
-    switch($_COOKIE["security_level"])
-    {
-
-        case "0" :
-
-            $language = $_GET["language"];
-
-            break;
-
-        case "1" :
-
-            $language = $_GET["language"] . ".php";
-
-            break;
-
-        case "2" :
-
-            $available_languages = array("lang_en.php", "lang_fr.php", "lang_nl.php");
-            
-            $language = $_GET["language"] . ".php";
-
-            // $language = rlfi_check_1($language);
-
-            break;
-
-        default :
-
-            $language = $_GET["language"];         
-
-            break;
-
-    }
-
-}
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -81,21 +41,21 @@ if(isset($_GET["language"]))
 </head>
 
 <body>
-    
+
 <header>
 
 <h1>bWAPP</h1>
 
 <h2>an extremely buggy web app !</h2>
 
-</header>    
+</header>
 
 <div id="menu">
-      
+
     <table>
-        
+
         <tr>
-            
+
             <td><a href="portal.php">Bugs</a></td>
             <td><a href="password_change.php">Change Password</a></td>
             <td><a href="user_extra.php">Create User</a></td>
@@ -105,82 +65,30 @@ if(isset($_GET["language"]))
             <td><a href="http://itsecgames.blogspot.com" target="_blank">Blog</a></td>
             <td><a href="logout.php" onclick="return confirm('Are you sure you want to leave?');">Logout</a></td>
             <td><font color="red">Welcome <?php if(isset($_SESSION["login"])){if(isset($_SESSION["login"])){echo ucwords($_SESSION["login"]);};}?></font></td>
-            
+
         </tr>
-        
-    </table>   
-   
+
+    </table>
+
 </div> 
 
 <div id="main">
 
-    <h1>Server Side Request Forgery</h1>
+    <h1>Server Side Request Forgery (SSRF)</h1>
 
-    <form action="<?php echo($_SERVER["SCRIPT_NAME"]);?>" method="GET">
-
-        <p>Select a language:
-
-        <select name="language">
-
-<?php
-
-if($_COOKIE["security_level"] == "1" || $_COOKIE["security_level"] == "2")
-{
-
-?>
-            <option value="lang_en">English</option>
-            <option value="lang_fr">Français</option>
-            <option value="lang_nl">Nederlands</option>
-
-<?php
-
-}
-
-else
-{
-
-?>
-            <option value="lang_en.php">English</option>
-            <option value="lang_fr.php">Français</option>
-            <option value="lang_nl.php">Nederlands</option>
-
-<?php
-
-}
-
-?>
-        </select>
-
-        <button type="submit" name="action" value="go">Go</button>
-
-        </p>
+    <p>Server Side Request Forgery, or SSRF, is all about bypassing access controls such as firewalls.</p>
+    
+    <p>Use this web server as a proxy to:</p>
+    
+    <ul>
         
-    </form>
+    <p>1. <a href="../evil/ssrf-1.txt" target="_blank">Port scan</a> hosts on the internal network using RFI.</p>
     
-<p>HINT: Server Side Request Forgery (SSRF) is all about bypassing access controls such as firewalls.<br />
-Use this web server as a proxy to conduct <a href="../evil/ssrf.txt" target="_blank">port scanning</a> of hosts in the internal network...</p>
-
-<?php
+    <p>2. <a href="../evil/ssrf-2.txt" target="_blank">Access</a> resources on the internal network using XXE.</p>
     
-if(isset($_GET["language"]))
-{
-
-    if($_COOKIE["security_level"] == "2")
-    {
-
-        if(in_array($language, $available_languages)) include($language);
-
-    }
-
-    else
-    {
-
-        include($language);
-
-    } 
-
-}
-?>
+    <p>3. <a href="../evil/ssrf-3.txt" target="_blank">Crash</a> my Samsung SmartTV (CVE-2013-4890) using XXE :)</p>
+    
+    </ul>
     
 </div>
     
@@ -195,7 +103,7 @@ if(isset($_GET["language"]))
     
 <div id="disclaimer">
           
-    <p>bWAPP is for educational purposes only / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and receive our cheat sheet, updated on a regular basis / &copy; 2014 MME BVBA</p>
+    <p>bWAPP is for educational purposes only / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and ask for our cheat sheet, containing all solutions! / Need a <a href="http://www.mmeit.be/bWAPP/training.htm" target="_blank">training</a>? / &copy; 2014 MME BVBA</p>
    
 </div>
     

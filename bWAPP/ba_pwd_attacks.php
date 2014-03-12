@@ -24,25 +24,25 @@ switch($_COOKIE["security_level"])
         
     case "0" : 
             
-        header("location: ba_pwd_attacks_1.php");
+        header("Location: ba_pwd_attacks_1.php");
         
         break;
         
     case "1" :
                 
-        header("location: ba_pwd_attacks_2.php");
+        header("Location: ba_pwd_attacks_2.php");
         
         break;
         
     case "2" :           
        
-        header("location: ba_pwd_attacks_4.php");
+        header("Location: ba_pwd_attacks_4.php");
         
         break;
         
     default : 
             
-        header("location: ba_pwd_attacks_1.php");
+        header("Location: ba_pwd_attacks_1.php");
         
         break;
        

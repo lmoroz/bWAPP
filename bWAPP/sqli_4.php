@@ -114,7 +114,7 @@ function sqli($data)
         <p>
 
         <label for="title">Search for a movie:</label>
-        <input type="text" id="title" name="title">    
+        <input type="text" id="title" name="title" size="25">    
 
         <button type="submit" name="action" value="search">Search</button>
 
@@ -172,7 +172,7 @@ function sqli($data)
     
 <div id="disclaimer">
           
-    <p>bWAPP is for educational purposes only / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and receive our cheat sheet, updated on a regular basis / &copy; 2014 MME BVBA</p>
+    <p>bWAPP is for educational purposes only / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and ask for our cheat sheet, containing all solutions! / Need a <a href="http://www.mmeit.be/bWAPP/training.htm" target="_blank">training</a>? / &copy; 2014 MME BVBA</p>
    
 </div>
     

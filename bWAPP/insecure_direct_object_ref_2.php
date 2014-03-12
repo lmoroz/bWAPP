@@ -38,7 +38,7 @@ $ticket_price = 15;
 <!--<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>-->
 <script src="js/html5.js"></script>
 
-<title>bWAPP - Insecure Direct Object References</title>
+<title>bWAPP - Insecure DOR</title>
 
 </head>
 
@@ -76,7 +76,7 @@ $ticket_price = 15;
 
 <div id="main">
 
-    <h1>Insecure Direct Object Ref. (Price)</h1> 
+    <h1>Insecure DOR (Order Tickets)</h1> 
 
     <form action="<?php echo($_SERVER["SCRIPT_NAME"]);?>" method="POST">
 
@@ -146,7 +146,7 @@ if(isset($_REQUEST["ticket_quantity"]))
     
 <div id="disclaimer">
           
-    <p>bWAPP is for educational purposes only / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and receive our cheat sheet, updated on a regular basis / &copy; 2014 MME BVBA</p>
+    <p>bWAPP is for educational purposes only / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and ask for our cheat sheet, containing all solutions! / Need a <a href="http://www.mmeit.be/bWAPP/training.htm" target="_blank">training</a>? / &copy; 2014 MME BVBA</p>
    
 </div>
     

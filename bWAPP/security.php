@@ -20,7 +20,7 @@ include("admin/settings.php");
 
 session_start();
 
-if(in_array($_SERVER["REMOTE_ADDR"], $remote_IP))
+if(in_array($_SERVER["REMOTE_ADDR"], $AIM_IPs))
 {
 
     ini_set("display_errors", 0);
@@ -33,7 +33,7 @@ if(in_array($_SERVER["REMOTE_ADDR"], $remote_IP))
 if(!(isset($_SESSION["login"]) && $_SESSION["login"]))
 {
     
-    header("location: login.php");
+    header("Location: login.php");
     
     exit;
    

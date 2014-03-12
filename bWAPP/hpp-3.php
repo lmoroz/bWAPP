@@ -66,7 +66,7 @@ if(isset($_GET["name"]) && isset($_GET["movie"]) && isset($_GET["action"]) && $_
                 $message = "<p>Your favorite movie is: <b>" . $row["title"] . "</b></p>"; 
                 $message.= "<p>Thank you for submitting your vote!</p>";                   
 
-            }
+            }         
 
         }
 
@@ -77,6 +77,8 @@ if(isset($_GET["name"]) && isset($_GET["movie"]) && isset($_GET["action"]) && $_
 
         }
 
+        mysql_close($link);
+
     }
 
 }
@@ -84,7 +86,7 @@ if(isset($_GET["name"]) && isset($_GET["movie"]) && isset($_GET["action"]) && $_
 else
 {
 
-    header("location: hpp-1.php");
+    header("Location: hpp-1.php");
 
     exit;
 }
@@ -159,7 +161,7 @@ else
 
 <div id="disclaimer">
    
-    <p>bWAPP is for educational purposes only / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and receive our cheat sheet, updated on a regular basis / &copy; 2014 MME BVBA</p>
+    <p>bWAPP is for educational purposes only / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and ask for our cheat sheet, containing all solutions! / Need a <a href="http://www.mmeit.be/bWAPP/training.htm" target="_blank">training</a>? / &copy; 2014 MME BVBA</p>
 
 </div>
 

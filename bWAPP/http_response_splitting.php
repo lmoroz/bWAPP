@@ -28,7 +28,7 @@ if(isset($_GET["url"]) && ($_COOKIE["security_level"] == "1" || $_COOKIE["securi
     // echo "Not sanitized: " . $_GET["url"] . "<br />";
     // echo "Sanitized: " . url_check_2($_GET["url"]);
     
-    header("location: http://" . url_check_2($_GET["url"]));
+    header("Location: http://" . url_check_2($_GET["url"]));
                 
 }
 
@@ -38,7 +38,7 @@ if(isset($_GET["url"]) && ($_COOKIE["security_level"] != "1" && $_COOKIE["securi
     // Debugging
     // echo "Not sanitized: " . $_GET["url"];
             
-    header("location: http://" . $_GET["url"]);
+    header("Location: http://" . $_GET["url"]);
 
 }
 
@@ -114,7 +114,7 @@ if(isset($_GET["url"]) && ($_COOKIE["security_level"] != "1" && $_COOKIE["securi
     
 <div id="disclaimer">
           
-    <p>bWAPP is for educational purposes only / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and receive our cheat sheet, updated on a regular basis / &copy; 2014 MME BVBA</p>
+    <p>bWAPP is for educational purposes only / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and ask for our cheat sheet, containing all solutions! / Need a <a href="http://www.mmeit.be/bWAPP/training.htm" target="_blank">training</a>? / &copy; 2014 MME BVBA</p>
    
 </div>
     

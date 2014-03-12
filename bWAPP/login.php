@@ -17,6 +17,7 @@ Twitter: @MME_IT
 */
 
 include("connect_i.php");
+include("admin/settings.php");
 
 session_start();
 
@@ -96,9 +97,21 @@ if(isset($_POST["form"]))
 
             }
     
-            setcookie("security_level", $security_level_cookie, time()+60*60*24*365, "/", "", false, false);
+            if($evil_bee == 1)
+            {
 
-            header("location: portal.php");
+                setcookie("security_level", "666", time()+60*60*24*365, "/", "", false, false);
+
+            }
+
+            else        
+            {
+
+                setcookie("security_level", $security_level_cookie, time()+60*60*24*365, "/", "", false, false);
+
+            }
+
+            header("Location: portal.php");
             
             exit;
 
@@ -214,7 +227,7 @@ if(isset($_POST["form"]))
     
 <div id="disclaimer">
           
-    <p>bWAPP is for educational purposes only / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and receive our cheat sheet, updated on a regular basis / &copy; 2014 MME BVBA</p>
+    <p>bWAPP is for educational purposes only / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and ask for our cheat sheet, containing all solutions! / Need a <a href="http://www.mmeit.be/bWAPP/training.htm" target="_blank">training</a>? / &copy; 2014 MME BVBA</p>
    
 </div>
     

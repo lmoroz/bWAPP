@@ -51,8 +51,10 @@ if(isset($_REQUEST["action"]))
                 {
 
                     $login = $_REQUEST["login"];
-
-                    $secret = mysqli_real_escape_string($link, $secret); 
+                    $login = mysqli_real_escape_string($link, $login);
+                    
+                    $secret = mysqli_real_escape_string($link, $secret);
+                    $secret = htmlspecialchars($secret, ENT_QUOTES, "UTF-8");
 
                     $sql = "UPDATE users SET secret = '" . $secret . "' WHERE login = '" . $login . "'";
 
@@ -85,7 +87,7 @@ if(isset($_REQUEST["action"]))
             {
                 
                 // If the security level is MEDIUM or HIGH
-                if((!isset($_REQUEST["token"])) or $_REQUEST["token"] != $_SESSION["token"])
+                if(!isset($_REQUEST["token"]) or !isset($_SESSION["token"]) or $_REQUEST["token"] != $_SESSION["token"])
                 {
 
                     $message = "<font color=\"red\">Invalid token!</font>";            
@@ -95,7 +97,8 @@ if(isset($_REQUEST["action"]))
                 else
                 {
 
-                    $secret = mysqli_real_escape_string($link, $secret); 
+                    $secret = mysqli_real_escape_string($link, $secret);
+                    $secret = htmlspecialchars($secret, ENT_QUOTES, "UTF-8");
 
                     $sql = "UPDATE users SET secret = '" . $secret . "' WHERE login = '" . $login . "'";
 
@@ -192,7 +195,7 @@ if($_COOKIE["security_level"] == "1" or $_COOKIE["security_level"] == "2")
 
 <div id="main">
     
-    <h1>CSRF (Secret)</h1>
+    <h1>CSRF (Change Secret)</h1>
 
     <p>Change your secret.</p>
 
@@ -250,7 +253,7 @@ else
     
 <div id="disclaimer">
           
-    <p>bWAPP is for educational purposes only / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and receive our cheat sheet, updated on a regular basis / &copy; 2014 MME BVBA</p>
+    <p>bWAPP is for educational purposes only / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and ask for our cheat sheet, containing all solutions! / Need a <a href="http://www.mmeit.be/bWAPP/training.htm" target="_blank">training</a>? / &copy; 2014 MME BVBA</p>
    
 </div>
     

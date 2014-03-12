@@ -73,7 +73,7 @@ function xss($data)
 </head>
 
 <body>
-    
+
 <header>
 
 <h1>bWAPP</h1>
@@ -83,11 +83,11 @@ function xss($data)
 </header>
 
 <div id="menu">
-      
+
     <table>
-        
+
         <tr>
-            
+
             <td><a href="portal.php">Bugs</a></td>
             <td><a href="password_change.php">Change Password</a></td>
             <td><a href="user_extra.php">Create User</a></td>
@@ -97,16 +97,16 @@ function xss($data)
             <td><a href="http://itsecgames.blogspot.com" target="_blank">Blog</a></td>
             <td><a href="logout.php" onclick="return confirm('Are you sure you want to leave?');">Logout</a></td>
             <td><font color="red">Welcome <?php if(isset($_SESSION["login"])){echo ucwords($_SESSION["login"]);}?></font></td>
-            
+
         </tr>
-        
-    </table>   
-   
-</div> 
+ 
+    </table>
+
+</div>
 
 <div id="main">
-    
-    <h1>XSS - Reflected (User-Agent)</h1>   
+
+    <h1>XSS - Reflected (User-Agent)</h1>
 
     <?php
 
@@ -144,7 +144,7 @@ function xss($data)
     
 <div id="disclaimer">
           
-    <p>bWAPP is for educational purposes only / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and receive our cheat sheet, updated on a regular basis / &copy; 2014 MME BVBA</p>
+    <p>bWAPP is for educational purposes only / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and ask for our cheat sheet, containing all solutions! / Need a <a href="http://www.mmeit.be/bWAPP/training.htm" target="_blank">training</a>? / &copy; 2014 MME BVBA</p>
    
 </div>
     

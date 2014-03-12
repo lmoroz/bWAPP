@@ -16,6 +16,8 @@ Twitter: @MME_IT
 
 */
 
+include("admin/settings.php");
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -34,15 +36,15 @@ Twitter: @MME_IT
 
 <h1>A.I.M.</h1>
 
-<p>A no-authentication mode for testing web scanners and crawlers.</p>
+<p>A.I.M., or Authentication Is Missing, is a no-authentication mode that can be used for testing web scanners and crawlers.</p>
 
-<p><u>Steps</u></p>
+<p>Steps to crawl all pages, and to detect all vulnerabilities without authentication:</p>
 
-<p>1. Change the IP address in the settings file to your IP (admin/settings.php).</p>
+<p>1. Change the IP address in the settings file (admin/settings.php) to your IP address: <?php echo $_SERVER["REMOTE_ADDR"];?></p>
 
-<p>2. Point your web scanner, crawler or attack tool to this URL.</p>
+<p>2. Point your web scanner, crawler or attack tool to this URL: <?php echo "http://" . $_SERVER["HTTP_HOST"] . htmlspecialchars($_SERVER["REQUEST_URI"], ENT_QUOTES, "UTF-8");?></p>
 
-<p>3. All hell breaks loose, evil bees are HUNGRY :)</p>
+<p>3. Push the button: all hell breaks loose...</p>
 
 <p><img src="./images/evil_bee.png"></p>
 
@@ -59,9 +61,14 @@ foreach ($bugs as $key => $value)
     // Debugging
     // echo "key: " . $key;
     // echo " value: " . $bug[0];
-    // echo " filename: " . $bug[1] . "<br />";
+    // echo " filename: " . $bug[1] . "<br />"; 
+ 
+    if (!in_array($bug[1], $AIM_exclusions))
+    {
 
-    echo "<p><a href='$bug[1]'>$bug[0]</a></p>";
+        echo "<p><a href='$bug[1]'>$bug[0]</a></p>";
+
+    }
 
 }
 

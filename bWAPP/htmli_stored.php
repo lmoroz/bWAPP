@@ -28,35 +28,35 @@ $message = "";
 
 function htmli($data)
 {
-    
+
     include("connect_i.php");
 
     switch($_COOKIE["security_level"])
     {
 
-        case "0" : 
+        case "0" :
 
-            $data = no_check($data);            
+            $data = sqli_check_3($link, $data);
             break;
 
         case "1" :
 
             $data = sqli_check_3($link, $data);
-            // $data = xss_check_1($data); 
+            // $data = xss_check_4($data);
             break;
 
-        case "2" :            
+        case "2" :
 
             $data = sqli_check_3($link, $data);
-            // $data = xss_check_3($data);            
-            break;     
+            // $data = xss_check_3($data);
+            break;
 
-        default : 
+        default :
 
-            $data = no_check($data);            
-            break;   
+            $data = sqli_check_3($link, $data);
+            break;
 
-    }       
+    }
 
     return $data;
 
@@ -115,7 +115,7 @@ function htmli($data)
 
 <div id="main">
     
-    <h1>HTML Injection - Stored</h1>
+    <h1>HTML Injection - Stored (Blog)</h1>
 
     <form action="<?php echo($_SERVER["SCRIPT_NAME"]);?>" method="POST">
 
@@ -269,7 +269,7 @@ $link->close();
     
 <div id="disclaimer">
           
-    <p>bWAPP is for educational purposes only / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and receive our cheat sheet, updated on a regular basis / &copy; 2014 MME BVBA</p>
+    <p>bWAPP is for educational purposes only / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and ask for our cheat sheet, containing all solutions! / Need a <a href="http://www.mmeit.be/bWAPP/training.htm" target="_blank">training</a>? / &copy; 2014 MME BVBA</p>
    
 </div>
     

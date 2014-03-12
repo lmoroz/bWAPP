@@ -80,9 +80,8 @@ Twitter: @MME_IT
 
     <p>Download our <a href="http://goo.gl/uVBGnq" target="_blank">What is bWAPP?</a> introduction tutorial, including free exercises...</p>
 
-    <p>bWAPP is for educational purposes. Education, the most powerful weapon which we can use to change the world.</p>
-
-    <p>Have fun with this free and open source project!</p>
+    <p>bWAPP is for educational purposes. Education, the most powerful weapon which we can use to change the world.
+    Have fun with this free and open source project!</p>
 
     <p>Cheers, Malik Mesellem</p>
 
@@ -99,7 +98,7 @@ Twitter: @MME_IT
 
 <div id="disclaimer">
 
-    <p>bWAPP is for educational purposes only / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and receive our cheat sheet, updated on a regular basis / &copy; 2014 MME BVBA</p>
+    <p>bWAPP is for educational purposes only / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and ask for our cheat sheet, containing all solutions! / Need a <a href="http://www.mmeit.be/bWAPP/training.htm" target="_blank">training</a>? / &copy; 2014 MME BVBA</p>
 
 </div>
 

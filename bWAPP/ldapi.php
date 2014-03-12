@@ -56,7 +56,7 @@ function ldapi($data)
 if(!(isset($_SESSION["ldap"]["login"]) && $_SESSION["ldap"]["login"]))
 {
     
-    header("location: ldap_connect.php");
+    header("Location: ldap_connect.php");
     
     exit;
    
@@ -193,7 +193,7 @@ ldap_close($ds);
         
         <tr>
         
-            <td width="390">
+            <td width="450">
 
             <form action="<?php echo($_SERVER["SCRIPT_NAME"]);?>" method="POST">
 
@@ -201,7 +201,7 @@ ldap_close($ds);
 
                 <label for="user">Search for a user account:</label>
 
-                <input type="user" id="user" name="user" size="15">
+                <input type="user" id="user" name="user" size="25">
 
                 <button type="submit" name="form" value="submit">Search</button>
 
@@ -328,7 +328,7 @@ if(isset($_POST["user"]))
     
 <div id="disclaimer">
           
-    <p>bWAPP is for educational purposes only / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and receive our cheat sheet, updated on a regular basis / &copy; 2014 MME BVBA</p>
+    <p>bWAPP is for educational purposes only / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and ask for our cheat sheet, containing all solutions! / Need a <a href="http://www.mmeit.be/bWAPP/training.htm" target="_blank">training</a>? / &copy; 2014 MME BVBA</p>
    
 </div>
     

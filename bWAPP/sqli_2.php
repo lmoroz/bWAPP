@@ -93,11 +93,11 @@ function sqli($data)
 </header>    
 
 <div id="menu">
-      
+
     <table>
-        
+
         <tr>
-            
+
             <td><a href="portal.php">Bugs</a></td>
             <td><a href="password_change.php">Change Password</a></td>
             <td><a href="user_extra.php">Create User</a></td>
@@ -107,16 +107,16 @@ function sqli($data)
             <td><a href="http://itsecgames.blogspot.com" target="_blank">Blog</a></td>
             <td><a href="logout.php" onclick="return confirm('Are you sure you want to leave?');">Logout</a></td>
             <td><font color="red">Welcome <?php if(isset($_SESSION["login"])){echo ucwords($_SESSION["login"]);}?></font></td>
-            
+
         </tr>
-        
+
     </table>   
-   
+
 </div> 
 
 <div id="main">
-    
-    <h1>SQL Injection (Select)</h1>
+
+    <h1>SQL Injection (Select/GET)</h1>
 
     <form action="<?php echo($_SERVER["SCRIPT_NAME"]); ?>" method="GET">
 
@@ -159,10 +159,10 @@ function sqli($data)
         </tr>
 <?php
 
-if(isset($_REQUEST["movie"]))
+if(isset($_GET["movie"]))
 {   
 
-    $id = $_REQUEST["movie"];
+    $id = $_GET["movie"];
 
     $sql = "SELECT * FROM movies";
 
@@ -282,7 +282,7 @@ mysql_close($link);
     
 <div id="disclaimer">
           
-    <p>bWAPP is for educational purposes only / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and receive our cheat sheet, updated on a regular basis / &copy; 2014 MME BVBA</p>
+    <p>bWAPP is for educational purposes only / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and ask for our cheat sheet, containing all solutions! / Need a <a href="http://www.mmeit.be/bWAPP/training.htm" target="_blank">training</a>? / &copy; 2014 MME BVBA</p>
    
 </div>
     

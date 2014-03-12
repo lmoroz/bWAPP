@@ -27,7 +27,7 @@ include("security_level_check.php");
         
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<title>bWAPP - Captcha box</title>
+<title>bWAPP - CAPTCHA box</title>
 
 </head>
 

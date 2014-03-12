@@ -16,20 +16,22 @@ Twitter: @MME_IT
 
 */
 
+include("admin/settings.php");
+
 $bugs = file("bugs.txt");
 
 if(isset($_POST["form_bug"]) && isset($_POST["bug"]))
 {
         
-            $key = $_POST["bug"]; 
-            $bug = explode(",", trim($bugs[$key]));
-            
-            // Debugging
-            // print_r($bug);
-            
-            header("location: " . $bug[1]);
-            
-            exit;
+    $key = $_POST["bug"]; 
+    $bug = explode(",", trim($bugs[$key]));
+
+    // Debugging
+    // print_r($bug);
+
+    header("Location: " . $bug[1]);
+
+    exit;
    
 }
  
@@ -63,9 +65,21 @@ if(isset($_POST["form_security_level"]) && isset($_POST["security_level"]))
 
     }
 
-    setcookie("security_level", $security_level_cookie, time()+60*60*24*365, "/", "", false, false);
+    if($evil_bee == 1)
+    {
 
-    header("location: " . $_SERVER["SCRIPT_NAME"]);
+        setcookie("security_level", "666", time()+60*60*24*365, "/", "", false, false);
+
+    }
+    
+    else        
+    {
+      
+        setcookie("security_level", $security_level_cookie, time()+60*60*24*365, "/", "", false, false);
+        
+    }
+    
+    header("Location: " . $_SERVER["SCRIPT_NAME"]);
     
     exit;
 
@@ -92,8 +106,13 @@ if(isset($_COOKIE["security_level"]))
             $security_level = "high";
             break;
         
-        default : 
+        case "666" :
             
+            $security_level = "666";
+            break;
+
+        default : 
+
             $security_level = "low";
             break;
 

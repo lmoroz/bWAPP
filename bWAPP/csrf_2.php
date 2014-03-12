@@ -32,7 +32,7 @@ if(isset($_GET["amount"]))
 
     else
 
-        if(isset($_GET["action"]) && isset($_GET["token"]))
+        if(isset($_GET["action"]) && isset($_GET["token"]) && isset($_SESSION["token"]))
         {    
 
             if(($_GET["token"] == $_SESSION["token"]) && ($_GET["action"]) == "transfer")
@@ -43,7 +43,7 @@ if(isset($_GET["amount"]))
             }
 
         }
-    
+
 }
 
 // A random token is generated when the security level is HIGH
@@ -150,7 +150,7 @@ if($_COOKIE["security_level"] == "1" or $_COOKIE["security_level"] == "2")
     
 <div id="disclaimer">
           
-    <p>bWAPP is for educational purposes only / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and receive our cheat sheet, updated on a regular basis / &copy; 2014 MME BVBA</p>
+    <p>bWAPP is for educational purposes only / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and ask for our cheat sheet, containing all solutions! / Need a <a href="http://www.mmeit.be/bWAPP/training.htm" target="_blank">training</a>? / &copy; 2014 MME BVBA</p>
    
 </div>
     

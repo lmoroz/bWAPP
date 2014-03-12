@@ -16,6 +16,6 @@ Twitter: @MME_IT
 
 */
 
-header("location: portal.php");  
+header("Location: portal.php");  
 
 ?>

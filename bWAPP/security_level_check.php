@@ -20,10 +20,10 @@ include("admin/settings.php");
 
 // if(!(isset($_COOKIE["security_level"])))
 
-if(!(isset($_COOKIE["security_level"])) && !(in_array($_SERVER["REMOTE_ADDR"], $remote_IP)))
+if(!(isset($_COOKIE["security_level"])) && !(in_array($_SERVER["REMOTE_ADDR"], $AIM_IPs)))
 {
 
-    header("location: security_level_set.php");
+    header("Location: security_level_set.php");
     
     exit;
  

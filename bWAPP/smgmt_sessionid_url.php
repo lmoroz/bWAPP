@@ -30,7 +30,7 @@ switch($_COOKIE["security_level"])
 
             $session_id = session_id();
             
-            header("location: smgmt_sessionid_url.php?PHPSESSID=". $session_id );
+            header("Location: smgmt_sessionid_url.php?PHPSESSID=". $session_id );
             
             exit;
 	
@@ -53,7 +53,7 @@ switch($_COOKIE["security_level"])
 
             $session_id = session_id();
             
-            header("location: smgmt_sessionid_url.php?PHPSESSID=". $session_id );
+            header("Location: smgmt_sessionid_url.php?PHPSESSID=". $session_id );
             
             exit;
 	
@@ -133,7 +133,7 @@ switch($_COOKIE["security_level"])
     
 <div id="disclaimer">
           
-    <p>bWAPP is for educational purposes only / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and receive our cheat sheet, updated on a regular basis / &copy; 2014 MME BVBA</p>
+    <p>bWAPP is for educational purposes only / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and ask for our cheat sheet, containing all solutions! / Need a <a href="http://www.mmeit.be/bWAPP/training.htm" target="_blank">training</a>? / &copy; 2014 MME BVBA</p>
    
 </div>
     

@@ -38,9 +38,14 @@ if(isset($_COOKIE["security_level"]))
             
             $security_level = "high";
             break;
-        
-        default : 
+
+        case "666" :
             
+            $security_level = "666";
+            break;
+
+        default :
+
             $security_level = "low";
             break;
 
@@ -68,7 +73,7 @@ else
 <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon" />
 
 <!--<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>-->
-<script src="js/html5.js"></script>
+<script src="../js/html5.js"></script>
 
 <title>bWAPP - Admin Portal</title>
 
@@ -124,8 +129,16 @@ else
         <tr height="30">
 
             <td>A.I.M. IP Address</td>
-            <td align="center"><?php echo $remote_IP[0] ?></td>
-            <td>A no-authentication mode for testing web scanners and crawlers</td>
+            <td align="center"><?php echo $AIM_IPs[0] ?></td>
+            <td>A no-authentication mode, for testing web scanners and crawlers</td>
+
+        </tr>
+        
+        <tr height="30">
+
+            <td>Evil Bee Mode</td>
+            <td align="center"><?php echo $evil_bee ?></td>
+            <td>All security levels are bypassed in this mode</td>
 
         </tr>
         
@@ -152,7 +165,7 @@ else
     
 <div id="disclaimer">
           
-    <p>bWAPP is for educational purposes only / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and receive our cheat sheet, updated on a regular basis / &copy; 2014 MME BVBA</p>
+    <p>bWAPP is for educational purposes only / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and ask for our cheat sheet, containing all solutions! / Need a <a href="http://www.mmeit.be/bWAPP/training.htm" target="_blank">training</a>? / &copy; 2014 MME BVBA</p>
    
 </div>
     

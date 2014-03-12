@@ -114,11 +114,11 @@ if(isset($_GET["language"]))
 
 <div id="main">
 
-    <h1>Remote & Local File Inclusion</h1>
+    <h1>Remote & Local File Inclusion (RFI/LFI)</h1>
 
     <form action="<?php echo($_SERVER["SCRIPT_NAME"]);?>" method="GET">
 
-        <p>Select a language:
+        Select a language:
 
         <select name="language">
 
@@ -151,12 +151,11 @@ else
 ?>
         </select>
 
-        <button type="submit" name="action" value="go">Go</button>
+        <button type="submit" name="action" value="go">Go</button>        
 
-        </p>
-        
-    </form> 
+    </form>
 
+<br />
 <?php
     
 if(isset($_GET["language"]))
@@ -193,7 +192,7 @@ if(isset($_GET["language"]))
     
 <div id="disclaimer">
           
-    <p>bWAPP is for educational purposes only / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and receive our cheat sheet, updated on a regular basis / &copy; 2014 MME BVBA</p>
+    <p>bWAPP is for educational purposes only / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and ask for our cheat sheet, containing all solutions! / Need a <a href="http://www.mmeit.be/bWAPP/training.htm" target="_blank">training</a>? / &copy; 2014 MME BVBA</p>
    
 </div>
     

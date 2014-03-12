@@ -30,7 +30,7 @@ if(isset($_POST["form"]) && isset($_POST["bug"]))
             // echo " value: " . $bug[0];
             // echo " filename: " . $bug[1] . "<br />";
             
-            header("location: " . $bug[1]); 
+            header("Location: " . $bug[1]); 
 
 }
 
@@ -49,7 +49,7 @@ if(isset($_POST["form"]) && isset($_POST["bug"]))
 <!--<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>-->
 <script src="js/html5.js"></script>
 
-<title>bWAPP</title>
+<title>bWAPP - Portal</title>
 
 </head>
 
@@ -140,14 +140,24 @@ if(isset($_POST["form"]) && isset($_POST["bug"]))
 
 <div id="sponsor">    
 
-    <a href="https://www.owasp.org" target="_blank"><img src="./images/owasp.png"></a>&nbsp;&nbsp;
-    <a href="https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project" target="_blank"><img src="./images/zap.png"></a>
+    <table>
+
+        <tr>
+
+            <td width="103" align="center"><a href="https://www.owasp.org" target="_blank"><img src="./images/owasp.png"></a></td>
+            <td width="102" align="center"><a href="https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project" target="_blank"><img src="./images/zap.png"></a></td>
+            <td width="110" align="center"><a href="https://www.netsparker.com/?utm_source=bwappapp&utm_medium=banner&utm_campaign=bwapp" target="_blank"><img src="./images/netsparker.png"></a></td>
+            <td width="152" align="center"><a href="http://www.missingkids.com/" target="_blank"><img src="./images/mk.png"></a></td>
+
+        </tr>
+
+    </table> 
 
 </div>
 
 <div id="disclaimer">
           
-    <p>bWAPP is for educational purposes only / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and receive our cheat sheet, updated on a regular basis / &copy; 2014 MME BVBA</p>
+    <p>bWAPP is for educational purposes only / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and ask for our cheat sheet, containing all solutions! / Need a <a href="http://www.mmeit.be/bWAPP/training.htm" target="_blank">training</a>? / &copy; 2014 MME BVBA</p>
    
 </div>
     

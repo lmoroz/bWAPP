@@ -23,10 +23,10 @@ include("selections.php");
 
 $message = "";
 
-if(isset($_POST["genre"])) 
+if(isset($_REQUEST["genre"])) 
 {
     
-$genre = $_POST["genre"];
+$genre = $_REQUEST["genre"];
 
     switch($_COOKIE["security_level"])
     {
@@ -143,7 +143,7 @@ $genre = $_POST["genre"];
     
     <h1>XSS - Stored (Cookies)</h1>
 
-    <form action="<?php echo($_SERVER["SCRIPT_NAME"]); ?>" method="POST">
+    <form action="<?php echo($_SERVER["SCRIPT_NAME"]); ?>" method="GET">
 
         <p>
 
@@ -176,7 +176,7 @@ $genre = $_POST["genre"];
     
 <div id="disclaimer">
           
-    <p>bWAPP is for educational purposes only / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and receive our cheat sheet, updated on a regular basis / &copy; 2014 MME BVBA</p>
+    <p>bWAPP is for educational purposes only / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and ask for our cheat sheet, containing all solutions! / Need a <a href="http://www.mmeit.be/bWAPP/training.htm" target="_blank">training</a>? / &copy; 2014 MME BVBA</p>
    
 </div>
     

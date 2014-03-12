@@ -26,7 +26,7 @@ $message = "";
 // Checks if the password is complex
 // Password policy: minimum 6 characters containing at least one uppercase letter, lowercase letter and number.
 function check_password($string)
-{   
+{
         
     if(preg_match("/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/", $string) == false)
     {   
@@ -83,9 +83,12 @@ if(isset($_POST["action"]))
     $password_conf = $_REQUEST["password_conf"];
 
     $message = check_input($password_new, $password_conf);
+    
+    // Debugging
+    // echo "I was here!";
 
     if(!$message)
-    {     
+    {
 
         $login = $_SESSION["login"];
 
@@ -322,7 +325,7 @@ else
     
 <div id="disclaimer">
           
-    <p>bWAPP is for educational purposes only / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and receive our cheat sheet, updated on a regular basis / &copy; 2014 MME BVBA</p>
+    <p>bWAPP is for educational purposes only / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and ask for our cheat sheet, containing all solutions! / Need a <a href="http://www.mmeit.be/bWAPP/training.htm" target="_blank">training</a>? / &copy; 2014 MME BVBA</p>
    
 </div>
     

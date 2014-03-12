@@ -49,7 +49,7 @@ switch($_COOKIE["security_level"])
         else 
         {
 
-            header("location: " . $_SERVER["SCRIPT_NAME"] . "?admin=0");
+            header("Location: " . $_SERVER["SCRIPT_NAME"] . "?admin=0");
 
             exit;                  
 
@@ -84,7 +84,7 @@ switch($_COOKIE["security_level"])
             // Sets a cookie 'admin' when there is no cookie detected
             setcookie("admin", "0", time()+300, "/", "", false, false);
 
-            header("location: " . $_SERVER["SCRIPT_NAME"]);
+            header("Location: " . $_SERVER["SCRIPT_NAME"]);
 
             exit;
 
@@ -137,7 +137,7 @@ switch($_COOKIE["security_level"])
         else 
         {                
 
-            header("location: " . $_SERVER["SCRIPT_NAME"] . "?admin=0");
+            header("Location: " . $_SERVER["SCRIPT_NAME"] . "?admin=0");
 
             exit;                  
 
@@ -217,7 +217,7 @@ switch($_COOKIE["security_level"])
     
 <div id="disclaimer">
           
-    <p>bWAPP is for educational purposes only / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and receive our cheat sheet, updated on a regular basis / &copy; 2014 MME BVBA</p>
+    <p>bWAPP is for educational purposes only / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and ask for our cheat sheet, containing all solutions! / Need a <a href="http://www.mmeit.be/bWAPP/training.htm" target="_blank">training</a>? / &copy; 2014 MME BVBA</p>
    
 </div>
     

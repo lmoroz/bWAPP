@@ -18,9 +18,7 @@ Twitter: @MME_IT
 
 include("security.php");
 include("security_level_check.php");
-include("functions_external.php");
 include("connect_i.php");
-include("selections.php");
 
 $login = $_SESSION["login"];
 
@@ -46,6 +44,8 @@ if ($row)
 
     echo "Your secret: " . $secret;          
 
-}  
+}
+
+$link->close();
 
 ?>
