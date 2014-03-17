@@ -31,7 +31,7 @@ No! I will not explain how to install Apache/IIS, PHP and MySQL :)
 
 	example on Linux:
 
-		unzip bWAPP.tar
+		unzip bWAPP.zip
 
 */ Move the directory 'bWAPP' (and the entire content) to the root of your web server.
 

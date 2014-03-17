@@ -167,7 +167,7 @@ if(isset($_POST["form"]))
 
     <h1>Mail Header Injection (SMTP)</h1>
 
-    <p>E-mail us your questions at <?php echo $smtp_recipient?></p>
+    <p>E-mail us your questions at <?php echo $smtp_recipient?>.</p>
 
     <form action="<?php echo($_SERVER["SCRIPT_NAME"]);?>" method="POST">
 
