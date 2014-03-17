@@ -40,8 +40,8 @@ if($_COOKIE["security_level"] != "1" && $_COOKIE["security_level"] != "2")
     if($login && $login != "" && $secret)
     {
 
-        $login = mysqli_real_escape_string($link, $login);
-        $secret = mysqli_real_escape_string($link, $secret);
+        // $login = mysqli_real_escape_string($link, $login);
+        // $secret = mysqli_real_escape_string($link, $secret);
         
         $sql = "UPDATE users SET secret = '" . $secret . "' WHERE login = '" . $login . "'";
 

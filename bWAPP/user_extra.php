@@ -18,32 +18,33 @@ Twitter: @MME_IT
 
 include("security.php");
 include("security_level_check.php");
+include("selections.php");
 include("functions_external.php");
 include("connect_i.php");
-include("selections.php");
+include("admin/settings.php");
 
 $message = "";
 
 if(isset($_REQUEST["action"]))
 {
-    
+
     $login = $_REQUEST["login"];
     $password = $_REQUEST["password"];
     $password_conf = $_REQUEST["password_conf"];
     $email = $_REQUEST["email"];
     $secret = $_REQUEST["secret"];
     $mail_activation = isset($_POST["mail_activation"]) ? 1 : 0;
-    
+
     if($login == "" or $email == "" or $password == "" or $secret == "")
     {
-        
-        $message = "<font color=\"red\">Please enter all the fields!</font>";       
-        
+
+        $message = "<font color=\"red\">Please enter all the fields!</font>";
+
     }
-    
-    else         
-    {       
-        
+
+    else
+    {
+
         /*
 
         /^[a-z\d_]{2,20}$/i
@@ -61,36 +62,36 @@ if(isset($_REQUEST["action"]))
         / : regex start
 
          */
-        
+
         if(preg_match("/^[a-z\d_]{2,20}$/i", $login) == false)
         {
-        
-            $message = "<font color=\"red\">Please choose a valid login name!</font>";             
-        
+
+            $message = "<font color=\"red\">Please choose a valid login name!</font>";
+
         }
-    
+
         else
         {
 
             if(!filter_var($email, FILTER_VALIDATE_EMAIL))
             {
 
-                $message = "<font color=\"red\">Please enter a valid e-mail address!</font>";     
+                $message = "<font color=\"red\">Please enter a valid e-mail address!</font>";
 
             }
 
-            else        
+            else
             {
 
                 if($password != $password_conf)
                 {
 
-                    $message = "<font color=\"red\">The passwords don't match!</font>";       
+                    $message = "<font color=\"red\">The passwords don't match!</font>";
 
                 }
 
-                else            
-                {            
+                else
+                {
 
                     // Input validations
                     $login = mysqli_real_escape_string($link, $login);
@@ -110,7 +111,7 @@ if(isset($_REQUEST["action"]))
                     // Debugging
                     // echo $sql;
 
-                    $recordset = $link->query($sql);             
+                    $recordset = $link->query($sql);
 
                     if (!$recordset)
                     {
@@ -123,16 +124,16 @@ if(isset($_REQUEST["action"]))
                     // echo "<br />Affected rows: ";
                     // printf($link->affected_rows);
 
-                    $row = $recordset->fetch_object();   
+                    $row = $recordset->fetch_object();
 
                     // If the user is not present
                     if (!$row)
                     {
 
-                        // Debugging                
-                        // echo "<br />Row: "; 
-                        // print_r($row);                   
-                                                
+                        // Debugging
+                        // echo "<br />Row: ";
+                        // print_r($row);
+
                         if ($mail_activation == false)
                         {
                         
@@ -155,44 +156,44 @@ if(isset($_REQUEST["action"]))
                             // printf($link->affected_rows);
 
                             $message = "<font color=\"green\">User successfully created!</font>";
-                        
+
                         }
                         
                         else
                         {
 
                             // 'Activation code' generation
-                            $activation_code = random_string();         
+                            $activation_code = random_string();
                             $activation_code = hash("sha1", $activation_code, false);
 
                             // Debugging
                             // echo $activation_code;
 
-                            if($_POST["server"] != "")
+                            if($smtp_server != "")
                             {
 
-                                ini_set( "SMTP", $_POST["server"]);
+                                ini_set( "SMTP", $smtp_server);
 
                             //Debugging
-                            // $debug = "true";     
+                            // $debug = "true";
 
                             }
 
-                            // Sends an activation mail to the user                    
-                            $subject = "bWAPP - New User";                    
-                            $server = $_SERVER["HTTP_HOST"];                                        
-                            $sender = "bwapp@mailinator.com";
+                            // Sends an activation mail to the user
+                            $subject = "bWAPP - New User";
+                            $server = $_SERVER["HTTP_HOST"];
+                            $sender = $smtp_sender;
 
                             $content = "Welcome " . ucwords($login) . ",\n\n";
                             $content.= "Click the link to activate your new user:\n\nhttp://" . $server . "/bWAPP/user_activation.php?user=" . $login . "&activation_code=" . $activation_code . "\n\n";
-                            $content.= "Greets from bWAPP!";                 
+                            $content.= "Greets from bWAPP!";
 
-                            $status = @mail($email, $subject, $content, "From: $sender");                   
+                            $status = @mail($email, $subject, $content, "From: $sender");
 
                             if($status != true)
                             {
 
-                                $message = "<font color=\"red\">User not successfully created! An e-mail could not be send...</font>";
+                                $message = "<font color=\"red\">User not successfully created! An e-mail could not be sent...</font>";
 
                                 // Debugging
                                 // die("Error: mail was NOT send");
@@ -206,7 +207,7 @@ if(isset($_REQUEST["action"]))
                                 $sql = "INSERT INTO users (login, password, email, secret, activation_code) VALUES ('" . $login . "','" . $password . "','" . $email .  "','" . $secret . "','" . $activation_code . "')"; 
 
                                 // Debugging
-                                // echo $sql;      
+                                // echo $sql;
 
                                 $recordset = $link->query($sql);
 
@@ -217,9 +218,9 @@ if(isset($_REQUEST["action"]))
 
                                 }
 
-                                // Debugging                   
-                                // echo "<br />Affected rows: ";                
-                                // printf($link->affected_rows);                        
+                                // Debugging
+                                // echo "<br />Affected rows: ";
+                                // printf($link->affected_rows);
 
                                 // Debugging
                                 // echo "Mail was send";
@@ -252,9 +253,9 @@ if(isset($_REQUEST["action"]))
 ?>
 <!DOCTYPE html>
 <html>
-    
+
 <head>
-        
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Architects+Daughter">
@@ -269,39 +270,39 @@ if(isset($_REQUEST["action"]))
 </head>
 
 <body>
-    
+
 <header>
 
 <h1>bWAPP</h1>
 
 <h2>an extremely buggy web app !</h2>
 
-</header>    
+</header>
 
 <div id="menu">
-      
+
     <table>
-        
+
         <tr>
-            
+
             <td><a href="portal.php">Bugs</a></td>
             <td><a href="password_change.php">Change Password</a></td>
             <td><font color="#ffb717">Create User</font></td>
             <td><a href="security_level_set.php">Set Security Level</a></td>
-            <td><a href="reset.php" onclick="return confirm('All settings will be cleared. Are you sure?');">Reset</a></td>            
+            <td><a href="reset.php" onclick="return confirm('All settings will be cleared. Are you sure?');">Reset</a></td>
             <td><a href="credits.php">Credits</a></td>
             <td><a href="http://itsecgames.blogspot.com" target="_blank">Blog</a></td>
             <td><a href="logout.php" onclick="return confirm('Are you sure you want to leave?');">Logout</a></td>
             <td><font color="red">Welcome <?php if(isset($_SESSION["login"])){echo ucwords($_SESSION["login"]);}?></font></td>
-            
+
         </tr>
-        
+
     </table>   
-   
-</div> 
+
+</div>
 
 <div id="main">
-    
+
     <h1>Create User</h1>
 
     <p>Create an extra user.</p>
@@ -314,9 +315,9 @@ if(isset($_REQUEST["action"]))
   
         <p><label for="login">Login:</label><br />
         <input type="text" id="login" name="login"></p>
-        
+
         </td>
-        
+
         <td width="5"></td>
 
         <td>
@@ -332,7 +333,7 @@ if(isset($_REQUEST["action"]))
         <input type="password" id="password" name="password"></p>
 
         </td>
-        
+
         <td width="25"></td>
 
         <td>
@@ -354,15 +355,6 @@ if(isset($_REQUEST["action"]))
         <p><label for="mail_activation">E-mail activation:</label>
         <input type="checkbox" id="mail_activation" name="mail_activation" value="">
 
-        </td>
-        
-        <td width="5"></td>
-
-        <td>
-
-        <label for="server">Mail server:</label>
-        <input type="text" id="server" name="server" value=""></p>
-
         </td></tr>
 
         </table>
@@ -371,94 +363,95 @@ if(isset($_REQUEST["action"]))
 
     </form>
 
-    </br >
-    <?php    
+    <br />
+    <?php
 
     echo $message;
 
     $link->close();
 
-    ?>    
+    ?>
+
 </div>
-    
-<div id="side">    
-    
+
+<div id="side">
+
     <a href="http://itsecgames.blogspot.com" target="blank_" class="button"><img src="./images/blogger.png"></a>
     <a href="http://be.linkedin.com/in/malikmesellem" target="blank_" class="button"><img src="./images/linkedin.png"></a>
     <a href="http://twitter.com/MME_IT" target="blank_" class="button"><img src="./images/twitter.png"></a>
     <a href="http://www.facebook.com/pages/MME-IT-Audits-Security/104153019664877" target="blank_" class="button"><img src="./images/facebook.png"></a>
 
-</div>     
-    
+</div>
+
 <div id="disclaimer">
-          
+
     <p>bWAPP is for educational purposes only / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and ask for our cheat sheet, containing all solutions! / Need a <a href="http://www.mmeit.be/bWAPP/training.htm" target="_blank">training</a>? / &copy; 2014 MME BVBA</p>
-   
+
 </div>
-    
+
 <div id="bee">
-    
+
     <img src="./images/bee_1.png">
-    
+
 </div>
-    
+
 <div id="security_level">
-  
+
     <form action="<?php echo($_SERVER["SCRIPT_NAME"]);?>" method="POST">
-        
+
         <label>Set your security level:</label><br />
-        
+
         <select name="security_level">
-            
+
             <option value="0">low</option>
             <option value="1">medium</option>
             <option value="2">high</option> 
-            
+
         </select>
-        
+
         <button type="submit" name="form_security_level" value="submit">Set</button>
         <font size="4">Current: <b><?php echo $security_level?></b></font>
-        
-    </form>   
-    
+
+    </form>
+
 </div>
-    
+
 <div id="bug">
 
     <form action="<?php echo($_SERVER["SCRIPT_NAME"]);?>" method="POST">
-        
+
         <label>Choose your bug:</label><br />
-        
+
         <select name="bug">
-   
+
 <?php
 
 // Lists the options from the array 'bugs' (bugs.txt)
 foreach ($bugs as $key => $value)
 {
-    
+
    $bug = explode(",", trim($value));
-   
+
    // Debugging
    // echo "key: " . $key;
    // echo " value: " . $bug[0];
    // echo " filename: " . $bug[1] . "<br />";
-   
+
    echo "<option value='$key'>$bug[0]</option>";
- 
+
 }
 
 ?>
 
 
         </select>
-        
+
         <button type="submit" name="form_bug" value="submit">Hack</button>
-        
+
     </form>
-    
+
 </div>
-      
+
 </body>
-    
+
 </html>

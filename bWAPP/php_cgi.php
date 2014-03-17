@@ -79,7 +79,7 @@ include("selections.php");
     
     <p>HINT: a public <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-1823" target="_blank">exploit</a> is available!</p>
 	
-	<p>(this vulnerability is exploitable on <a href="http://sourceforge.net/projects/bwapp/files/bee-box/" target="_blank">bee-box</a> v1.2 and above only)</p>
+    <p>(this vulnerability is exploitable on <a href="http://sourceforge.net/projects/bwapp/files/bee-box/" target="_blank">bee-box</a> v1.2 and above only)</p>
 
 </div>
     

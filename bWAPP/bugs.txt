@@ -4,7 +4,12 @@ HTML Injection - Reflected (GET),htmli_get.php
 HTML Injection - Reflected (POST),htmli_post.php
 HTML Injection - Reflected (Current URL),htmli_current_url.php
 HTML Injection - Stored (Blog),htmli_stored.php
-Server-Side Includes Injection,ssii.php
+LDAP Injection (Search),ldapi.php
+Mail Header Injection (SMTP),maili.php
+OS Command Injection,commandi.php
+OS Command Injection - Blind,commandi_blind.php
+PHP Code Injection,phpi.php
+Server-Side Includes (SSI) Injection,ssii.php
 SQL Injection (Search/GET),sqli_1.php
 SQL Injection (Search/POST),sqli_6.php
 SQL Injection (Search/CAPTCHA),sqli_9.php
@@ -16,10 +21,6 @@ SQL Injection - Blind (Search),sqli_4.php
 SQL Injection - Blind (Web Services/SOAP),sqli_5.php
 XML/XPath Injection (Search),xmli_2.php
 XML/XPath Injection (Login Form),xmli_1.php
-OS Command Injection,commandi.php
-OS Command Injection - Blind,commandi_blind.php
-LDAP Injection (Search),ldapi.php
-Mail Injection (SMTP),maili.php
 /,portal.php
 / A2 - Broken Auth. & Session Mgmt. /,portal.php
 Broken Authentication - Forgotten Function,ba_forgotten.php
@@ -30,8 +31,8 @@ Broken Authentication - Weak Passwords,ba_weak_pwd.php
 Session Management - Administrative Portals,smgmt_admin_portal.php
 Session Management - Cookies (HTTPOnly),smgmt_cookies_httponly.php
 Session Management - Cookies (Secure),smgmt_cookies_secure.php
-Session Management - Strong Sessions,smgmt_strong_sessions.php
 Session Management - Session ID in URL,smgmt_sessionid_url.php
+Session Management - Strong Sessions,smgmt_strong_sessions.php
 /,portal.php
 / A3 - Cross-Site Scripting (XSS) /,portal.php
 Cross-Site Scripting - Reflected (GET),xss_get.php
@@ -71,13 +72,16 @@ Old/Backup & Unreferenced Files,sm_obu_files.php
 Robots File,sm_robots.php
 /,portal.php
 / A6 - Sensitive Data Exposure /,portal.php
+Host Header Attack (Reset Poisoning),hostheader_2.php
 HTML5 Web Storage (Secret),insecure_crypt_storage_1.php
 Insufficient Transport Layer Protection,insuff_transport_layer_protect.php
 Text Files (Accounts),insecure_crypt_storage_2.php
 /,portal.php
-/ A7 - Missing Functional Level Access /,portal.php
-Directory Traversal - Files,directory_traversal_1.php?page=message.txt
+/ A7 - Missing Functional Level Access Control /,portal.php
 Directory Traversal - Directories,directory_traversal_2.php?directory=documents
+Directory Traversal - Files,directory_traversal_1.php?page=message.txt
+Host Header Attack (Cache Poisoning),hostheader_1.php
+Host Header Attack (Reset Poisoning),hostheader_2.php
 Remote & Local File Inclusion (RFI/LFI),rlfi.php
 Restrict Device Access,restrict_device_access.php
 Restrict Folder Access,restrict_folder_access.php

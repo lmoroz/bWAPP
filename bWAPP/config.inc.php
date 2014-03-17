@@ -16,10 +16,18 @@ Twitter: @MME_IT
 
 */
 
+include("admin/settings.php");
+
 // Connection settings
-$server = "localhost";
-$username = "root";
-$password = "bug";
-$database = "bWAPP";
+$server = $db_server;
+$username = $db_username;
+$password = $db_password;
+$database = $db_name;
+
+// Connection settings, used in older bWAPP versions
+// $server = "localhost";
+// $username = "root";
+// $password = "";
+// $database = "bWAPP";
 
 ?>

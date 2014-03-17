@@ -110,7 +110,7 @@ else
 
     <table id="table_yellow">
 
-        <tr height="30" bgcolor="#ffb717" align="center">
+        <tr height="50" bgcolor="#ffb717" align="center">
 
             <td width="150"><b>Setting</b></td>
             <td width="150"><b>Value</b></td>
@@ -118,15 +118,23 @@ else
 
         </tr>
 
-        <tr height="30">
+        <tr height="50">
 
             <td>Security Level</td>
             <td align="center"><?php echo $security_level ?></td>
             <td>Possible values: low - medium - high</td>
 
         </tr>
+
+        <tr height="50">
+
+            <td>SMTP Server</td>
+            <td align="center"><?php echo $smtp_server ?></td>
+            <td>Used for e-mail functionality</td>
+
+        </tr>
         
-        <tr height="30">
+        <tr height="50">
 
             <td>A.I.M. IP Address</td>
             <td align="center"><?php echo $AIM_IPs[0] ?></td>
@@ -134,7 +142,7 @@ else
 
         </tr>
         
-        <tr height="30">
+        <tr height="50">
 
             <td>Evil Bee Mode</td>
             <td align="center"><?php echo $evil_bee ?></td>
@@ -142,7 +150,7 @@ else
 
         </tr>
         
-        <tr height="30">
+        <tr height="50">
 
             <td>Credentials</td>
             <td align="center"><?php echo $login . "/" . $password ?></td>

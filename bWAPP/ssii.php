@@ -101,7 +101,7 @@ if(isset($_POST["form"]))
 <!--<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>-->
 <script src="js/html5.js"></script>
 
-<title>bWAPP - Server-Side Includes Injection</title>
+<title>bWAPP - SSI Injection</title>
 
 </head>
 
@@ -139,7 +139,7 @@ if(isset($_POST["form"]))
 
 <div id="main">
 
-    <h1>Server-Side Includes Injection</h1>
+    <h1>Server-Side Includes (SSI) Injection</h1>
 
     <p>What is your IP address? Lookup your IP address... (<a href="http://sourceforge.net/projects/bwapp/files/bee-box/" target="_blank">bee-box</a> only)</p>
 

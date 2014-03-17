@@ -306,7 +306,7 @@ function clear()
     <p>
         
     Configure your LDAP connection settings (requires the PHP LDAP extension).<br />
-    The credentials will be send in clear text!   
+    The credentials will be sent in clear text!   
     
     </p>
 

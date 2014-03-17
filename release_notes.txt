@@ -17,8 +17,11 @@ New bugs:
 - Cross-Site Scripting - Reflected (Custom HTTP Header)
 - Cross-Site Scripting - Stored (Change Secret)
 - Denial-of-Service (XML Bomb)
+- Host Header Attack (Cache Poisoning)
+- Host Header Attack (Reset Poisoning)
 - Insecure Direct Object References (Reset Secret)
 - Old, Backup & Unreferenced Files
+- PHP Code Injection
 - Server Side Request Forgery (SSRF)
 - SQL Injection (Search/POST)
 - SQL Injection (Search/CAPTCHA)
@@ -38,6 +41,7 @@ New features:
 Modifications:
 
 - Possibility to exclude 'dangerous' files in the A.I.M. mode
+- The database connection settings are moved to the 'admin/settings.php' file
 
 
 v1.8

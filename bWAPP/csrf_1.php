@@ -18,8 +18,8 @@ Twitter: @MME_IT
 
 include("security.php");
 include("security_level_check.php");
-include("connect_i.php");
 include("selections.php");
+include("connect_i.php");
 
 $message = "";
 
