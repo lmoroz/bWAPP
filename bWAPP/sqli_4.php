@@ -18,9 +18,9 @@ Twitter: @MME_IT
 
 include("security.php");
 include("security_level_check.php");
+include("selections.php");
 include("functions_external.php");
 include("connect.php");
-include("selections.php");
 
 function sqli($data)
 {
@@ -132,7 +132,7 @@ function sqli($data)
 
         $recordset = mysql_query($sql, $link);
 
-        if (!$recordset)
+        if(!$recordset)
         {
 
             die("<font color=\"red\">Incorrect syntax detected!</font>");
@@ -140,7 +140,7 @@ function sqli($data)
 
         }
 
-        if (mysql_num_rows($recordset) != 0)
+        if(mysql_num_rows($recordset) != 0)
         {    
 
             echo "The movie exists!";               

@@ -18,9 +18,9 @@ Twitter: @MME_IT
 
 include("security.php");
 include("security_level_check.php");
+include("selections.php");
 include("functions_external.php");
 include("connect.php");
-include("selections.php");
 
 if($_COOKIE["security_level"] == "2")
 {
@@ -176,7 +176,7 @@ if(isset($_GET["movie"]))
 
     $recordset = mysql_query($sql, $link);
 
-    if (!$recordset)
+    if(!$recordset)
     {
 
         // die("Error: " . mysql_error());
@@ -199,7 +199,7 @@ if(isset($_GET["movie"]))
     }
 
     // Shows the movie details when a valid record exists
-    if (mysql_num_rows($recordset) != 0)
+    if(mysql_num_rows($recordset) != 0)
     {    
 
         $row = mysql_fetch_array($recordset);        

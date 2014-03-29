@@ -71,9 +71,9 @@ if(isset($_GET["title"]))
     echo "<response>";
 
     // Generates the output depending on the movie title received from the client
-    if (in_array(strtoupper($title), $movies))
+    if(in_array(strtoupper($title), $movies))
         echo "Yes! We have that movie...";
-    else if (trim($title) == "")
+    else if(trim($title) == "")
         echo "HINT: our master really loves Marvel movies :)";
     else
         echo xss($title) . "??? Sorry, we don't have that movie :(";

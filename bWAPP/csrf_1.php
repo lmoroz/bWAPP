@@ -64,7 +64,7 @@ if(isset($_REQUEST["action"]) && isset($_REQUEST["password_new"]) && isset($_REQ
 
                 $recordset = $link->query($sql);
 
-                if (!$recordset)
+                if(!$recordset)
                 {
 
                     die("Connect Error: " . $link->error);
@@ -92,7 +92,7 @@ if(isset($_REQUEST["action"]) && isset($_REQUEST["password_new"]) && isset($_REQ
 
                     $recordset = $link->query($sql);             
 
-                    if (!$recordset)
+                    if(!$recordset)
                     {
 
                         die("Connect Error: " . $link->error);
@@ -105,7 +105,7 @@ if(isset($_REQUEST["action"]) && isset($_REQUEST["password_new"]) && isset($_REQ
 
                     $row = $recordset->fetch_object();   
 
-                    if ($row)
+                    if($row)
                     {
 
                         // Debugging
@@ -119,7 +119,7 @@ if(isset($_REQUEST["action"]) && isset($_REQUEST["password_new"]) && isset($_REQ
 
                         $recordset = $link->query($sql);
 
-                        if (!$recordset)
+                        if(!$recordset)
                         {
 
                             die("Connect Error: " . $link->error);

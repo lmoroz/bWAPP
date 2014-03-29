@@ -196,7 +196,7 @@ function unlock_secret()
 
     var secret = (d + "" + j + "" + k + "" + q + "" + x + "" + t + "" +o + "" + g + "" + h + "" + d + "" + p);
 
-    if (document.forms[0].passphrase.value == secret)
+    if(document.forms[0].passphrase.value == secret)
     { 
               
         // Unlocked

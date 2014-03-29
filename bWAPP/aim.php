@@ -63,7 +63,7 @@ foreach ($bugs as $key => $value)
     // echo " value: " . $bug[0];
     // echo " filename: " . $bug[1] . "<br />"; 
  
-    if (!in_array($bug[1], $AIM_exclusions))
+    if(!in_array($bug[1], $AIM_exclusions))
     {
 
         echo "<p><a href='$bug[1]'>$bug[0]</a></p>";

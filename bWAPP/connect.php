@@ -23,7 +23,7 @@ include("config.inc.php");
 $link = mysql_connect($server, $username, $password);
 
 // Checks the connection
-if (!$link)
+if(!$link)
 {
     
     // @mail($recipient, "Could not connect to server: ", mysql_error());

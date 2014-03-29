@@ -65,7 +65,7 @@ if(isset($_REQUEST["action"]))
 
             $recordset = $link->query($sql);             
                              
-            if (!$recordset)
+            if(!$recordset)
             {
 
                 die("Error: " . $link->error);
@@ -78,7 +78,7 @@ if(isset($_REQUEST["action"]))
                 
             $row = $recordset->fetch_object();   
                                                                            
-            if ($row)
+            if($row)
             {
 
                 // Debugging                
@@ -92,7 +92,7 @@ if(isset($_REQUEST["action"]))
 
                 $recordset = $link->query($sql);
 
-                if (!$recordset)
+                if(!$recordset)
                 {
 
                     die("Error: " . $link->error);

@@ -18,9 +18,9 @@ Twitter: @MME_IT
 
 include("security.php");
 include("security_level_check.php");
+include("selections.php");
 include("functions_external.php");
 include("connect.php");
-include("selections.php");
 
 function sqli($data)
 {
@@ -88,7 +88,7 @@ function sqli($data)
     <table>
         
         <tr>
-            
+
             <td><a href="portal.php">Bugs</a></td>
             <td><a href="password_change.php">Change Password</a></td>
             <td><a href="user_extra.php">Create User</a></td>
@@ -144,7 +144,7 @@ if(isset($_GET["title"]))
 
     $recordset = mysql_query($sql, $link);
 
-    if (!$recordset)
+    if(!$recordset)
     {
 
         // die("Error: " . mysql_error());
@@ -166,7 +166,7 @@ if(isset($_GET["title"]))
 
     }
 
-    if (mysql_num_rows($recordset) != 0)
+    if(mysql_num_rows($recordset) != 0)
     {    
 
         while($row = mysql_fetch_array($recordset))         

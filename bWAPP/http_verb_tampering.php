@@ -62,7 +62,7 @@ if($_COOKIE["security_level"] != "1" && $_COOKIE["security_level"] != "2")
 
                 $recordset = $link->query($sql);             
 
-                if (!$recordset)
+                if(!$recordset)
                 {
 
                     die("Error: " . $link->error);
@@ -71,14 +71,14 @@ if($_COOKIE["security_level"] != "1" && $_COOKIE["security_level"] != "2")
 
                 $row = $recordset->fetch_object();   
 
-                if ($row)
+                if($row)
                 {
 
                     $sql = "UPDATE users SET password = '" . $password_new . "' WHERE login = '" . $login . "'";
 
                     $recordset = $link->query($sql);
 
-                    if (!$recordset)
+                    if(!$recordset)
                     {
 
                         die("Error: " . $link->error);
@@ -143,7 +143,7 @@ else
 
                 $recordset = $link->query($sql);             
 
-                if (!$recordset)
+                if(!$recordset)
                 {
 
                     die("Error: " . $link->error);
@@ -152,14 +152,14 @@ else
 
                 $row = $recordset->fetch_object();   
 
-                if ($row)
+                if($row)
                 {
 
                     $sql = "UPDATE users SET password = '" . $password_new . "' WHERE login = '" . $login . "'";
 
                     $recordset = $link->query($sql);
 
-                    if (!$recordset)
+                    if(!$recordset)
                     {
 
                         die("Error: " . $link->error);

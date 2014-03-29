@@ -18,9 +18,9 @@ Twitter: @MME_IT
 
 include("security.php");
 include("security_level_check.php");
+include("selections.php");
 include("functions_external.php");
 include("connect_i.php");
-include("selections.php");
 
 $entry = "";
 $owner = "";
@@ -31,28 +31,28 @@ function sqli($data)
 
     switch($_COOKIE["security_level"])
     {
-        
-        case "0" : 
-            
-            $data = no_check($data);            
+
+        case "0" :
+
+            $data = no_check($data);
             break;
-        
+
         case "1" :
-            
+
             $data = sqli_check_1($data);
             break;
-        
-        case "2" :            
-                       
-            $data = sqli_check_2($data);            
-            break;
-        
-        default : 
-            
-            $data = no_check($data);            
-            break;   
 
-    }       
+        case "2" :
+
+            $data = sqli_check_2($data);
+            break;
+
+        default :
+
+            $data = no_check($data);
+            break;
+
+    }
 
     return $data;
 
@@ -61,9 +61,9 @@ function sqli($data)
 ?>
 <!DOCTYPE html>
 <html>
-    
+
 <head>
-        
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Architects+Daughter">
@@ -78,7 +78,7 @@ function sqli($data)
 </head>
 
 <body>
-    
+
 <header>
 
 <h1>bWAPP</h1>
@@ -88,41 +88,41 @@ function sqli($data)
 </header>    
 
 <div id="menu">
-      
+
     <table>
-        
+
         <tr>
-            
+
             <td><a href="portal.php">Bugs</a></td>
             <td><a href="password_change.php">Change Password</a></td>
             <td><a href="user_extra.php">Create User</a></td>
             <td><a href="security_level_set.php">Set Security Level</a></td>
-            <td><a href="reset.php" onclick="return confirm('All settings will be cleared. Are you sure?');">Reset</a></td>            
+            <td><a href="reset.php" onclick="return confirm('All settings will be cleared. Are you sure?');">Reset</a></td>
             <td><a href="credits.php">Credits</a></td>
             <td><a href="http://itsecgames.blogspot.com" target="_blank">Blog</a></td>
             <td><a href="logout.php" onclick="return confirm('Are you sure you want to leave?');">Logout</a></td>
             <td><font color="red">Welcome <?php if(isset($_SESSION["login"])){echo ucwords($_SESSION["login"]);}?></font></td>
-            
+
         </tr>
-        
+
     </table>
-   
-</div> 
+
+</div>
 
 <div id="main">
-    
+
     <h1>SQL Injection - Stored (Blog)</h1>
 
     <form action="<?php echo($_SERVER["SCRIPT_NAME"]);?>" method="POST">
 
         <p><label for="entry">Add an entry to our blog:</label><br />
-        <textarea name="entry" id="entry" cols="60" rows="3"></textarea></p>    
+        <textarea name="entry" id="entry" cols="80" rows="3"></textarea></p>
 
         <button type="submit" name="blog" value="add">Add Entry</button>
 
-        <?php 
+        <?php
 
-        if(isset($_POST["blog"])) 
+        if(isset($_POST["blog"]))
         {
 
             $entry = sqli($_POST["entry"]);
@@ -131,28 +131,28 @@ function sqli($data)
             if($entry == "")
             {
 
-                $message =  "<font color=\"red\">Please enter some text...</font>";       
+                $message =  "<font color=\"red\">Please enter some text...</font>";
 
             }
 
-            else            
-            { 
+            else
+            {
 
-                $sql = "INSERT INTO blog (date, entry, owner) VALUES (now(),'" . $entry . "','" . $owner . "')" ;   
+                $sql = "INSERT INTO blog (date, entry, owner) VALUES (now(),'" . $entry . "','" . $owner . "')" ;
 
                 $recordset = $link->query($sql);
 
                 if(!$recordset)
                 {
 
-                    die("Error: " . $link->error . "<br /><br />");          
+                    die("Error: " . $link->error . "<br /><br />");
 
                 }
 
                 // Debugging
                 // echo $sql;
 
-                $message = "The entry was added to our blog!";   
+                $message = "The entry was added to our blog!";
 
             }
 
@@ -170,7 +170,7 @@ function sqli($data)
 
         <tr height="30" bgcolor="#ffb717" align="center">
 
-            <td width="10">#</td>
+            <td width="20">#</td>
             <td width="100"><b>Owner</b></td>
             <td width="100"><b>Date</b></td>
             <td width="445"><b>Entry</b></td>
@@ -191,14 +191,14 @@ if(!$recordset)
 ?>
         <tr height="50">
 
-            <td colspan="4" width="655"><?php die("Error: " . $link->error);?></td>
+            <td colspan="4" width="665"><?php die("Error: " . $link->error);?></td>
             <!--
             <td></td>
             <td></td>
-            <td></td> 
+            <td></td>
             -->
 
-        </tr>  
+        </tr>
 
 <?php
 
@@ -209,8 +209,6 @@ while($row = $recordset->fetch_object())
 
     if($_COOKIE["security_level"] == "2")
     {
-
-
 
 ?>
         <tr height="40">
@@ -227,7 +225,7 @@ while($row = $recordset->fetch_object())
     }
 
     else
-        
+
         if($_COOKIE["security_level"] == "1")
         {
 
@@ -244,8 +242,8 @@ while($row = $recordset->fetch_object())
 <?php
 
         }
-        
-        else        
+
+        else
 
             {
 
@@ -259,11 +257,11 @@ while($row = $recordset->fetch_object())
 
         </tr>
 
-<?php          
+<?php
 
             }
 
-}      
+}
 
 $recordset->close();
 
@@ -273,72 +271,72 @@ $link->close();
     </table>
 
 </div>
-    
-<div id="side">    
-    
+
+<div id="side">
+
     <a href="http://itsecgames.blogspot.com" target="blank_" class="button"><img src="./images/blogger.png"></a>
     <a href="http://be.linkedin.com/in/malikmesellem" target="blank_" class="button"><img src="./images/linkedin.png"></a>
     <a href="http://twitter.com/MME_IT" target="blank_" class="button"><img src="./images/twitter.png"></a>
     <a href="http://www.facebook.com/pages/MME-IT-Audits-Security/104153019664877" target="blank_" class="button"><img src="./images/facebook.png"></a>
 
-</div>     
-    
+</div>
+
 <div id="disclaimer">
-          
+
     <p>bWAPP is for educational purposes only / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and ask for our cheat sheet, containing all solutions! / Need a <a href="http://www.mmeit.be/bWAPP/training.htm" target="_blank">training</a>? / &copy; 2014 MME BVBA</p>
-   
+
 </div>
-    
+
 <div id="bee">
-    
+
     <img src="./images/bee_1.png">
-    
+
 </div>
-    
+
 <div id="security_level">
-  
+
     <form action="<?php echo($_SERVER["SCRIPT_NAME"]);?>" method="POST">
-        
+
         <label>Set your security level:</label><br />
-        
+
         <select name="security_level">
-            
+
             <option value="0">low</option>
             <option value="1">medium</option>
             <option value="2">high</option> 
-            
+
         </select>
-        
+
         <button type="submit" name="form_security_level" value="submit">Set</button>
         <font size="4">Current: <b><?php echo $security_level?></b></font>
-        
-    </form>   
-    
+
+    </form>
+
 </div>
-    
+
 <div id="bug">
 
     <form action="<?php echo($_SERVER["SCRIPT_NAME"]);?>" method="POST">
-        
+
         <label>Choose your bug:</label><br />
-        
+
         <select name="bug">
-   
+
 <?php
 
 // Lists the options from the array 'bugs' (bugs.txt)
 foreach ($bugs as $key => $value)
 {
-    
+
    $bug = explode(",", trim($value));
-   
+
    // Debugging
    // echo "key: " . $key;
    // echo " value: " . $bug[0];
    // echo " filename: " . $bug[1] . "<br />";
-   
+
    echo "<option value='$key'>$bug[0]</option>";
- 
+
 }
 
 ?>

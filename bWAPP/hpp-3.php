@@ -48,14 +48,14 @@ if(isset($_GET["name"]) && isset($_GET["movie"]) && isset($_GET["action"]) && $_
 
         $recordset = mysql_query($sql, $link);
 
-        if (!$recordset)
+        if(!$recordset)
         {
 
             die("Error: " . mysql_error());  
 
         }
 
-        if (mysql_num_rows($recordset) != 0)
+        if(mysql_num_rows($recordset) != 0)
         {    
 
             while($row = mysql_fetch_array($recordset))         

@@ -43,7 +43,7 @@ if(isset($_POST["form"]))
 
     $recordset = $link->query($sql);
 
-    if (!$recordset)
+    if(!$recordset)
     {
 
         die("Error: " . $link->error);

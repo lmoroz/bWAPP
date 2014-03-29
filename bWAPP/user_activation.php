@@ -36,7 +36,7 @@ if(isset($_GET["user"]) && isset($_GET["activation_code"]) )
 
     $recordset = $link->query($sql);             
                              
-    if (!$recordset)
+    if(!$recordset)
     {
 
         die("Error: " . $link->error);
@@ -49,7 +49,7 @@ if(isset($_GET["user"]) && isset($_GET["activation_code"]) )
                 
     $row = $recordset->fetch_object();   
                                                                            
-    if ($row)
+    if($row)
     {
 
         // Debugging              
@@ -63,7 +63,7 @@ if(isset($_GET["user"]) && isset($_GET["activation_code"]) )
 
         $recordset = $link->query($sql);
 
-        if (!$recordset)
+        if(!$recordset)
         {
 
             die("Error: " . $link->error);

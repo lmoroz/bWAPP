@@ -63,7 +63,7 @@ if(isset($_REQUEST["action"]))
 
                     $recordset = $link->query($sql);
 
-                    if (!$recordset)
+                    if(!$recordset)
                     {
 
                         die("Connect Error: " . $link->error);
@@ -107,7 +107,7 @@ if(isset($_REQUEST["action"]))
 
                     $recordset = $link->query($sql);
 
-                    if (!$recordset)
+                    if(!$recordset)
                     {
 
                         die("Connect Error: " . $link->error);

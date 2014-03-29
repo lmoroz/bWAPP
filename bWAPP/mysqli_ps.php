@@ -141,8 +141,8 @@ if(isset($_REQUEST["movie"]))
 
     $sql = "SELECT title, release_year, genre, main_character, imdb FROM movies WHERE id =?";
 
-    if ($stmt = $link->prepare($sql)) 
-    // if ($stmt = mysqli_prepare($link, $sql))                
+    if($stmt = $link->prepare($sql)) 
+    // if($stmt = mysqli_prepare($link, $sql))                
     {
 
         // Binds the parameters for markers

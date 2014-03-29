@@ -18,9 +18,9 @@ Twitter: @MME_IT
 
 include("security.php");
 include("security_level_check.php");
+include("selections.php");
 include("functions_external.php");
 include("connect.php");
-include("selections.php");
 
 $message = "";
 
@@ -143,7 +143,7 @@ function sqli($data)
 
         $recordset = mysql_query($sql, $link);
 
-        if (!$recordset)
+        if(!$recordset)
         {
 
             die("Error: " . mysql_error());

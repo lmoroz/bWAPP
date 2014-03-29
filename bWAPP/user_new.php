@@ -110,7 +110,7 @@ if(isset($_REQUEST["action"]))
 
                     $recordset = $link->query($sql);
 
-                    if (!$recordset)
+                    if(!$recordset)
                     {
 
                         die("Error: " . $link->error);
@@ -124,14 +124,14 @@ if(isset($_REQUEST["action"]))
                     $row = $recordset->fetch_object();
 
                     // If the user is not present
-                    if (!$row)
+                    if(!$row)
                     {
 
                         // Debugging
                         // echo "<br />Row: ";
                         // print_r($row);
 
-                        if ($mail_activation == false)
+                        if($mail_activation == false)
                         {
 
                             $sql = "INSERT INTO users (login, password, email, secret, activated) VALUES ('" . $login . "','" . $password . "','" . $email .  "','" . $secret . "',1)"; 
@@ -141,7 +141,7 @@ if(isset($_REQUEST["action"]))
 
                             $recordset = $link->query($sql);
 
-                            if (!$recordset)
+                            if(!$recordset)
                             {
 
                                 die("Error: " . $link->error);
@@ -208,7 +208,7 @@ if(isset($_REQUEST["action"]))
 
                                 $recordset = $link->query($sql);
 
-                                if (!$recordset)
+                                if(!$recordset)
                                 {
 
                                     die("Error: " . $link->error);

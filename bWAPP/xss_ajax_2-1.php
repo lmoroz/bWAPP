@@ -130,7 +130,7 @@ include("selections.php");
         function process()
         {
             // Proceeds only if the xmlHttp object isn't busy
-            if (xmlHttp.readyState == 4 || xmlHttp.readyState == 0)
+            if(xmlHttp.readyState == 4 || xmlHttp.readyState == 0)
             {
                 // Retrieves the movie title typed by the user on the form
                 // title = document.getElementById("title").value;
@@ -151,10 +151,10 @@ include("selections.php");
         function handleServerResponse()
         {
             // Move forward only if the transaction has completed
-            if (xmlHttp.readyState == 4)
+            if(xmlHttp.readyState == 4)
             {
                 // Status of 200 indicates the transaction completed successfully
-                if (xmlHttp.status == 200)
+                if(xmlHttp.status == 200)
                 {
                     // Extracts the JSON retrieved from the server
 <?php

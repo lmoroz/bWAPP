@@ -83,7 +83,7 @@ include("selections.php");
         {
             var xmlHttp;
             // Code for IE7+, Firefox, Chrome, Opera, Safari
-            if (window.XMLHttpRequest)
+            if(window.XMLHttpRequest)
             {
                 xmlHttp = new XMLHttpRequest();
             }

@@ -29,7 +29,7 @@ $sql = "SELECT * FROM users WHERE login = '" . $login . "'";
 
 $recordset = $link->query($sql);             
 
-if (!$recordset)
+if(!$recordset)
 {
 
     die("Error: " . $link->error);
@@ -38,7 +38,7 @@ if (!$recordset)
 
 $row = $recordset->fetch_object();
 
-if ($row)
+if($row)
 {
 
     $secret = $row->secret;

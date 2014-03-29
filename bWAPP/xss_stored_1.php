@@ -62,6 +62,68 @@ function xss($data)
 
 }
 
+if(isset($_POST["entry_add"]))
+{
+
+    $entry = xss($_POST["entry"]);
+    $owner = $_SESSION["login"];
+
+    if($entry == "")
+    {
+
+        $message =  "<font color=\"red\">Please enter some text...</font>";
+
+    }
+
+    else            
+    { 
+
+        $sql = "INSERT INTO blog (date, entry, owner) VALUES (now(),'" . $entry . "','" . $owner . "')" ;
+
+        $recordset = $link->query($sql);
+
+        if(!$recordset)
+        {
+
+            die("Error: " . $link->error . "<br /><br />");
+
+        }
+
+        // Debugging
+        // echo $sql;
+
+        $message = "<font color=\"green\">Your entry was added to our blog!</font>";
+
+    }
+
+}
+
+else
+{
+
+    if(isset($_POST["entry_delete"]))
+    {
+
+        $sql = "DELETE from blog WHERE owner = '" . $_SESSION["login"] . "'";
+
+        $recordset = $link->query($sql);
+
+        if(!$recordset)
+        {
+
+            die("Error: " . $link->error . "<br /><br />");
+
+        }
+
+        // Debugging
+        // echo $sql;
+
+        $message = "<font color=\"green\">All your entries were deleted!</font>";
+
+    }
+
+}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -119,52 +181,50 @@ function xss($data)
 
     <form action="<?php echo($_SERVER["SCRIPT_NAME"]);?>" method="POST">
 
-        <p><label for="entry">Add an entry to our blog:</label><br />
-        <textarea name="entry" id="entry" cols="60" rows="3"></textarea></p>    
+	<table>
 
-        <button type="submit" name="blog" value="add">Add Entry</button>
+            <tr>
 
-        <?php 
+                <td colspan="6"><p><textarea name="entry" id="entry" cols="80" rows="3"></textarea></p></td>
 
-        if(isset($_POST["blog"])) 
-        {   
+            </tr>
 
-            $entry = xss($_POST["entry"]);
-            $owner = $_SESSION["login"];
+            <tr>
 
-            if($entry == "")
-            {
+                <td width="79" align="left">
 
-                $message =  "<font color=\"red\">Please enter some text...</font>";       
+                    <button type="submit" name="blog" value="submit">Submit</button>
 
-            }
+                </td>
 
-            else            
-            { 
+                <td width="85" align="center">
 
-                $sql = "INSERT INTO blog (date, entry, owner) VALUES (now(),'" . $entry . "','" . $owner . "')" ;   
+                    <label for="entry_add">Add:</label>
+                    <input type="checkbox" id="entry_add" name="entry_add" value="" checked="on">
 
-                $recordset = $link->query($sql);
+                </td>
 
-                if(!$recordset)
-                {
+                <td width="100" align="center">
 
-                    die("Error: " . $link->error . "<br /><br />");          
+                    <label for="entry_all">Show all:</label>
+                    <input type="checkbox" id="entry_all" name="entry_all" value="">
 
-                }
+                </td>
 
-                // Debugging
-                // echo $sql;
+                <td width="106" align="center">
 
-                $message = "The entry was added to our blog!";   
+                    <label for="entry_delete">Delete:</label>
+                    <input type="checkbox" id="entry_delete" name="entry_delete" value="">
 
-            }
+                </td>
 
-        }
+                <td width="7"></td>
 
-                echo "&nbsp;&nbsp;" . $message;
+                <td align="left"><?php echo $message;?></td>
 
-        ?>
+            </tr>
+
+	</table>
 
     </form>
 
@@ -174,7 +234,7 @@ function xss($data)
 
         <tr height="30" bgcolor="#ffb717" align="center">
 
-            <td width="10">#</td>
+            <td width="20">#</td>
             <td width="100"><b>Owner</b></td>
             <td width="100"><b>Date</b></td>
             <td width="445"><b>Entry</b></td>
@@ -184,8 +244,24 @@ function xss($data)
 <?php
 
 // Selects all the records
-$sql = "SELECT * FROM blog";
-$recordset = $link->query($sql);             
+
+$entry_all = isset($_POST["entry_all"]) ? 1 : 0;
+
+if($entry_all == false)
+{
+
+	$sql = "SELECT * FROM blog WHERE owner = '" . $_SESSION["login"] . "'";
+
+}
+
+else
+{
+
+	$sql = "SELECT * FROM blog";
+
+}
+
+$recordset = $link->query($sql);
 
 if(!$recordset)
 {
@@ -195,7 +271,7 @@ if(!$recordset)
 ?>
         <tr height="50">
 
-            <td colspan="4" width="655"><?php die("Error: " . $link->error);?></td>
+            <td colspan="4" width="665"><?php die("Error: " . $link->error);?></td>
             <!--
             <td></td>
             <td></td>

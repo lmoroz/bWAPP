@@ -37,7 +37,7 @@ if(isset($_GET["title"]))
         header("Content-Type: text/json; charset=utf-8");
         
        // Generates the output depending on the movie title received from the client
-        if (in_array(strtoupper($title), $movies))
+        if(in_array(strtoupper($title), $movies))
         {
        
             // Creates the response array
@@ -51,7 +51,7 @@ if(isset($_GET["title"]))
 
         }
 
-        else if (trim($title) == "")       
+        else if(trim($title) == "")       
         {
 
             // Creates the response array
@@ -97,9 +97,9 @@ if(isset($_GET["title"]))
         }
 
         // Generates the output depending on the movie title received from the client
-        if (in_array(strtoupper($title), $movies))
+        if(in_array(strtoupper($title), $movies))
             echo '{"movies":[{"response":"Yes! We have that movie..."}]}';
-        else if (trim($title) == "")
+        else if(trim($title) == "")
             echo '{"movies":[{"response":"HINT: our master really loves Marvel movies :)"}]}';
          else
             echo '{"movies":[{"response":"' . $title . '??? Sorry, we don\'t have that movie :("}]}';

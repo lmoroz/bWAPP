@@ -50,7 +50,7 @@ if($_COOKIE["security_level"] != "1" && $_COOKIE["security_level"] != "2")
 
         $recordset = $link->query($sql);
 
-        if (!$recordset)
+        if(!$recordset)
         {
 
             die("Connect Error: " . $link->error);
@@ -96,7 +96,7 @@ else
 
         $recordset = $link->query($sql);
 
-        if (!$recordset)
+        if(!$recordset)
         {
 
             die("Connect Error: " . $link->error);

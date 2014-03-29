@@ -177,7 +177,7 @@ if(isset($_REQUEST["set"]) && isset($_REQUEST["login"]) && isset($_REQUEST["pass
         // Prints TRUE if the credentials are valid
         // print_r($r);
 
-        if (!$r)
+        if(!$r)
         {
             
             $message = "<font color=\"red\">Invalid credentials or invalid server!</font>";
@@ -190,7 +190,7 @@ if(isset($_REQUEST["set"]) && isset($_REQUEST["login"]) && isset($_REQUEST["pass
             $filter = "(cn=*)"; 
             
             // Checks if the base DN has a valid syntax
-            if (!($search=@ldap_search($ds, $dn, $filter)))
+            if(!($search=@ldap_search($ds, $dn, $filter)))
             {
           
                $message = "<font color=\"red\">Base DN invalid syntax!</font>";             

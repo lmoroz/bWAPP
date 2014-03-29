@@ -41,7 +41,7 @@ function createXmlHttpRequestObject()
 function process()
 {
     // Proceeds only if the xmlHttp object isn't busy
-    if (xmlHttp.readyState == 4 || xmlHttp.readyState == 0)
+    if(xmlHttp.readyState == 4 || xmlHttp.readyState == 0)
     {
         // Retrieves the movie title typed by the user on the form
         title = encodeURIComponent(document.getElementById("title").value);
@@ -61,10 +61,10 @@ function process()
 function handleServerResponse() 
 {
     // Move forward only if the transaction has completed
-    if (xmlHttp.readyState == 4) 
+    if(xmlHttp.readyState == 4) 
     {
         // Status of 200 indicates the transaction completed successfully
-        if (xmlHttp.status == 200) 
+        if(xmlHttp.status == 200) 
         {
             // Extracts the XML retrieved from the server
             xmlResponse = xmlHttp.responseXML;
