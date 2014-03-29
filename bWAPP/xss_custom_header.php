@@ -116,11 +116,11 @@ function xss($data)
 
 <?php
 
-foreach (getallheaders() as $name => $value)
+foreach(getallheaders() as $name => $value)
 {
 
-    $name == "bWAPP")
-    {if(
+    if($name == "bWAPP")
+    {
 
         echo "<i>" . xss($value) ."</i>";
 
