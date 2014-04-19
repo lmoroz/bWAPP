@@ -3,6 +3,28 @@
 bWAPP - Release notes
 ---------------------
 
+v1.9+
+*****
+
+Release date: 19/04/2014
+
+Number of bugs: > 70
+
+New bugs exploitable on bee-box v1.3:
+
+- Heartbleed Vulnerability (OpenSSL)
+- Insecure SNMP configuration
+
+Modifications:
+
+- Blog entries per user ('Show all' and 'Delete' entry options)
+- bWAPP reset functionality only available for users with admin privileges
+
+New features:
+
+- Custom CSS stylesheet for low resolution screens (stylesheet_low_resolution.css)
+
+
 v1.9
 ****
 

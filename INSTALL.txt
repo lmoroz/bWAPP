@@ -16,7 +16,7 @@ Requirements
 ////////////
 
 */ Windows, Linux, Unix, Mac OS,...
-*/ a web server (Apache, IIS,...)
+*/ a web server (Apache, Nginx, IIS,...)
 */ the PHP extensions
 */ a MySQL installation
 */ (or you could install WAMP or XAMPP)
@@ -35,7 +35,7 @@ No! I will not explain how to install Apache/IIS, PHP and MySQL :)
 
 */ Move the directory 'bWAPP' (and the entire content) to the root of your web server.
 
-*/ Give full permission to the directories 'passwords' and 'images'. 
+*/ Give full permission to the directories 'passwords', 'images', 'documents' and 'logs'. 
    This step is optional but it will give you so much fun when exploiting bWAPP with tools like sqlmap and Metasploit.
 
 	example on Linux:
@@ -43,6 +43,7 @@ No! I will not explain how to install Apache/IIS, PHP and MySQL :)
 		chmod 777 passwords/
 		chmod 777 images/
 		chmod 777 documents/
+		chmod 777 logs/
 
 */ Edit the file 'admin/settings.php' with your own database connection settings.
 

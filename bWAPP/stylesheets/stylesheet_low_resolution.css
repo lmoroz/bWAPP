@@ -221,11 +221,10 @@ header h2 {
 }
 
 #sponsor {
-        padding-left: 40px;
         min-height: 100px;
         position: absolute;
-        top: 438px;
-        left: 440px;
+        top: 500px;
+        left: 470px;
 }
 
 .button {

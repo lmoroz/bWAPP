@@ -18,36 +18,40 @@ Twitter: @MME_IT
 
 include("security.php");
 include("security_level_check.php");
-include("functions_external.php");
 include("selections.php");
+include("functions_external.php");
 
-if(isset($_GET["url"]) && ($_COOKIE["security_level"] == "1" || $_COOKIE["security_level"] == "2"))    
+if(isset($_GET["url"]) && ($_COOKIE["security_level"] == "1" || $_COOKIE["security_level"] == "2"))
 {
-    
+
     // Debugging
     // echo "Not sanitized: " . $_GET["url"] . "<br />";
-    // echo "Sanitized: " . url_check_2($_GET["url"]);
-    
-    header("Location: http://" . url_check_2($_GET["url"]));
-                
+    // echo "Sanitized: " . url_check_1($_GET["url"]);
+
+    header("Location: " . url_check_1($_GET["url"]));
+
+    exit;
+
 }
 
 if(isset($_GET["url"]) && ($_COOKIE["security_level"] != "1" && $_COOKIE["security_level"] != "2"))
 {
-   
+
     // Debugging
     // echo "Not sanitized: " . $_GET["url"];
-            
-    header("Location: http://" . $_GET["url"]);
+
+    header("Location: " . $_GET["url"]);
+
+    exit;
 
 }
 
 ?>
 <!DOCTYPE html>
 <html>
-    
+
 <head>
-        
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Architects+Daughter">
@@ -62,14 +66,14 @@ if(isset($_GET["url"]) && ($_COOKIE["security_level"] != "1" && $_COOKIE["securi
 </head>
 
 <body>
-    
+
 <header>
 
 <h1>bWAPP</h1>
 
 <h2>an extremely buggy web app !</h2>
 
-</header>    
+</header>
 
 <div id="menu">
 
@@ -81,7 +85,7 @@ if(isset($_GET["url"]) && ($_COOKIE["security_level"] != "1" && $_COOKIE["securi
             <td><a href="password_change.php">Change Password</a></td>
             <td><a href="user_extra.php">Create User</a></td>
             <td><a href="security_level_set.php">Set Security Level</a></td>
-            <td><a href="reset.php" onclick="return confirm('All settings will be cleared. Are you sure?');">Reset</a></td>            
+            <td><a href="reset.php" onclick="return confirm('All settings will be cleared. Are you sure?');">Reset</a></td>
             <td><a href="credits.php">Credits</a></td>
             <td><a href="http://itsecgames.blogspot.com" target="_blank">Blog</a></td>
             <td><a href="logout.php" onclick="return confirm('Are you sure you want to leave?');">Logout</a></td>
@@ -89,9 +93,9 @@ if(isset($_GET["url"]) && ($_COOKIE["security_level"] != "1" && $_COOKIE["securi
 
         </tr>
 
-    </table>   
+    </table>
 
-</div> 
+</div>
 
     <div id="main">
 
@@ -99,88 +103,88 @@ if(isset($_GET["url"]) && ($_COOKIE["security_level"] != "1" && $_COOKIE["securi
 
     <p>Try to get the <i>new line detected</i> warning...</p>
 
-    <p>Visit our <a href="http_response_splitting.php?url=itsecgames.blogspot.com" target="_blank">blog</a>.</p>
-    
+    <p>Visit our <a href="http_response_splitting.php?url=http://itsecgames.blogspot.com" target="_blank">blog</a>.</p>
+
 </div>
-    
-<div id="side">    
-    
+
+<div id="side">
+
     <a href="http://itsecgames.blogspot.com" target="blank_" class="button"><img src="./images/blogger.png"></a>
     <a href="http://be.linkedin.com/in/malikmesellem" target="blank_" class="button"><img src="./images/linkedin.png"></a>
     <a href="http://twitter.com/MME_IT" target="blank_" class="button"><img src="./images/twitter.png"></a>
     <a href="http://www.facebook.com/pages/MME-IT-Audits-Security/104153019664877" target="blank_" class="button"><img src="./images/facebook.png"></a>
 
-</div>     
-    
+</div>
+
 <div id="disclaimer">
-          
+
     <p>bWAPP is for educational purposes only / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and ask for our cheat sheet, containing all solutions! / Need a <a href="http://www.mmeit.be/bWAPP/training.htm" target="_blank">training</a>? / &copy; 2014 MME BVBA</p>
-   
+
 </div>
-    
+
 <div id="bee">
-    
+
     <img src="./images/bee_1.png">
-    
+
 </div>
-    
+
 <div id="security_level">
-  
+
     <form action="<?php echo($_SERVER["SCRIPT_NAME"]);?>" method="POST">
-        
+
         <label>Set your security level:</label><br />
-        
+
         <select name="security_level">
-            
+
             <option value="0">low</option>
             <option value="1">medium</option>
             <option value="2">high</option> 
-            
+
         </select>
-        
+
         <button type="submit" name="form_security_level" value="submit">Set</button>
         <font size="4">Current: <b><?php echo $security_level?></b></font>
-        
-    </form>   
-    
+
+    </form>
+
 </div>
-    
+
 <div id="bug">
 
     <form action="<?php echo($_SERVER["SCRIPT_NAME"]);?>" method="POST">
-        
+
         <label>Choose your bug:</label><br />
-        
+
         <select name="bug">
-   
+
 <?php
 
 // Lists the options from the array 'bugs' (bugs.txt)
 foreach ($bugs as $key => $value)
 {
-    
+
    $bug = explode(",", trim($value));
-   
+
    // Debugging
    // echo "key: " . $key;
    // echo " value: " . $bug[0];
    // echo " filename: " . $bug[1] . "<br />";
-   
+
    echo "<option value='$key'>$bug[0]</option>";
- 
+
 }
 
 ?>
 
 
         </select>
-        
+
         <button type="submit" name="form_bug" value="submit">Hack</button>
-        
+
     </form>
-    
+
 </div>
-      
+
 </body>
-    
+
 </html>

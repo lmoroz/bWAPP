@@ -1,4 +1,4 @@
-----------------------  bWAPP v1.9  -----------------------,portal.php
+----------------------  bWAPP v1.9+  ---------------------,portal.php
 / A1 - Injection /,portal.php
 HTML Injection - Reflected (GET),htmli_get.php
 HTML Injection - Reflected (POST),htmli_post.php
@@ -64,6 +64,7 @@ Cross-Site Tracing (XST),sm_xst.php
 Denial-of-Service (Slow HTTP DoS),sm_dos_1.php
 Denial-of-Service (XML Bomb),sm_dos_2.php
 Insecure FTP Configuration,sm_ftp.php
+Insecure SNMP Configuration,sm_snmp.php
 Insecure WebDAV Configuration,sm_webdav.php
 Local Privilege Escalation (udev),sm_local_priv_esc.php
 Man-in-the-Middle Attack (HTTP),sm_mitm_1.php
@@ -72,6 +73,7 @@ Old/Backup & Unreferenced Files,sm_obu_files.php
 Robots File,sm_robots.php
 /,portal.php
 / A6 - Sensitive Data Exposure /,portal.php
+Heartbleed Vulnerability,heartbleed.php
 Host Header Attack (Reset Poisoning),hostheader_2.php
 HTML5 Web Storage (Secret),insecure_crypt_storage_1.php
 Insufficient Transport Layer Protection,insuff_transport_layer_protect.php
@@ -94,6 +96,7 @@ Cross-Site Request Forgery (Change Secret),csrf_3.php
 Cross-Site Request Forgery (Transfer Amount),csrf_2.php
 /,portal.php
 / A9 - Using Known Vulnerable Components /,portal.php
+Heartbleed Vulnerability,heartbleed.php
 PHP CGI Remote Code Execution,php_cgi.php
 PHP Eval Function,php_eval.php
 /,portal.php

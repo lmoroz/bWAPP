@@ -92,7 +92,7 @@ if(isset($_POST["form"]) && isset($_POST["bug"]))
     <p>bWAPP, or a buggy web application, is a free and open source deliberately insecure web application.<br />
     It helps security enthusiasts, developers and students to discover and to prevent web vulnerabilities.<br />
     bWAPP covers all major known web vulnerabilities, including all risks from the OWASP Top 10 project!<br />
-    It is for educational purposes only.</p>
+    It is for security-testing and educational purposes only.</p>
 
     <p><i>Which bug do you want to hack today? :)</i></p>
 

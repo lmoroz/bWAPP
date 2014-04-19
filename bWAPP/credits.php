@@ -81,7 +81,7 @@ include("selections.php");
     <p>Download our <a href="http://goo.gl/uVBGnq" target="_blank">What is bWAPP?</a> introduction tutorial, including free materials and exercises...<br />
     I'm also happy to give free bWAPP talks at your security convention or seminar!</p>
 
-    <p>Interested in hands-on skills training? We offer the following exclusive courses and workshops:
+    <p>Need a training? We offer the following exclusive courses and workshops (on demand, at your location):
 
     <ul>
 
@@ -95,7 +95,7 @@ include("selections.php");
 
     </p>
 
-    <p>All our courses and workshops can be scheduled on demand, at your location!</p>
+    <p>Special thanks to David Bloom (@philophobia78) and the Netsparker team!</p>
 
 </div>
 

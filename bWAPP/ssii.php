@@ -71,7 +71,7 @@ if(isset($_POST["form"]))
     else
     {
 
-        $line = '<p>Hello ' . $firstname . ' ' . $lastname . ',</p><p>Your IP address is:' . '<h1><!--#echo var="REMOTE_ADDR" --></h1></p>';
+        $line = '<p>Hello ' . $firstname . ' ' . $lastname . ',</p><p>Your IP address is:' . '</p><h1><!--#echo var="REMOTE_ADDR" --></h1>';
 
         // Writes a new line to the file
         $fp = fopen("ssii.shtml", "w");
