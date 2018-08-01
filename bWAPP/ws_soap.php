@@ -20,7 +20,7 @@ require("soap/nusoap.php");
 $server = new nusoap_server();
 
 // Specifies the name of the server and the namespace
-$server->configureWSDL("the bWAPP movie service", "urn:movie_service");
+$server->configureWSDL("*** bWAPP Movie Service ***", "urn:movie_service");
 
 // Registers the function we created with the SOAP server and passes several different parameters to the register method
 // The first parameter is the name of the function

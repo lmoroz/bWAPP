@@ -5,36 +5,63 @@
 bWAPP, or a buggy web application, is a free and open source deliberately insecure web application.
 It helps security enthusiasts, developers and students to discover and to prevent web vulnerabilities.
 bWAPP covers all major known web vulnerabilities, including all risks from the OWASP Top 10 project!
-It is for educational purposes only.
+It is for security-testing and educational purposes only.
 
 Enjoy!
 
 Malik Mesellem
 Twitter: @MME_IT
 
-© 2014 MME BVBA. All rights reserved.
+bWAPP is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License (http://creativecommons.org/licenses/by-nc-nd/4.0/). Copyright © 2014 MME BVBA. All rights reserved.
 
 */
 
 include("security.php");
 include("security_level_check.php");
-include("functions_external.php");
-include("connect_i.php");
 include("selections.php");
+include("functions_external.php");
+include("connect.php");
 
-if($_COOKIE["security_level"] != "2")
+if($_COOKIE["security_level"] == "2")
 {
     
-    header("Location: sqli_2.php");
+    header("Location: sqli_13-ps.php");
     
     exit;
     
 }
 
 // Selects all the records
-$sql = "select * from movies";
+$sql = "SELECT * FROM movies";
 
-$recordset = $link->query($sql); 
+$recordset = mysql_query($sql, $link);  
+
+function sqli($data)
+{
+         
+    switch($_COOKIE["security_level"])
+    {
+        
+        case "0" : 
+            
+            $data = no_check($data);            
+            break;
+        
+        case "1" :
+            
+            $data = sqli_check_2($data);
+            break;
+        
+        default : 
+            
+            $data = no_check($data);            
+            break;   
+
+    }       
+
+    return $data;
+
+}
 
 ?>
 <!DOCTYPE html>
@@ -44,7 +71,7 @@ $recordset = $link->query($sql);
         
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Architects+Daughter">
+<!--<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Architects+Daughter">-->
 <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
 <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
 
@@ -66,11 +93,11 @@ $recordset = $link->query($sql);
 </header>    
 
 <div id="menu">
-      
+
     <table>
-        
+
         <tr>
-            
+
             <td><a href="portal.php">Bugs</a></td>
             <td><a href="password_change.php">Change Password</a></td>
             <td><a href="user_extra.php">Create User</a></td>
@@ -80,19 +107,19 @@ $recordset = $link->query($sql);
             <td><a href="http://itsecgames.blogspot.com" target="_blank">Blog</a></td>
             <td><a href="logout.php" onclick="return confirm('Are you sure you want to leave?');">Logout</a></td>
             <td><font color="red">Welcome <?php if(isset($_SESSION["login"])){echo ucwords($_SESSION["login"]);}?></font></td>
-            
+
         </tr>
-        
+
     </table>   
-   
+
 </div> 
 
 <div id="main">
-    
-    <h1>SQL Injection (Select)</h1>
 
-    <form action="<?php echo($_SERVER["SCRIPT_NAME"]); ?>" method="GET">
-        
+    <h1>SQL Injection (POST/Select)</h1>
+
+    <form action="<?php echo($_SERVER["SCRIPT_NAME"]); ?>" method="POST">
+
         <p>Select a movie:
 
         <select name="movie">
@@ -100,23 +127,21 @@ $recordset = $link->query($sql);
 <?php
 
             // Fills the 'select' object
-            while($row = $recordset->fetch_object())
+            while($row = mysql_fetch_array($recordset))
             {
 
 ?>
-                <option value="<?php echo $row->id;?>"><?php echo $row->title; ?></option>
+            <option value="<?php echo $row["id"];?>"><?php echo $row["title"];?></option>
 <?php
 
             }
-
-            $recordset->close();            
 
 ?>
 
         </select>   
 
         <button type="submit" name="action" value="go">Go</button>
-        
+
         </p>
 
     </form>
@@ -134,89 +159,70 @@ $recordset = $link->query($sql);
         </tr>
 <?php
 
-if(isset($_REQUEST["movie"]))
+if(isset($_POST["movie"]))
 {   
 
-    $id = $_REQUEST["movie"];
+    $id = $_POST["movie"];
 
-    $sql = "SELECT title, release_year, genre, main_character, imdb FROM movies WHERE id =?";
+    $sql = "SELECT * FROM movies";
 
-    if($stmt = $link->prepare($sql)) 
-    // if($stmt = mysqli_prepare($link, $sql))                
+    // If the user selects a movie
+    if($id)        
     {
 
-        // Binds the parameters for markers
-        $stmt->bind_param("s", $id);
-        // mysqli_stmt_bind_param($stmt, "s", $id);
+        $sql.= " WHERE id = " . sqli($id);
 
-        // Executes the query
-        $stmt->execute();
-        // mysqli_stmt_execute($stmt);
+    }
 
-        // Binds the result variables
-        $stmt->bind_result($title, $release_year, $genre, $main_character, $imdb);
-        // mysqli_stmt_bind_result($stmt, $title, $release_year, $genre, $main_character, $imdb);
+    $recordset = mysql_query($sql, $link);
 
-        // Stores the result, necessary to count the number of rows
-        $stmt->store_result();      
-        // mysqli_stmt_store_result($stmt);
+    if(!$recordset)
+    {
 
-        // Prints the number of rows
-        // printf("Number of rows: %d.\n", mysqli_stmt_num_rows($stmt));
-        // printf("Number of rows: %d.\n", $stmt->num_rows);      
-
-        if($stmt->error)
-        // if(mysqli_stmt_error($stmt))
-        {        
+        // die("Error: " . mysql_error());
 
 ?>
 
         <tr height="50">
 
-            <td colspan="5" width="580"><?php die("Error: " . $stmt->error); ?></td>
+            <td colspan="5" width="580"><?php die("Error: " . mysql_error()); ?></td>
             <!--
             <td></td>
             <td></td>
             <td></td>
             <td></td> 
-            -->                
+            -->
 
         </tr>
 <?php        
 
-        }
+    }
 
-        // Shows the movie details when a valid record exists;
-        if($stmt->affected_rows != 0)
-        // if(mysqli_stmt_affected_rows($stmt) != 0)  
-        {
+    // Shows the movie details when a valid record exists
+    if(mysql_num_rows($recordset) != 0)
+    {    
 
-            // Fetches the values
-            $stmt->fetch();
-            // mysqli_stmt_fetch($stmt);
+        $row = mysql_fetch_array($recordset);        
 
-            // while ($stmt->fetch()) 
-            // {
-            //    
-            // }
+        // print_r($row);
 
 ?>
 
         <tr height="30">
 
-            <td><?php echo $title ?></td>
-            <td><?php echo $release_year ?></td>
-            <td><?php echo $main_character ?></td>
-            <td><?php echo $genre ?></td>
-            <td><a href="http://www.imdb.com/title/<?php echo $imdb ?>" target="_blank">Link</a></td>
+            <td><?php echo $row["title"]; ?></td>
+            <td align="center"><?php echo $row["release_year"]; ?></td>
+            <td><?php echo $row["main_character"]; ?></td>
+            <td align="center"><?php echo $row["genre"]; ?></td>
+            <td align="center"><a href="http://www.imdb.com/title/<?php echo $row["imdb"]; ?>" target="_blank">Link</a></td>
 
-        </tr>      
+        </tr>     
 <?php     
 
-        }
+    }
 
-        else
-        {
+    else
+    {
 
 ?>
 
@@ -231,19 +237,14 @@ if(isset($_REQUEST["movie"]))
             -->
 
         </tr>      
-<?php    
-
-        }
-
-        $stmt->close();
-        // mysqli_stmt_close($stmt);
+<?php        
 
     }
 
 }
 
-    else
-    {
+else
+{
 
 ?>
 
@@ -260,9 +261,9 @@ if(isset($_REQUEST["movie"]))
         </tr>
 <?php
 
-    }
+}
 
-mysqli_close($link);
+mysql_close($link);
 
 ?>
 
@@ -272,16 +273,16 @@ mysqli_close($link);
     
 <div id="side">    
     
-    <a href="http://itsecgames.blogspot.com" target="blank_" class="button"><img src="./images/blogger.png"></a>
-    <a href="http://be.linkedin.com/in/malikmesellem" target="blank_" class="button"><img src="./images/linkedin.png"></a>
     <a href="http://twitter.com/MME_IT" target="blank_" class="button"><img src="./images/twitter.png"></a>
+    <a href="http://be.linkedin.com/in/malikmesellem" target="blank_" class="button"><img src="./images/linkedin.png"></a>
     <a href="http://www.facebook.com/pages/MME-IT-Audits-Security/104153019664877" target="blank_" class="button"><img src="./images/facebook.png"></a>
+    <a href="http://itsecgames.blogspot.com" target="blank_" class="button"><img src="./images/blogger.png"></a>
 
 </div>     
     
 <div id="disclaimer">
           
-    <p>bWAPP is for educational purposes only / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and ask for our cheat sheet, containing all solutions! / Need a <a href="http://www.mmeit.be/bWAPP/training.htm" target="_blank">training</a>? / &copy; 2014 MME BVBA</p>
+    <p>bWAPP is licensed under <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank"><img style="vertical-align:middle" src="./images/cc.png"></a> &copy; 2014 MME BVBA / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and ask for our cheat sheet, containing all solutions! / Need an exclusive <a href="http://www.mmebvba.com" target="_blank">training</a>?</p>
    
 </div>
     

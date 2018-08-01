@@ -3,6 +3,85 @@
 bWAPP - Release notes
 ---------------------
 
+v2.2
+****
+
+Release date: 2/11/2014
+
+Number of bugs: > 100
+
+New bugs:
+
+- Insecure iFrame (Login Form)
+
+New bugs exploitable on bee-box v1.6:
+
+- Drupal SQL Injection (Drupageddon)
+- POODLE Vulnerability
+- SQLiteManager Local File Inclusion
+
+
+v2.1
+****
+
+Release date: 27/09/2014
+
+Number of bugs: > 100
+
+New bugs:
+
+- Base64 Encoding (Secret)
+- Broken Authentication - CAPTCHA Bypassing
+- Cross-Site Scripting - Stored (User-Agent)
+- iFrame Injection
+- SQL Injection - Stored (User-Agent)
+
+New bugs exploitable on bee-box v1.5:
+
+- Shellshock Vulnerability (CGI)
+
+
+v2.0
+****
+
+Release date: 12/05/2014
+
+Number of bugs: > 90
+
+New bugs:
+
+- Cross-Site Scripting - Reflected (Login Form)
+- SQL Injection (AJAX/JSON/jQuery)
+- SQL Injection (POST/Select)
+- SQL Injection (Login Form/User)
+- SQL Injection (SQLite)
+- SQL Injection - Stored (SQLite)
+- SQL Injection - Blind - Time-Based
+- SQL Injection - Blind (SQLite)
+
+New bugs exploitable on bee-box v1.4:
+
+- BEAST/CRIME/BREACH Attacks
+- Buffer Overflow (Local)
+- Buffer Overflow (Remote)
+- Denial-of-Service (Large Chunk Size)
+- Denial-of-Service (SSL-Exhaustion)
+- Local Privilege Escalation (sendpage)
+- phpMyAdmin BBCode Tag XSS
+- SQLiteManager PHP Code Injection
+- SQLiteManager XSS
+- SSL 2.0 Deprecated Protocol
+
+Modifications:
+
+- Google fonts are stored locally
+
+New features:
+
+- A.I.M. subnet functionality
+- bWAPP is licensed under Creative Commons (Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International)
+
+
 v1.9+
 *****
 

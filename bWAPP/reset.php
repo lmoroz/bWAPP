@@ -5,14 +5,14 @@
 bWAPP, or a buggy web application, is a free and open source deliberately insecure web application.
 It helps security enthusiasts, developers and students to discover and to prevent web vulnerabilities.
 bWAPP covers all major known web vulnerabilities, including all risks from the OWASP Top 10 project!
-It is for educational purposes only.
+It is for security-testing and educational purposes only.
 
 Enjoy!
 
 Malik Mesellem
 Twitter: @MME_IT
 
-© 2014 MME BVBA. All rights reserved.
+bWAPP is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License (http://creativecommons.org/licenses/by-nc-nd/4.0/). Copyright © 2014 MME BVBA. All rights reserved.
 
 */
 
@@ -26,8 +26,13 @@ $db_reset = false;
 
 // Cookie operations
 
-// Deletes the cookie 'admin'
-setcookie("admin", "0", time()-300, "/", "", false, false);
+// Deletes the cookies
+setcookie("admin", "", time()-3600, "/", "", false, false);
+setcookie("movie_genre", "", time()-3600, "/", "", false, false);
+setcookie("secret", "", time()-3600, "/", "", false, false);
+setcookie("top_security", "", time()-3600, "/", "", false, false);
+setcookie("top_security_nossl", "", time()-3600, "/", "", false, false);
+setcookie("top_security_ssl", "", time()-3600, "/", "", false, false);
 
 // Executed only when the user has admin privileges (= database setting)
 if($_SESSION["admin"] != "1")
@@ -54,7 +59,7 @@ else
 
     }
 
-    // Deletes the file 'account'
+    // Deletes the file 'account.txt'
     $file = "passwords/accounts.txt";
 
     if(file_exists($file))
@@ -66,6 +71,16 @@ else
 
     // Deletes the file 'ssii.shtml'
     $file = "ssii.shtml";
+
+    if(file_exists($file))
+    {
+
+        unlink($file);
+
+    }
+
+    // Deletes the file 'visitors.txt'
+    $file = "logs/visitors.txt";
 
     if(file_exists($file))
     {
@@ -168,6 +183,31 @@ else
     $sql.= "entry varchar(500) DEFAULT NULL,date datetime DEFAULT NULL,PRIMARY KEY (id)) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1";
 
     $recordset = $link->query($sql);
+
+    if(!$recordset)
+    {
+
+        die("Error: " . $link->error);
+
+    }
+    
+    // Drops the table 'visitors' 
+    $sql = "DROP TABLE IF EXISTS visitors";
+
+    $recordset = $link->query($sql);             
+
+    if(!$recordset)
+    {
+
+        die("Error: " . $link->error);
+
+    }
+
+    // Creates the table 'visitors'
+    $sql = "CREATE TABLE IF NOT EXISTS visitors (id int(10) NOT NULL AUTO_INCREMENT,ip_address varchar(50) DEFAULT NULL,";
+    $sql.= "user_agent varchar(500) DEFAULT NULL,date datetime DEFAULT NULL,PRIMARY KEY (id)) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1";
+
+    $recordset = $link->query($sql);             
 
     if(!$recordset)
     {
@@ -320,7 +360,7 @@ else
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Architects+Daughter">
+<!--<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Architects+Daughter">-->
 <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
 <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
 
@@ -373,16 +413,16 @@ else
 
 <div id="side">
 
-    <a href="http://itsecgames.blogspot.com" target="blank_" class="button"><img src="./images/blogger.png"></a>
-    <a href="http://be.linkedin.com/in/malikmesellem" target="blank_" class="button"><img src="./images/linkedin.png"></a>
     <a href="http://twitter.com/MME_IT" target="blank_" class="button"><img src="./images/twitter.png"></a>
+    <a href="http://be.linkedin.com/in/malikmesellem" target="blank_" class="button"><img src="./images/linkedin.png"></a>
     <a href="http://www.facebook.com/pages/MME-IT-Audits-Security/104153019664877" target="blank_" class="button"><img src="./images/facebook.png"></a>
+    <a href="http://itsecgames.blogspot.com" target="blank_" class="button"><img src="./images/blogger.png"></a>
 
 </div>
 
 <div id="disclaimer">
 
-    <p>bWAPP is for educational purposes only / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and ask for our cheat sheet, containing all solutions! / Need a <a href="http://www.mmeit.be/bWAPP/training.htm" target="_blank">training</a>? / &copy; 2014 MME BVBA</p>
+    <p>bWAPP is licensed under <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank"><img style="vertical-align:middle" src="./images/cc.png"></a> &copy; 2014 MME BVBA / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and ask for our cheat sheet, containing all solutions! / Need an exclusive <a href="http://www.mmebvba.com" target="_blank">training</a>?</p>
 
 </div>
 

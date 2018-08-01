@@ -5,14 +5,14 @@
 bWAPP, or a buggy web application, is a free and open source deliberately insecure web application.
 It helps security enthusiasts, developers and students to discover and to prevent web vulnerabilities.
 bWAPP covers all major known web vulnerabilities, including all risks from the OWASP Top 10 project!
-It is for educational purposes only.
+It is for security-testing and educational purposes only.
 
 Enjoy!
 
 Malik Mesellem
 Twitter: @MME_IT
 
-© 2014 MME BVBA. All rights reserved.
+bWAPP is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License (http://creativecommons.org/licenses/by-nc-nd/4.0/). Copyright © 2014 MME BVBA. All rights reserved.
 
 */
 
@@ -23,24 +23,24 @@ if(isset($_COOKIE["security_level"]))
 
     switch($_COOKIE["security_level"])
     {
-        
+
         case "0" :
-            
+
             $security_level = "low";
             break;
-        
+
         case "1" :
-            
+
             $security_level = "medium";
             break;
-        
+
         case "2" :
-            
+
             $security_level = "high";
             break;
 
         case "666" :
-            
+
             $security_level = "666";
             break;
 
@@ -50,25 +50,25 @@ if(isset($_COOKIE["security_level"]))
             break;
 
     }
-    
+
 }
 
 else
 {
-     
+
     $security_level = "not set";
-    
+
 }
 
 ?>
 <!DOCTYPE html>
 <html>
-    
+
 <head>
-        
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Architects+Daughter">
+<!--<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Architects+Daughter">-->
 <link rel="stylesheet" type="text/css" href="../stylesheets/stylesheet.css" media="screen" />
 <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon" />
 
@@ -80,19 +80,19 @@ else
 </head>
 
 <body>
-    
+
 <header>
 
 <h1>bWAPP</h1>
 
 <h2>an extremely buggy web app !</h2>
 
-</header>    
+</header>
 
 <div id="menu">
 
     <table>
- 
+
         <tr>
 
             <td><font color="#ffb717">Admin Portal</font></td>
@@ -100,9 +100,9 @@ else
 
         </tr>
 
-    </table>   
+    </table>
 
-</div> 
+</div>
 
 <div id="main">
 
@@ -133,7 +133,7 @@ else
             <td>Used for e-mail functionality</td>
 
         </tr>
-        
+
         <tr height="50">
 
             <td>A.I.M. IP Address</td>
@@ -141,7 +141,7 @@ else
             <td>A no-authentication mode, for testing web scanners and crawlers</td>
 
         </tr>
-        
+
         <tr height="50">
 
             <td>Evil Bee Mode</td>
@@ -149,40 +149,40 @@ else
             <td>All security levels are bypassed in this mode</td>
 
         </tr>
-        
+
         <tr height="50">
 
             <td>Credentials</td>
             <td align="center"><?php echo $login . "/" . $password ?></td>
             <td>Static credentials used on some pages</td>
 
-        </tr>      
+        </tr>
 
     </table>
-    
+
 </div>
-    
-<div id="side">    
-    
+
+<div id="side">
+
     <a href="http://itsecgames.blogspot.com" target="blank_" class="button"><img src="../images/blogger.png"></a>
     <a href="http://be.linkedin.com/in/malikmesellem" target="blank_" class="button"><img src="../images/linkedin.png"></a>
     <a href="http://twitter.com/MME_IT" target="blank_" class="button"><img src="../images/twitter.png"></a>
     <a href="http://www.facebook.com/pages/MME-IT-Audits-Security/104153019664877" target="blank_" class="button"><img src="../images/facebook.png"></a>
 
-</div>     
-    
+</div>
+
 <div id="disclaimer">
-          
-    <p>bWAPP is for educational purposes only / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and ask for our cheat sheet, containing all solutions! / Need a <a href="http://www.mmeit.be/bWAPP/training.htm" target="_blank">training</a>? / &copy; 2014 MME BVBA</p>
-   
+
+    <p>bWAPP is licensed under <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank"><img style="vertical-align:middle" src="../images/cc.png"></a> &copy; 2014 MME BVBA / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and ask for our cheat sheet, containing all solutions! / Need an exclusive <a href="http://www.mmebvba.com" target="_blank">training</a>?</p>
+
 </div>
-    
+
 <div id="bee">
-    
+
     <img src="../images/bee_1.png">
-    
+
 </div>
-      
+
 </body>
-    
+
 </html>

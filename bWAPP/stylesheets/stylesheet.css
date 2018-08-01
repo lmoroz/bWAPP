@@ -95,7 +95,7 @@ header {
         background: #ffb717 url("../images/bg_1.jpg") 0px 0px repeat-x;
         border-bottom: solid 0px #191919;
         padding-top: 44px;
-        padding-bottom: 42px;
+        padding-bottom: 38px;
         padding-left: 100px;
         min-width: 1160px;
         /*min-width: 940px;*/
@@ -211,6 +211,15 @@ header h2 {
         padding-left: 15px;
 }
 
+#frame {
+        position: relative;
+        margin-bottom: 50px;
+}
+
+#frame p {
+        padding-bottom: 12px;
+}
+
 #side {
         background: transparent url("../images/sb_1.jpg") 0 0 no-repeat;
         padding-left: 40px;
@@ -222,8 +231,17 @@ header h2 {
 
 #sponsor {
         min-height: 100px;
+        min-width: 467px;
         position: absolute;
         top: 500px;
+        left: 470px;
+}
+
+#sponsor_2 {
+        min-height: 100px;
+        min-width: 467px;
+        position: absolute;
+        top: 300px;
         left: 470px;
 }
 
@@ -237,7 +255,7 @@ header h2 {
         font-size: 14px;
         color: #ffffff;
         background: url("../images/bg_2.jpg") 0px 0px repeat-x;
-        padding: 6px;
+        padding: 9px;
         padding-left: 50px;
         position: fixed;
         bottom: 0px;
@@ -296,4 +314,11 @@ header h2 {
         font-family: Arial;
         width: 350px;
         padding: 1px;
+}
+
+@font-face {
+  font-family: 'Architects Daughter';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Architects Daughter'), local('ArchitectsDaughter'), url(../fonts/architectsdaughter.ttf) format('truetype');
 }

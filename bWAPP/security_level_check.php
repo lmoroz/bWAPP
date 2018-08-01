@@ -5,22 +5,32 @@
 bWAPP, or a buggy web application, is a free and open source deliberately insecure web application.
 It helps security enthusiasts, developers and students to discover and to prevent web vulnerabilities.
 bWAPP covers all major known web vulnerabilities, including all risks from the OWASP Top 10 project!
-It is for educational purposes only.
+It is for security-testing and educational purposes only.
 
 Enjoy!
 
 Malik Mesellem
 Twitter: @MME_IT
 
-© 2014 MME BVBA. All rights reserved.
+bWAPP is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License (http://creativecommons.org/licenses/by-nc-nd/4.0/). Copyright © 2014 MME BVBA. All rights reserved.
 
 */
 
 include("admin/settings.php");
 
-// if(!(isset($_COOKIE["security_level"])))
+$addresses = array();
+@list($ip, $len) = explode('/', $AIM_subnet);
 
-if(!(isset($_COOKIE["security_level"])) && !(in_array($_SERVER["REMOTE_ADDR"], $AIM_IPs)))
+if(($min = ip2long($ip)) !== false)
+{
+
+    $max = ($min | (1<<(32-$len))-1);
+    for($i = $min; $i < $max; $i++)
+    $addresses[] = long2ip($i);
+
+}
+
+if(!(isset($_COOKIE["security_level"])) && !(in_array($_SERVER["REMOTE_ADDR"], $AIM_IPs)) && !(in_array($_SERVER["REMOTE_ADDR"], $addresses)))
 {
 
     header("Location: security_level_set.php");

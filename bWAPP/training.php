@@ -5,14 +5,14 @@
 bWAPP, or a buggy web application, is a free and open source deliberately insecure web application.
 It helps security enthusiasts, developers and students to discover and to prevent web vulnerabilities.
 bWAPP covers all major known web vulnerabilities, including all risks from the OWASP Top 10 project!
-It is for educational purposes only.
+It is for security-testing and educational purposes only.
 
 Enjoy!
 
 Malik Mesellem
 Twitter: @MME_IT
 
-© 2014 MME BVBA. All rights reserved.
+bWAPP is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License (http://creativecommons.org/licenses/by-nc-nd/4.0/). Copyright © 2014 MME BVBA. All rights reserved.
 
 */
 
@@ -24,7 +24,7 @@ Twitter: @MME_IT
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Architects+Daughter">
+<!--<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Architects+Daughter">-->
 <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
 <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
 
@@ -49,7 +49,7 @@ Twitter: @MME_IT
 
     <table>
 
-        <tr>   
+        <tr>
 
             <td><a href="login.php">Login</a></td>
             <td><a href="user_new.php">New User</a></td>
@@ -67,8 +67,12 @@ Twitter: @MME_IT
 
     <h1>Talks & Training</h1>
 
-    <p>We are happy to give free bWAPP talks at your security convention or seminar!<br />
-    Meet us at <a href="http://www.infosecurity.be" target="_blank">Infosecurity</a> in Brussels Expo Belgium, on March 26th 2014, for our next bWAPP presentation.</p>
+    <p>We are happy to give bWAPP talks and workshops at your security convention or seminar!<br />
+    This year we were at 
+    <a href="http://bsidesorlando.org/2014/malik-mesellem-what-is-bwapp-web-application-penetration-testing-with-bwapp" target="_blank">B-Sides Orlando</a>, 
+    <a href="http://www.infosecurity.be" target="_blank">Infosecurity Belgium</a>, 
+    <a href="http://www.sans.org/event/sans-2014/bonus-sessions/4407" target="_blank">SANS 2014</a>, and the 
+    <a href="http://trusteddigitalidentity.com/" target="_blank">TDI Symposium</a>.</p>
 
     <p>Interested in hands-on skills training? We offer the following exclusive courses and workshops:
 
@@ -93,16 +97,16 @@ Twitter: @MME_IT
 
 <div id="side">
 
-    <a href="http://itsecgames.blogspot.com" target="blank_" class="button"><img src="./images/blogger.png"></a>
-    <a href="http://be.linkedin.com/in/malikmesellem" target="blank_" class="button"><img src="./images/linkedin.png"></a>
     <a href="http://twitter.com/MME_IT" target="blank_" class="button"><img src="./images/twitter.png"></a>
+    <a href="http://be.linkedin.com/in/malikmesellem" target="blank_" class="button"><img src="./images/linkedin.png"></a>
     <a href="http://www.facebook.com/pages/MME-IT-Audits-Security/104153019664877" target="blank_" class="button"><img src="./images/facebook.png"></a>
+    <a href="http://itsecgames.blogspot.com" target="blank_" class="button"><img src="./images/blogger.png"></a>
 
 </div>
 
 <div id="disclaimer">
 
-    <p>bWAPP is for educational purposes only / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and ask for our cheat sheet, containing all solutions! / Need a <a href="http://www.mmeit.be/bWAPP/training.htm" target="_blank">training</a>? / &copy; 2014 MME BVBA</p>
+    <p>bWAPP is licensed under <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank"><img style="vertical-align:middle" src="./images/cc.png"></a> &copy; 2014 MME BVBA / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and ask for our cheat sheet, containing all solutions! / Need an exclusive <a href="http://www.mmebvba.com" target="_blank">training</a>?</p>
 
 </div>
 
