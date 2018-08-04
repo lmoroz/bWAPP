@@ -78,7 +78,7 @@ include("selections.php");
     <p>The web server is vulnerable to the POODLE attack. (<a href="http://sourceforge.net/projects/bwapp/files/bee-box/" target="_blank">bee-box</a> only)</p>
 
     <p>If disabling SSLv3 is not an option, then consider implementing TLS_FALLBACK_SCSV.</p>
-    
+
     <p>More info: <a href="https://www.openssl.org/~bodo/ssl-poodle.pdf" target="_blank">Exploiting The SSL 3.0 Fallback</a></p>
 
 </div>
@@ -125,41 +125,7 @@ include("selections.php");
 
 </div>
 
-<div id="bug">
-
-    <form action="<?php echo($_SERVER["SCRIPT_NAME"]);?>" method="POST">
-
-        <label>Choose your bug:</label><br />
-
-        <select name="bug">
-
-<?php
-
-// Lists the options from the array 'bugs' (bugs.txt)
-foreach ($bugs as $key => $value)
-{
-
-   $bug = explode(",", trim($value));
-
-   // Debugging
-   // echo "key: " . $key;
-   // echo " value: " . $bug[0];
-   // echo " filename: " . $bug[1] . "<br />";
-
-   echo "<option value='$key'>$bug[0]</option>";
-
-}
-
-?>
-
-
-        </select>
-
-        <button type="submit" name="form_bug" value="submit">Hack</button>
-
-    </form>
-
-</div>
+<?php require_once('_select_inc.php'); ?>
 
 </body>
 

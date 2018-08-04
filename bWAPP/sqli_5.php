@@ -27,26 +27,26 @@ function sqli($data)
 
     switch($_COOKIE["security_level"])
     {
-        
-        case "0" : 
-            
-            $data = no_check($data);           
+
+        case "0" :
+
+            $data = no_check($data);
             break;
-        
+
         case "1" :
-            
+
             $data = sqli_check_1($data);
             break;
-        
-        case "2" :            
-                       
-            $data = sqli_check_2($data);            
+
+        case "2" :
+
+            $data = sqli_check_2($data);
             break;
-        
-        default : 
-            
-            $data = no_check($data);            
-            break;   
+
+        default :
+
+            $data = no_check($data);
+            break;
 
     }
 
@@ -93,7 +93,7 @@ function sqli($data)
             <td><a href="password_change.php">Change Password</a></td>
             <td><a href="user_extra.php">Create User</a></td>
             <td><a href="security_level_set.php">Set Security Level</a></td>
-            <td><a href="reset.php" onclick="return confirm('All settings will be cleared. Are you sure?');">Reset</a></td>     
+            <td><a href="reset.php" onclick="return confirm('All settings will be cleared. Are you sure?');">Reset</a></td>
             <td><a href="credits.php">Credits</a></td>
             <td><a href="http://itsecgames.blogspot.com" target="_blank">Blog</a></td>
             <td><a href="logout.php" onclick="return confirm('Are you sure you want to leave?');">Logout</a></td>
@@ -120,10 +120,10 @@ function sqli($data)
             // Selects all the records
             $sql = "SELECT * FROM movies";
 
-            $recordset = mysql_query($sql, $link);
+            $recordset = mysqli_query($link, $sql);
 
             // Fills the 'select' object
-            while($row = mysql_fetch_array($recordset))
+            while($row = mysqli_fetch_array($recordset))
             {
 
 ?>
@@ -132,7 +132,7 @@ function sqli($data)
 
             }
 
-            mysql_close($link);
+            mysqli_close($link);
 
 ?>
 
@@ -147,7 +147,7 @@ function sqli($data)
 <?php
 
 if(isset($_REQUEST["title"]))
-{   
+{
 
     // Includes the NuSOAP library
     require_once("soap/nusoap.php");
@@ -208,41 +208,7 @@ if(isset($_REQUEST["title"]))
 
 </div>
 
-<div id="bug">
-
-    <form action="<?php echo($_SERVER["SCRIPT_NAME"]);?>" method="POST">
-
-        <label>Choose your bug:</label><br />
-
-        <select name="bug">
-
-<?php
-
-// Lists the options from the array 'bugs' (bugs.txt)
-foreach ($bugs as $key => $value)
-{
-
-   $bug = explode(",", trim($value));
-
-   // Debugging
-   // echo "key: " . $key;
-   // echo " value: " . $bug[0];
-   // echo " filename: " . $bug[1] . "<br />";
-
-   echo "<option value='$key'>$bug[0]</option>";
-
-}
-
-?>
-
-
-        </select>
-
-        <button type="submit" name="form_bug" value="submit">Hack</button>
-
-    </form>
-
-</div>
+<?php require_once('_select_inc.php'); ?>
 
 </body>
 

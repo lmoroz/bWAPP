@@ -27,7 +27,7 @@ $message = "";
 
 function xmli($data)
 {
-    
+
     if(isset($_COOKIE["security_level"]))
     {
 
@@ -86,7 +86,7 @@ if(isset($_REQUEST["login"]) & isset($_REQUEST["password"]))
     {
 
         $message =  "<p>Welcome <b>" . ucwords($result[0]->login) . "</b>, how are you today?</p><p>Your secret: <b>" . $result[0]->secret . "</b></p>";
- 
+
     }
 
     else
@@ -282,41 +282,7 @@ if(isset($_REQUEST["login"]) & isset($_REQUEST["password"]))
 
 </div>
 
-<div id="bug">
-
-    <form action="<?php echo($_SERVER["SCRIPT_NAME"]);?>" method="POST">
-
-        <label>Choose your bug:</label><br />
-
-        <select name="bug">
-
-<?php
-
-// Lists the options from the array 'bugs' (bugs.txt)
-foreach ($bugs as $key => $value)
-{
-
-   $bug = explode(",", trim($value));
-
-   // Debugging
-   // echo "key: " . $key;
-   // echo " value: " . $bug[0];
-   // echo " filename: " . $bug[1] . "<br />";
-
-   echo "<option value='$key'>$bug[0]</option>";
-
-}
-
-?>
-
-
-        </select>
-
-        <button type="submit" name="form_bug" value="submit">Hack</button>
-
-    </form>
-
-</div>
+<?php require_once('_select_inc.php'); ?>
 
 </body>
 

@@ -20,19 +20,20 @@ include("security.php");
 include("security_level_check.php");
 include("selections.php");
 
-if(isset($_POST["form"]) && isset($_POST["bug"]))
-{
+  if(isset($_POST["form_bug"]) && isset($_POST["bug"]))
+  {
 
     $key = $_POST["bug"];
     $bug = explode(",", trim($bugs[$key]));
 
     // Debugging
-    // echo " value: " . $bug[0];
-    // echo " filename: " . $bug[1] . "<br />";
+    // print_r($bug);
 
     header("Location: " . $bug[1]);
 
-}
+    exit;
+
+  }
 
 ?>
 <!DOCTYPE html>
@@ -112,8 +113,11 @@ if(isset($_POST["form"]) && isset($_POST["bug"]))
                // echo "key: " . $key;
                // echo " value: " . $bug[0];
                // echo " filename: " . $bug[1] . "<br />";
+              $selected = (mb_stristr($bug[1], basename($_SERVER["SCRIPT_NAME"]))!==false)? ' selected="selected"':'';
 
-               echo "<option value='$key'>$bug[0]</option>";
+
+              echo "
+            <option title='$bug[1]' value='$key' $selected>$bug[0]</option>";
 
             }
 
@@ -188,41 +192,7 @@ if(isset($_POST["form"]) && isset($_POST["bug"]))
 
 </div>
 
-<div id="bug">
-
-    <form action="<?php echo($_SERVER["SCRIPT_NAME"]);?>" method="POST">
-
-        <label>Choose your bug:</label><br />
-
-        <select name="bug">
-
-<?php
-
-// Lists the options from the array 'bugs' (bugs.txt)
-foreach ($bugs as $key => $value)
-{
-
-   $bug = explode(",", trim($value));
-
-   // Debugging
-   // echo "key: " . $key;
-   // echo " value: " . $bug[0];
-   // echo " filename: " . $bug[1] . "<br />";
-
-   echo "<option value='$key'>$bug[0]</option>";
-
-}
-
-?>
-
-
-        </select>
-
-        <button type="submit" name="form_bug" value="submit">Hack</button>
-
-    </form>
-
-</div>
+<?php require_once('_select_inc.php'); ?>
 
 </body>
 

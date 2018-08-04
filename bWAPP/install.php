@@ -51,6 +51,20 @@ if(isset($_REQUEST["install"]) && $_REQUEST["install"] == "yes")
             die("Error: " . $link->error);
 
         }
+    }
+
+    else
+    {
+
+        $message = "The bWAPP database already exists...";
+
+    }
+
+    // Checks if the database 'bWAPP' already exists
+    if(!mysqli_select_db($link,"bWAPP")) {
+            die("Error: " . $link->error);
+    }
+    else {
 
         // Selects the database 'bWAPP'
          mysqli_select_db($link,"bWAPP");
@@ -177,13 +191,6 @@ if(isset($_REQUEST["install"]) && $_REQUEST["install"] == "yes")
 
 
         $message = "bWAPP has been installed successfully!";
-
-    }
-
-    else
-    {
-
-        $message = "The bWAPP database already exists...";
 
     }
 

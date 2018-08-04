@@ -48,7 +48,7 @@ include("selections.php");
 
 <h2>an extremely buggy web app !</h2>
 
-</header>    
+</header>
 
 <div id="menu">
 
@@ -60,7 +60,7 @@ include("selections.php");
             <td><a href="password_change.php">Change Password</a></td>
             <td><a href="user_extra.php">Create User</a></td>
             <td><a href="security_level_set.php">Set Security Level</a></td>
-            <td><a href="reset.php" onclick="return confirm('All settings will be cleared. Are you sure?');">Reset</a></td>            
+            <td><a href="reset.php" onclick="return confirm('All settings will be cleared. Are you sure?');">Reset</a></td>
             <td><a href="credits.php">Credits</a></td>
             <td><a href="http://itsecgames.blogspot.com" target="_blank">Blog</a></td>
             <td><a href="logout.php" onclick="return confirm('Are you sure you want to leave?');">Logout</a></td>
@@ -68,7 +68,7 @@ include("selections.php");
 
         </tr>
 
-    </table>   
+    </table>
 
 </div>
 
@@ -82,13 +82,13 @@ include("selections.php");
 
         <input type="text" name="name">
 
-        <button type="submit" name="action" value="vote">Continue</button>  
+        <button type="submit" name="action" value="vote">Continue</button>
 
     </form>
 
 </div>
 
-<div id="side">    
+<div id="side">
 
     <a href="http://twitter.com/MME_IT" target="blank_" class="button"><img src="./images/twitter.png"></a>
     <a href="http://be.linkedin.com/in/malikmesellem" target="blank_" class="button"><img src="./images/linkedin.png"></a>
@@ -119,53 +119,19 @@ include("selections.php");
 
             <option value="0">low</option>
             <option value="1">medium</option>
-            <option value="2">high</option> 
+            <option value="2">high</option>
 
         </select>
 
         <button type="submit" name="form_security_level" value="submit">Set</button>
         <font size="4">Current: <b><?php echo $security_level?></b></font>
 
-    </form>   
-    
-</div>
-
-<div id="bug">
-
-    <form action="<?php echo($_SERVER["SCRIPT_NAME"]);?>" method="POST">
-
-        <label>Choose your bug:</label><br />
-
-        <select name="bug">
-
-<?php
-
-// Lists the options from the array 'bugs' (bugs.txt)
-foreach ($bugs as $key => $value)
-{
-
-   $bug = explode(",", trim($value));
-
-   // Debugging
-   // echo "key: " . $key;
-   // echo " value: " . $bug[0];
-   // echo " filename: " . $bug[1] . "<br />";
-
-   echo "<option value='$key'>$bug[0]</option>";
-
-}
-
-?>
-
-
-        </select>
-
-        <button type="submit" name="form_bug" value="submit">Hack</button>
-
     </form>
 
 </div>
-      
+
+<?php require_once('_select_inc.php'); ?>
+
 </body>
-    
+
 </html>

@@ -65,7 +65,7 @@ if(isset($_POST["form"]))
         }
 
         else
-        {       
+        {
 
             $email = $_POST["email"];
 
@@ -104,8 +104,8 @@ if(isset($_POST["form"]))
             // Debugging
             // echo "e-mail: ".$email;
             // echo "<br />";
-            // echo "SMTP server: ". $debug;   
- 
+            // echo "SMTP server: ". $debug;
+
         }
 
     }
@@ -132,7 +132,7 @@ if(isset($_POST["form"]))
 </head>
 
 <body>
-    
+
 <header>
 
 <h1>bWAPP</h1>
@@ -249,41 +249,7 @@ if(isset($_POST["form"]))
 
 </div>
 
-<div id="bug">
-
-    <form action="<?php echo($_SERVER["SCRIPT_NAME"]);?>" method="POST">
-
-        <label>Choose your bug:</label><br />
-        
-        <select name="bug">
-
-<?php
-
-// Lists the options from the array 'bugs' (bugs.txt)
-foreach ($bugs as $key => $value)
-{
-
-   $bug = explode(",", trim($value));
-
-   // Debugging
-   // echo "key: " . $key;
-   // echo " value: " . $bug[0];
-   // echo " filename: " . $bug[1] . "<br />";
-
-   echo "<option value='$key'>$bug[0]</option>";
-
-}
-
-?>
-
-
-        </select>
-
-        <button type="submit" name="form_bug" value="submit">Hack</button>
-
-    </form>
-
-</div>
+<?php require_once('_select_inc.php'); ?>
 
 </body>
 

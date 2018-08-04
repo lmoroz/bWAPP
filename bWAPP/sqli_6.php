@@ -142,18 +142,18 @@ if(isset($_POST["title"]))
 
     $sql = "SELECT * FROM movies WHERE title LIKE '%" . sqli($title) . "%'";
 
-    $recordset = mysql_query($sql, $link);
+    $recordset = mysqli_query($link, $sql);
 
     if(!$recordset)
     {
 
-        // die("Error: " . mysql_error());
+        // die("Error: " . mysqli_error());
 
 ?>
 
         <tr height="50">
 
-            <td colspan="5" width="580"><?php die("Error: " . mysql_error()); ?></td>
+            <td colspan="5" width="580"><?php die("Error: " . mysqli_error()); ?></td>
             <!--
             <td></td>
             <td></td>
@@ -162,14 +162,14 @@ if(isset($_POST["title"]))
             -->
 
         </tr>
-<?php        
+<?php
 
     }
 
-    if(mysql_num_rows($recordset) != 0)
+    if(mysqli_num_rows($recordset) != 0)
     {
 
-        while($row = mysql_fetch_array($recordset))
+        while($row = mysqli_fetch_array($recordset))
         {
 
             // print_r($row);
@@ -211,7 +211,7 @@ if(isset($_POST["title"]))
 
     }
 
-    mysql_close($link);
+    mysqli_close($link);
 
 }
 
@@ -227,7 +227,7 @@ else
             <td></td>
             <td></td>
             <td></td>
-            <td></td> 
+            <td></td>
             -->
 
         </tr>
@@ -248,7 +248,7 @@ else
     <a href="http://www.facebook.com/pages/MME-IT-Audits-Security/104153019664877" target="blank_" class="button"><img src="./images/facebook.png"></a>
     <a href="http://itsecgames.blogspot.com" target="blank_" class="button"><img src="./images/blogger.png"></a>
 
-</div>     
+</div>
 
 <div id="disclaimer">
 
@@ -283,41 +283,7 @@ else
 
 </div>
 
-<div id="bug">
-
-    <form action="<?php echo($_SERVER["SCRIPT_NAME"]);?>" method="POST">
-
-        <label>Choose your bug:</label><br />
-
-        <select name="bug">
-
-<?php
-
-// Lists the options from the array 'bugs' (bugs.txt)
-foreach ($bugs as $key => $value)
-{
-
-   $bug = explode(",", trim($value));
-
-   // Debugging
-   // echo "key: " . $key;
-   // echo " value: " . $bug[0];
-   // echo " filename: " . $bug[1] . "<br />";
-
-   echo "<option value='$key'>$bug[0]</option>";
-
-}
-
-?>
-
-
-        </select>
-
-        <button type="submit" name="form_bug" value="submit">Hack</button>
-
-    </form>
-
-</div>
+<?php require_once('_select_inc.php'); ?>
 
 </body>
 

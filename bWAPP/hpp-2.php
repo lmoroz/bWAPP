@@ -45,31 +45,31 @@ else
 
 function hpp($data)
 {
-         
+
     switch($_COOKIE["security_level"])
     {
-        
-        case "0" : 
-            
-            $data = no_check($data);            
-            break;
-        
-        case "1" :
-            
-            $data = urlencode($data);
-            break;
-        
-        case "2" :            
-                       
-            $data = urlencode($data);
-            break;
-        
-        default : 
-            
-            $data = no_check($data);            
-            break;   
 
-    }       
+        case "0" :
+
+            $data = no_check($data);
+            break;
+
+        case "1" :
+
+            $data = urlencode($data);
+            break;
+
+        case "2" :
+
+            $data = urlencode($data);
+            break;
+
+        default :
+
+            $data = no_check($data);
+            break;
+
+    }
 
     return $data;
 
@@ -102,7 +102,7 @@ function hpp($data)
 
 <h2>an extremely buggy web app !</h2>
 
-</header>    
+</header>
 
 <div id="menu">
 
@@ -114,7 +114,7 @@ function hpp($data)
             <td><a href="password_change.php">Change Password</a></td>
             <td><a href="user_extra.php">Create User</a></td>
             <td><a href="security_level_set.php">Set Security Level</a></td>
-            <td><a href="reset.php" onclick="return confirm('All settings will be cleared. Are you sure?');">Reset</a></td>            
+            <td><a href="reset.php" onclick="return confirm('All settings will be cleared. Are you sure?');">Reset</a></td>
             <td><a href="credits.php">Credits</a></td>
             <td><a href="http://itsecgames.blogspot.com" target="_blank">Blog</a></td>
             <td><a href="logout.php" onclick="return confirm('Are you sure you want to leave?');">Logout</a></td>
@@ -122,9 +122,9 @@ function hpp($data)
 
         </tr>
 
-    </table>   
+    </table>
 
-</div> 
+</div>
 
 <div id="main">
 
@@ -146,34 +146,34 @@ function hpp($data)
 
     $sql = "SELECT * FROM movies";
 
-    $recordset = mysql_query($sql, $link);
+    $recordset = mysqli_query($link, $sql);
 
     if(!$recordset)
     {
 
-        // die("Error: " . mysql_error());
+        // die("Error: " . mysqli_error());
 
 ?>
 
         <tr height="50">
 
-            <td colspan="5" width="580"><?php die("Error: " . mysql_error()); ?></td>
+            <td colspan="5" width="580"><?php die("Error: " . mysqli_error()); ?></td>
             <!--
             <td></td>
             <td></td>
             <td></td>
-            <td></td> 
+            <td></td>
             -->
 
-        </tr>    
-<?php        
+        </tr>
+<?php
 
     }
 
-    if(mysql_num_rows($recordset) != 0)
-    {    
+    if(mysqli_num_rows($recordset) != 0)
+    {
 
-        while($row = mysql_fetch_array($recordset))         
+        while($row = mysqli_fetch_array($recordset))
         {
 
             // print_r($row);
@@ -188,32 +188,32 @@ function hpp($data)
             <td align="center"><?php echo $row["genre"]; ?></td>
             <td align="center"> <a href=hpp-3.php?movie=<?php echo $row["id"]; ?>&name=<?php echo hpp($name);?>&action=vote>Vote</a></td>
 
-        </tr>         
-<?php        
+        </tr>
+<?php
 
-        }   
+        }
 
     }
-    
-    mysql_close($link);
+
+    mysqli_close($link);
 
 ?>
 
-    </table>    
+    </table>
 
 </div>
 
-<div id="side">    
+<div id="side">
 
     <a href="http://twitter.com/MME_IT" target="blank_" class="button"><img src="./images/twitter.png"></a>
     <a href="http://be.linkedin.com/in/malikmesellem" target="blank_" class="button"><img src="./images/linkedin.png"></a>
     <a href="http://www.facebook.com/pages/MME-IT-Audits-Security/104153019664877" target="blank_" class="button"><img src="./images/facebook.png"></a>
     <a href="http://itsecgames.blogspot.com" target="blank_" class="button"><img src="./images/blogger.png"></a>
 
-</div>     
+</div>
 
 <div id="disclaimer">
-  
+
     <p>bWAPP is licensed under <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank"><img style="vertical-align:middle" src="./images/cc.png"></a> &copy; 2014 MME BVBA / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and ask for our cheat sheet, containing all solutions! / Need an exclusive <a href="http://www.mmebvba.com" target="_blank">training</a>?</p>
 
 </div>
@@ -234,52 +234,18 @@ function hpp($data)
 
             <option value="0">low</option>
             <option value="1">medium</option>
-            <option value="2">high</option> 
+            <option value="2">high</option>
 
         </select>
 
         <button type="submit" name="form_security_level" value="submit">Set</button>
         <font size="4">Current: <b><?php echo $security_level?></b></font>
 
-    </form>   
-
-</div>
-
-<div id="bug">
-
-    <form action="<?php echo($_SERVER["SCRIPT_NAME"]);?>" method="POST">
-
-        <label>Choose your bug:</label><br />
-
-        <select name="bug">
-
-<?php
-
-// Lists the options from the array 'bugs' (bugs.txt)
-foreach ($bugs as $key => $value)
-{
-
-   $bug = explode(",", trim($value));
-
-   // Debugging
-   // echo "key: " . $key;
-   // echo " value: " . $bug[0];
-   // echo " filename: " . $bug[1] . "<br />";
-
-   echo "<option value='$key'>$bug[0]</option>";
-
-}
-
-?>
-
-
-        </select>
-
-        <button type="submit" name="form_bug" value="submit">Hack</button>
-
     </form>
 
 </div>
+
+<?php require_once('_select_inc.php'); ?>
 
 </body>
 

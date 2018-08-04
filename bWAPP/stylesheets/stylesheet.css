@@ -1,4 +1,4 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
+/* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
 */
@@ -10,8 +10,8 @@ small, strike, sub, sup, tt, var, u, center,
 dl, dt, dd, ol,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
         margin: 0;
@@ -23,14 +23,14 @@ time, mark, audio, video {
 }
 
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
+article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
         display: block;
 }
 
 body {
         line-height: 1;
-        text-align: justify; 
+        text-align: justify;
 }
 
 blockquote, q {
@@ -59,11 +59,11 @@ body {
 }
 
 a {
-        color: #ff4500; 
+        color: #ff4500;
 }
 
 a:hover {
-        color: #ffa319;       
+        color: #ffa319;
 }
 
 ul, ol, dl {
@@ -81,7 +81,7 @@ hr {
 }
 
 form {
-        padding: 0px;  
+        padding: 0px;
 }
 
 select {
@@ -91,7 +91,7 @@ select {
 }
 
 header {
-        font-family: "Architects Daughter", "Helvetica Neue", Helvetica, Arial, serif; 
+        font-family: "Architects Daughter", "Helvetica Neue", Helvetica, Arial, serif;
         background: #ffb717 url("../images/bg_1.jpg") 0px 0px repeat-x;
         border-bottom: solid 0px #191919;
         padding-top: 44px;
@@ -128,14 +128,14 @@ header h2 {
         /*min-width: 1030px;*/
 }
 
-#menu a { 
+#menu a {
         color: #ffffff;
         text-decoration:none;
 }
 
 #menu a:hover {
         color: #ffb717;
-        /*color: #ffa319;*/      
+        /*color: #ffa319;*/
 }
 
 #menu table {
@@ -155,7 +155,7 @@ header h2 {
 
 #main {
         padding-left: 100px;
-        padding-top: 25px;    
+        padding-top: 25px;
         position: relative;
         width: 760px;
         margin-bottom: 50px;
@@ -165,19 +165,19 @@ header h2 {
         padding-bottom: 12px;
 }
 
-#main a { 
-        text-decoration:none; 
+#main a {
+        text-decoration:none;
         font-weight:bold;
         color: #666;
 }
 
 #main h1 {
-        font-family: "Architects Daughter", "Helvetica Neue", Helvetica, Arial, serif; 
+        font-family: "Architects Daughter", "Helvetica Neue", Helvetica, Arial, serif;
         font-size: 40px;
         letter-spacing: -1px;
         color: #474747;
         padding-bottom: 12px;
-} 
+}
 
 #main h1:before {
         content: "/";
@@ -192,12 +192,12 @@ header h2 {
 }
 
 #main h2 {
-        font-family: "Architects Daughter", "Helvetica Neue", Helvetica, Arial, serif; 
+        font-family: "Architects Daughter", "Helvetica Neue", Helvetica, Arial, serif;
         font-size: 30px;
         letter-spacing: -1px;
         color: #474747;
         padding-bottom: 18px;
-} 
+}
 
 #main h2:before {
         content: "//";
@@ -271,8 +271,7 @@ header h2 {
         font-weight: normal;
         color: #000000;
         position: absolute;
-        top: 15px;
-        /*left: 750px;*/
+        top: 88px;
         right: 30px;
         min-width: 430px;
 }
@@ -283,8 +282,7 @@ header h2 {
         font-weight: normal;
         color: #000000;
         position: absolute;
-        top: 88px;
-        /*left: 750px;*/
+        top: 15px;
         right: 30px;
         min-width: 430px;
 }
@@ -296,7 +294,7 @@ header h2 {
         height: 35px;
         width: 35px;
         /*opacity:0.6; Makes the image transparant
-        filter:alpha(opacity=60); For IE8 and earlier */        
+        filter:alpha(opacity=60); For IE8 and earlier */
 }
 
 #table_yellow {
@@ -305,7 +303,7 @@ header h2 {
 
 #table_yellow td {
         border: 1px solid #ebebeb;
-        padding: 10px; 
+        padding: 10px;
         vertical-align: middle;
 }
 

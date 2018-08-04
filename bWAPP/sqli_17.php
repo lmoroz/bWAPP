@@ -104,7 +104,7 @@ if(!$recordset)
 }
 
 // Writes the entry into a text file
-$line = "'" . date("y/m/d G.i:s", time()) . "', '" . $ip_address . "', '" . xss($user_agent) . "'" . "\r\n";     
+$line = "'" . date("y/m/d G.i:s", time()) . "', '" . $ip_address . "', '" . xss($user_agent) . "'" . "\r\n";
 
 $fp = fopen("logs/visitors.txt", "a");
 fputs($fp, $line, 200);
@@ -149,7 +149,7 @@ if(!$recordset)
 
 <h2>an extremely buggy web app !</h2>
 
-</header>    
+</header>
 
 <div id="menu">
 
@@ -249,7 +249,7 @@ $link->close();
 
             <option value="0">low</option>
             <option value="1">medium</option>
-            <option value="2">high</option> 
+            <option value="2">high</option>
 
         </select>
 
@@ -260,41 +260,7 @@ $link->close();
 
 </div>
 
-<div id="bug">
-
-    <form action="<?php echo($_SERVER["SCRIPT_NAME"]);?>" method="POST">
-
-        <label>Choose your bug:</label><br />
-
-        <select name="bug">
-
-<?php
-
-// Lists the options from the array 'bugs' (bugs.txt)
-foreach ($bugs as $key => $value)
-{
-
-   $bug = explode(",", trim($value));
-
-   // Debugging
-   // echo "key: " . $key;
-   // echo " value: " . $bug[0];
-   // echo " filename: " . $bug[1] . "<br />";
-
-   echo "<option value='$key'>$bug[0]</option>";
-
-}
-
-?>
-
-
-        </select>
-
-        <button type="submit" name="form_bug" value="submit">Hack</button>
-
-    </form>
-
-</div>
+<?php require_once('_select_inc.php'); ?>
 
 </body>
 

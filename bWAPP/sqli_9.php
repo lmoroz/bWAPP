@@ -28,8 +28,8 @@ include("connect.php");
 if(isset($_REQUEST["action"]) && $_REQUEST["action"] == "stop")
 {
 
-    $_SESSION["manual_interv"] = 0;    
-      
+    $_SESSION["manual_interv"] = 0;
+
     // print_r($_SESSION);
 
 }
@@ -52,9 +52,9 @@ else
         switch($_COOKIE["security_level"])
         {
 
-            case "0" : 
+            case "0" :
 
-                $data = no_check($data);            
+                $data = no_check($data);
                 break;
 
             case "1" :
@@ -62,17 +62,17 @@ else
                 $data = sqli_check_1($data);
                 break;
 
-            case "2" :            
+            case "2" :
 
-                $data = sqli_check_2($data);            
+                $data = sqli_check_2($data);
                 break;
 
-            default : 
+            default :
 
-                $data = no_check($data);            
-                break;   
+                $data = no_check($data);
+                break;
 
-        }       
+        }
 
         return $data;
 
@@ -105,7 +105,7 @@ else
 
 <h2>an extremely buggy web app !</h2>
 
-</header>    
+</header>
 
 <div id="menu">
 
@@ -117,7 +117,7 @@ else
             <td><a href="password_change.php">Change Password</a></td>
             <td><a href="user_extra.php">Create User</a></td>
             <td><a href="security_level_set.php">Set Security Level</a></td>
-            <td><a href="reset.php" onclick="return confirm('All settings will be cleared. Are you sure?');">Reset</a></td>            
+            <td><a href="reset.php" onclick="return confirm('All settings will be cleared. Are you sure?');">Reset</a></td>
             <td><a href="credits.php">Credits</a></td>
             <td><a href="http://itsecgames.blogspot.com" target="_blank">Blog</a></td>
             <td><a href="logout.php" onclick="return confirm('Are you sure you want to leave?');">Logout</a></td>
@@ -125,40 +125,40 @@ else
 
         </tr>
 
-    </table>   
+    </table>
 
-</div> 
+</div>
 
 <div id="main">
 
     <h1>SQL Injection (CAPTCHA)</h1>
-    
+
      <table>
-        
+
         <tr>
-        
+
             <td width="400">
 
             <form action="<?php echo($_SERVER["SCRIPT_NAME"]); ?>" method="GET">
-    
+
             <p>
 
             <label for="title">Search for a movie:</label>
-            <input type="text" id="title" name="title" size="25">    
+            <input type="text" id="title" name="title" size="25">
 
             <button type="submit" name="action" value="search">Search</button>
 
-            </p>          
-                       
+            </p>
+
             </form>
-                
+
             </td>
-            
+
             <td><font size="1"><a href="sqli_9.php?action=stop">Done!</a></font></td>
-            
+
         </tr>
 
-    </table>    
+    </table>
 
     <table id="table_yellow">
 
@@ -173,41 +173,41 @@ else
         </tr>
 <?php
 
-if(isset($_GET["title"])) 
-{   
+if(isset($_GET["title"]))
+{
 
     $title = $_GET["title"];
 
     $sql = "SELECT * FROM movies WHERE title LIKE '%" . sqli($title) . "%'";
 
-    $recordset = mysql_query($sql, $link);
+    $recordset = mysqli_query($link, $sql);
 
     if(!$recordset)
     {
 
-        // die("Error: " . mysql_error());
+        // die("Error: " . mysqli_error());
 
 ?>
 
         <tr height="50">
 
-            <td colspan="5" width="580"><?php die("Error: " . mysql_error()); ?></td>
+            <td colspan="5" width="580"><?php die("Error: " . mysqli_error()); ?></td>
             <!--
             <td></td>
             <td></td>
             <td></td>
-            <td></td> 
+            <td></td>
             -->
 
-        </tr>    
-<?php        
+        </tr>
+<?php
 
     }
 
-    if(mysql_num_rows($recordset) != 0)
-    {    
+    if(mysqli_num_rows($recordset) != 0)
+    {
 
-        while($row = mysql_fetch_array($recordset))         
+        while($row = mysqli_fetch_array($recordset))
         {
 
             // print_r($row);
@@ -222,10 +222,10 @@ if(isset($_GET["title"]))
             <td align="center"><?php echo $row["genre"]; ?></td>
             <td align="center"><a href="http://www.imdb.com/title/<?php echo $row["imdb"]; ?>" target="_blank">Link</a></td>
 
-        </tr>         
-<?php        
+        </tr>
+<?php
 
-        }        
+        }
 
     }
 
@@ -241,15 +241,15 @@ if(isset($_GET["title"]))
             <td></td>
             <td></td>
             <td></td>
-            <td></td> 
+            <td></td>
             -->
 
-        </tr>     
-<?php        
+        </tr>
+<?php
 
     }
 
-    mysql_close($link);
+    mysqli_close($link);
 
 }
 
@@ -265,7 +265,7 @@ else
             <td></td>
             <td></td>
             <td></td>
-            <td></td> 
+            <td></td>
             -->
 
         </tr>
@@ -275,18 +275,18 @@ else
 
 ?>
 
-    </table>    
+    </table>
 
 </div>
 
-<div id="side">    
+<div id="side">
 
     <a href="http://twitter.com/MME_IT" target="blank_" class="button"><img src="./images/twitter.png"></a>
     <a href="http://be.linkedin.com/in/malikmesellem" target="blank_" class="button"><img src="./images/linkedin.png"></a>
     <a href="http://www.facebook.com/pages/MME-IT-Audits-Security/104153019664877" target="blank_" class="button"><img src="./images/facebook.png"></a>
     <a href="http://itsecgames.blogspot.com" target="blank_" class="button"><img src="./images/blogger.png"></a>
 
-</div>     
+</div>
 
 <div id="disclaimer">
 
@@ -310,59 +310,25 @@ else
 
             <option value="0">low</option>
             <option value="1">medium</option>
-            <option value="2">high</option> 
+            <option value="2">high</option>
 
         </select>
 
         <button type="submit" name="form_security_level" value="submit">Set</button>
         <font size="4">Current: <b><?php echo $security_level?></b></font>
 
-    </form>   
-
-</div>
-
-<div id="bug">
-
-    <form action="<?php echo($_SERVER["SCRIPT_NAME"]);?>" method="POST">
-
-        <label>Choose your bug:</label><br />
-
-        <select name="bug">
-
-<?php
-
-// Lists the options from the array 'bugs' (bugs.txt)
-foreach ($bugs as $key => $value)
-{
-
-   $bug = explode(",", trim($value));
-
-   // Debugging
-   // echo "key: " . $key;
-   // echo " value: " . $bug[0];
-   // echo " filename: " . $bug[1] . "<br />";
-
-   echo "<option value='$key'>$bug[0]</option>";
-
-}
-
-?>
-
-
-        </select>
-
-        <button type="submit" name="form_bug" value="submit">Hack</button>
-
     </form>
 
 </div>
+
+<?php require_once('_select_inc.php'); ?>
 
 </body>
 
 </html>
 
 <?php
-    
+
 }
 
 ?>

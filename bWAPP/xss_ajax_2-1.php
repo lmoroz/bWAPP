@@ -23,9 +23,9 @@ include("selections.php");
 ?>
 <!DOCTYPE html>
 <html>
-    
+
 <head>
-        
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <!--<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Architects+Daughter">-->
@@ -41,36 +41,36 @@ include("selections.php");
 </head>
 
 <body onload="process()">
-    
+
 <header>
 
 <h1>bWAPP</h1>
 
 <h2>an extremely buggy web app !</h2>
 
-</header>    
+</header>
 
 <div id="menu">
-      
+
     <table>
-        
+
         <tr>
-            
+
             <td><a href="portal.php">Bugs</a></td>
             <td><a href="password_change.php">Change Password</a></td>
             <td><a href="user_extra.php">Create User</a></td>
             <td><a href="security_level_set.php">Set Security Level</a></td>
-            <td><a href="reset.php" onclick="return confirm('All settings will be cleared. Are you sure?');">Reset</a></td>            
+            <td><a href="reset.php" onclick="return confirm('All settings will be cleared. Are you sure?');">Reset</a></td>
             <td><a href="credits.php">Credits</a></td>
             <td><a href="http://itsecgames.blogspot.com" target="_blank">Blog</a></td>
             <td><a href="logout.php" onclick="return confirm('Are you sure you want to leave?');">Logout</a></td>
             <td><font color="red">Welcome <?php if(isset($_SESSION["login"])){echo ucwords($_SESSION["login"]);}?></font></td>
-            
+
         </tr>
-        
-    </table>   
-   
-</div> 
+
+    </table>
+
+</div>
 
 <div id="main">
 
@@ -80,19 +80,19 @@ include("selections.php");
 
     <label for="title">Search for a movie:</label>
     <input type="text" id="title" name="title">
-    
+
     </p>
 
     <div id="result"></div>
-    
+
     <script>
-    
+
         // Stores the reference to the XMLHttpRequest object
-        var xmlHttp = createXmlHttpRequestObject(); 
+        var xmlHttp = createXmlHttpRequestObject();
 
         // Retrieves the XMLHttpRequest object
-        function createXmlHttpRequestObject() 
-        {	
+        function createXmlHttpRequestObject()
+        {
             // Stores the reference to the XMLHttpRequest object
             var xmlHttp;
             // If running Internet Explorer 6 or older
@@ -122,11 +122,11 @@ include("selections.php");
             // Returns the created object or displays an error message
             if(!xmlHttp)
                 alert("Error creating the XMLHttpRequest object.");
-            else 
+            else
                 return xmlHttp;
         }
 
-        // Makes an asynchronous HTTP request using the XMLHttpRequest object 
+        // Makes an asynchronous HTTP request using the XMLHttpRequest object
         function process()
         {
             // Proceeds only if the xmlHttp object isn't busy
@@ -136,14 +136,14 @@ include("selections.php");
                 // title = document.getElementById("title").value;
                 title = encodeURIComponent(document.getElementById("title").value);
                 // Executes the 'xss_ajax_1-2.php' page from the server
-                xmlHttp.open("GET", "xss_ajax_2-2.php?title=" + title, true);  
+                xmlHttp.open("GET", "xss_ajax_2-2.php?title=" + title, true);
                 // Defines the method to handle server responses
                 xmlHttp.onreadystatechange = handleServerResponse;
                 // Makes the server request
                 xmlHttp.send(null);
             }
             else
-                // If the connection is busy, try again after one second  
+                // If the connection is busy, try again after one second
                 setTimeout("process()", 1000);
         }
 
@@ -189,9 +189,9 @@ include("selections.php");
                     document.getElementById("result").innerHTML = result;
                     // Restart sequence
                     setTimeout("process()", 1000);
-                } 
+                }
                 // A HTTP status different than 200 signals an error
-                else 
+                else
                 {
                     alert("There was a problem accessing the server: " + xmlHttp.statusText);
                 }
@@ -201,18 +201,18 @@ include("selections.php");
     </script>
 
 </div>
-    
-<div id="side">    
+
+<div id="side">
 
     <a href="http://twitter.com/MME_IT" target="blank_" class="button"><img src="./images/twitter.png"></a>
     <a href="http://be.linkedin.com/in/malikmesellem" target="blank_" class="button"><img src="./images/linkedin.png"></a>
     <a href="http://www.facebook.com/pages/MME-IT-Audits-Security/104153019664877" target="blank_" class="button"><img src="./images/facebook.png"></a>
     <a href="http://itsecgames.blogspot.com" target="blank_" class="button"><img src="./images/blogger.png"></a>
 
-</div>     
+</div>
 
 <div id="disclaimer">
- 
+
     <p>bWAPP is licensed under <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank"><img style="vertical-align:middle" src="./images/cc.png"></a> &copy; 2014 MME BVBA / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and ask for our cheat sheet, containing all solutions! / Need an exclusive <a href="http://www.mmebvba.com" target="_blank">training</a>?</p>
 
 </div>
@@ -226,14 +226,14 @@ include("selections.php");
 <div id="security_level">
 
     <form action="<?php echo($_SERVER["SCRIPT_NAME"]);?>" method="POST">
-        
+
         <label>Set your security level:</label><br />
-        
+
         <select name="security_level">
-            
+
             <option value="0">low</option>
             <option value="1">medium</option>
-            <option value="2">high</option> 
+            <option value="2">high</option>
 
         </select>
 
@@ -244,40 +244,7 @@ include("selections.php");
 
 </div>
 
-<div id="bug">
-
-    <form action="<?php echo($_SERVER["SCRIPT_NAME"]);?>" method="POST">
-
-        <label>Choose your bug:</label><br />
-
-        <select name="bug">
-
-<?php
-
-// Lists the options from the array 'bugs' (bugs.txt)
-foreach ($bugs as $key => $value)
-{
-
-   $bug = explode(",", trim($value));
-
-   // Debugging
-   // echo "key: " . $key;
-   // echo " value: " . $bug[0];
-   // echo " filename: " . $bug[1] . "<br />";
-
-   echo "<option value='$key'>$bug[0]</option>";
-
-}
-
-?>
-
-        </select>
-
-        <button type="submit" name="form_bug" value="submit">Hack</button>
-
-    </form>
-
-</div>
+<?php require_once('_select_inc.php'); ?>
 
 </body>
 

@@ -124,7 +124,7 @@ function sqli($data)
         <label for="title">Search for a movie:</label>
         <input type="text" id="title" name="title" size="25">
 
-        <button type="submit" name="action" value="search">Search</button> &nbsp;&nbsp;(requires the PHP SQLite module) 
+        <button type="submit" name="action" value="search">Search</button> &nbsp;&nbsp;(requires the PHP SQLite module)
 
         </p>
 
@@ -188,7 +188,7 @@ if(isset($_GET["title"]))
         </tr>
 <?php
 
-    }    
+    }
 
     if ($count == 0)
     {
@@ -270,41 +270,7 @@ else
 
 </div>
 
-<div id="bug">
-
-    <form action="<?php echo($_SERVER["SCRIPT_NAME"]);?>" method="POST">
-
-        <label>Choose your bug:</label><br />
-
-        <select name="bug">
-
-<?php
-
-// Lists the options from the array 'bugs' (bugs.txt)
-foreach ($bugs as $key => $value)
-{
-
-   $bug = explode(",", trim($value));
-
-   // Debugging
-   // echo "key: " . $key;
-   // echo " value: " . $bug[0];
-   // echo " filename: " . $bug[1] . "<br />";
-
-   echo "<option value='$key'>$bug[0]</option>";
-
-}
-
-?>
-
-
-        </select>
-
-        <button type="submit" name="form_bug" value="submit">Hack</button>
-
-    </form>
-
-</div>
+<?php require_once('_select_inc.php'); ?>
 
 </body>
 

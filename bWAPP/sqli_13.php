@@ -24,40 +24,40 @@ include("connect.php");
 
 if($_COOKIE["security_level"] == "2")
 {
-    
+
     header("Location: sqli_13-ps.php");
-    
+
     exit;
-    
+
 }
 
 // Selects all the records
 $sql = "SELECT * FROM movies";
 
-$recordset = mysql_query($sql, $link);  
+$recordset = mysqli_query($link, $sql);
 
 function sqli($data)
 {
-         
+
     switch($_COOKIE["security_level"])
     {
-        
-        case "0" : 
-            
-            $data = no_check($data);            
+
+        case "0" :
+
+            $data = no_check($data);
             break;
-        
+
         case "1" :
-            
+
             $data = sqli_check_2($data);
             break;
-        
-        default : 
-            
-            $data = no_check($data);            
-            break;   
 
-    }       
+        default :
+
+            $data = no_check($data);
+            break;
+
+    }
 
     return $data;
 
@@ -66,9 +66,9 @@ function sqli($data)
 ?>
 <!DOCTYPE html>
 <html>
-    
+
 <head>
-        
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <!--<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Architects+Daughter">-->
@@ -83,14 +83,14 @@ function sqli($data)
 </head>
 
 <body>
-    
+
 <header>
 
 <h1>bWAPP</h1>
 
 <h2>an extremely buggy web app !</h2>
 
-</header>    
+</header>
 
 <div id="menu">
 
@@ -102,7 +102,7 @@ function sqli($data)
             <td><a href="password_change.php">Change Password</a></td>
             <td><a href="user_extra.php">Create User</a></td>
             <td><a href="security_level_set.php">Set Security Level</a></td>
-            <td><a href="reset.php" onclick="return confirm('All settings will be cleared. Are you sure?');">Reset</a></td>            
+            <td><a href="reset.php" onclick="return confirm('All settings will be cleared. Are you sure?');">Reset</a></td>
             <td><a href="credits.php">Credits</a></td>
             <td><a href="http://itsecgames.blogspot.com" target="_blank">Blog</a></td>
             <td><a href="logout.php" onclick="return confirm('Are you sure you want to leave?');">Logout</a></td>
@@ -110,9 +110,9 @@ function sqli($data)
 
         </tr>
 
-    </table>   
+    </table>
 
-</div> 
+</div>
 
 <div id="main">
 
@@ -127,7 +127,7 @@ function sqli($data)
 <?php
 
             // Fills the 'select' object
-            while($row = mysql_fetch_array($recordset))
+            while($row = mysqli_fetch_array($recordset))
             {
 
 ?>
@@ -138,7 +138,7 @@ function sqli($data)
 
 ?>
 
-        </select>   
+        </select>
 
         <button type="submit" name="action" value="go">Go</button>
 
@@ -160,49 +160,49 @@ function sqli($data)
 <?php
 
 if(isset($_POST["movie"]))
-{   
+{
 
     $id = $_POST["movie"];
 
     $sql = "SELECT * FROM movies";
 
     // If the user selects a movie
-    if($id)        
+    if($id)
     {
 
         $sql.= " WHERE id = " . sqli($id);
 
     }
 
-    $recordset = mysql_query($sql, $link);
+    $recordset = mysqli_query($link, $sql);
 
     if(!$recordset)
     {
 
-        // die("Error: " . mysql_error());
+        // die("Error: " . mysqli_error());
 
 ?>
 
         <tr height="50">
 
-            <td colspan="5" width="580"><?php die("Error: " . mysql_error()); ?></td>
+            <td colspan="5" width="580"><?php die("Error: " . mysqli_error()); ?></td>
             <!--
             <td></td>
             <td></td>
             <td></td>
-            <td></td> 
+            <td></td>
             -->
 
         </tr>
-<?php        
+<?php
 
     }
 
     // Shows the movie details when a valid record exists
-    if(mysql_num_rows($recordset) != 0)
-    {    
+    if(mysqli_num_rows($recordset) != 0)
+    {
 
-        $row = mysql_fetch_array($recordset);        
+        $row = mysqli_fetch_array($recordset);
 
         // print_r($row);
 
@@ -216,8 +216,8 @@ if(isset($_POST["movie"]))
             <td align="center"><?php echo $row["genre"]; ?></td>
             <td align="center"><a href="http://www.imdb.com/title/<?php echo $row["imdb"]; ?>" target="_blank">Link</a></td>
 
-        </tr>     
-<?php     
+        </tr>
+<?php
 
     }
 
@@ -233,11 +233,11 @@ if(isset($_POST["movie"]))
             <td></td>
             <td></td>
             <td></td>
-            <td></td> 
+            <td></td>
             -->
 
-        </tr>      
-<?php        
+        </tr>
+<?php
 
     }
 
@@ -255,7 +255,7 @@ else
             <td></td>
             <td></td>
             <td></td>
-            <td></td> 
+            <td></td>
             -->
 
         </tr>
@@ -263,92 +263,58 @@ else
 
 }
 
-mysql_close($link);
+mysqli_close($link);
 
 ?>
 
-    </table>    
+    </table>
 
 </div>
-    
-<div id="side">    
-    
+
+<div id="side">
+
     <a href="http://twitter.com/MME_IT" target="blank_" class="button"><img src="./images/twitter.png"></a>
     <a href="http://be.linkedin.com/in/malikmesellem" target="blank_" class="button"><img src="./images/linkedin.png"></a>
     <a href="http://www.facebook.com/pages/MME-IT-Audits-Security/104153019664877" target="blank_" class="button"><img src="./images/facebook.png"></a>
     <a href="http://itsecgames.blogspot.com" target="blank_" class="button"><img src="./images/blogger.png"></a>
 
-</div>     
-    
+</div>
+
 <div id="disclaimer">
-          
+
     <p>bWAPP is licensed under <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank"><img style="vertical-align:middle" src="./images/cc.png"></a> &copy; 2014 MME BVBA / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and ask for our cheat sheet, containing all solutions! / Need an exclusive <a href="http://www.mmebvba.com" target="_blank">training</a>?</p>
-   
+
 </div>
-    
+
 <div id="bee">
-    
+
     <img src="./images/bee_1.png">
-    
+
 </div>
-    
+
 <div id="security_level">
-  
+
     <form action="<?php echo($_SERVER["SCRIPT_NAME"]);?>" method="POST">
-        
+
         <label>Set your security level:</label><br />
-        
+
         <select name="security_level">
-            
+
             <option value="0">low</option>
             <option value="1">medium</option>
-            <option value="2">high</option> 
-            
+            <option value="2">high</option>
+
         </select>
-        
+
         <button type="submit" name="form_security_level" value="submit">Set</button>
         <font size="4">Current: <b><?php echo $security_level?></b></font>
-        
-    </form>   
-    
-</div>
-    
-<div id="bug">
 
-    <form action="<?php echo($_SERVER["SCRIPT_NAME"]);?>" method="POST">
-        
-        <label>Choose your bug:</label><br />
-        
-        <select name="bug">
-   
-<?php
-
-// Lists the options from the array 'bugs' (bugs.txt)
-foreach ($bugs as $key => $value)
-{
-    
-   $bug = explode(",", trim($value));
-   
-   // Debugging
-   // echo "key: " . $key;
-   // echo " value: " . $bug[0];
-   // echo " filename: " . $bug[1] . "<br />";
-   
-   echo "<option value='$key'>$bug[0]</option>";
- 
-}
-
-?>
-
-
-        </select>
-        
-        <button type="submit" name="form_bug" value="submit">Hack</button>
-        
     </form>
-    
+
 </div>
-      
+
+<?php require_once('_select_inc.php'); ?>
+
 </body>
-    
+
 </html>
