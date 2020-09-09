@@ -153,7 +153,7 @@ if(isset($_POST["title"]))
 
         <tr height="50">
 
-            <td colspan="5" width="580"><?php die("Error: " . mysqli_error()); ?></td>
+            <td colspan="5" width="580"><?php die("Error: " . mysqli_error($link)); ?></td>
             <!--
             <td></td>
             <td></td>

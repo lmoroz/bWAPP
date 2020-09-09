@@ -146,7 +146,7 @@ function sqli($data)
         if(!$recordset)
         {
 
-            die("Error: " . mysqli_error());
+            die("Error: " . mysqli_error($link));
 
         }
 
