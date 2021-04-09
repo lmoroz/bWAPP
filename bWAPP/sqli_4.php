@@ -135,8 +135,8 @@ function sqli($data)
         if(!$recordset)
         {
 
-            die("<font color=\"red\">Incorrect syntax detected!</font>");
-            // die("Error: " . mysqli_error());
+            //die("<font color=\"red\">Incorrect syntax detected!</font>");
+             die("Error: " . mysqli_error($link));
 
         }
 
