@@ -146,7 +146,7 @@ function commandi($data)
                 // echo "Windows!";
 
                 // Increasing the PING count will slow down your web scanner!
-                shell_exec("ping -n 1 " . commandi($target));
+              echo '<pre>'.shell_exec("ping -n 1 " . commandi($target)).'</pre>';
 
             }
 
@@ -157,7 +157,7 @@ function commandi($data)
                 // echo "Not Windows!";
 
                 // Increasing the PING count will slow down your web scanner!
-                shell_exec("ping -c 1 " . commandi($target));
+              echo '<pre>'.shell_exec("ping -c 1 " . commandi($target)).'</pre>';
 
             }
 
