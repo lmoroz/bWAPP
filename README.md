@@ -7,8 +7,11 @@
 `docker-compose up -d`
 
 or using Docker Desktop
+
 2. Open [http://localhost:8080/bWAPP/install.php](http://localhost:8080/bWAPP/install.php), press `here` link on the page
+   
 3. Go to [http://localhost:8080/bWAPP/login.php](http://localhost:8080/bWAPP/login.php)
+   
 4. Enjoy
 
 --------------
