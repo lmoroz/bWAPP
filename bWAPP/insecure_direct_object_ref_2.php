@@ -114,13 +114,13 @@ if(isset($_REQUEST["ticket_quantity"]))
         if(isset($_REQUEST["ticket_price"]))
         {
 
-            $ticket_price = $_REQUEST["ticket_price"];
+            $ticket_price = (float)$_REQUEST["ticket_price"];
 
         }
 
     }
 
-    $ticket_quantity = abs($_REQUEST["ticket_quantity"]);
+    $ticket_quantity = abs((float)$_REQUEST["ticket_quantity"]);
     $total_amount = $ticket_quantity * $ticket_price;
 
     echo "<p>You ordered <b>" . $ticket_quantity . "</b> movie tickets.</p>";

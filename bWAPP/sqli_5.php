@@ -132,8 +132,6 @@ function sqli($data)
 
             }
 
-            mysqli_close($link);
-
 ?>
 
         </select>
@@ -161,6 +159,9 @@ if(isset($_REQUEST["title"]))
     echo "We have <b>" . $tickets_stock . "</b> movie tickets available in our stock.";
 
 }
+
+// Closed after the SOAP call: sqli_check_2() needs the link
+mysqli_close($link);
 
 ?>
 

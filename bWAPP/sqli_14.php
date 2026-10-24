@@ -134,6 +134,7 @@ function sqli($data)
         $title = $_REQUEST["title"];
 
         $db = new PDO("sqlite:".$db_sqlite);
+        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_SILENT);
 
         $sql = "SELECT * FROM movies WHERE title = '" . sqli($title) . "' COLLATE NOCASE";
 

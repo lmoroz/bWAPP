@@ -148,6 +148,7 @@ function sqli($data)
             {
 
                 $db = new PDO("sqlite:".$db_sqlite);
+                $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_SILENT);
 
                 $sql = "SELECT max(id) as id FROM blog;";
 
@@ -171,6 +172,7 @@ function sqli($data)
 	{
 
 		$db = new PDO("sqlite:".$db_sqlite);
+		$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_SILENT);
 
                 $sql = "DELETE FROM blog;";
 
@@ -205,6 +207,7 @@ if(!isset($db))
 {
 
     $db = new PDO("sqlite:".$db_sqlite);
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_SILENT);
  
 }
 

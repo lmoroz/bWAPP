@@ -18,6 +18,9 @@ bWAPP is licensed under a Creative Commons Attribution-NonCommercial-NoDerivativ
 
 include("admin/settings.php");
 
+// PHP 8.1+ throws mysqli_sql_exception by default, the bugs rely on mysqli returning false
+mysqli_report(MYSQLI_REPORT_OFF);
+
 // Connection settings
 $server = $db_server;
 $username = $db_username;

@@ -3,7 +3,7 @@ version: '3.8'
 services:
   web:
     build: .
-    image: bwapp-php7:20240402
+    image: bwapp-php84:20261024
     ports:
       - "8080:80"
     depends_on:

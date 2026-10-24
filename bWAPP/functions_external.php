@@ -211,7 +211,9 @@ function sqli_check_1($data)
 function sqli_check_2($data)
 {
 
-    return mysqli_real_escape_string($data);
+    global $link;
+
+    return mysqli_real_escape_string($link, $data);
 
 }
 

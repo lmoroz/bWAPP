@@ -1,5 +1,5 @@
 
-# bWAPP latest modification for PHP7.4 bundled into Docker container
+# bWAPP latest modification for PHP 8.4 bundled into Docker container
 ## No preparation needed
 
 1. Run docker container with following command:

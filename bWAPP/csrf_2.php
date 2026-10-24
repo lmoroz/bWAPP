@@ -26,7 +26,7 @@ if(isset($_GET["amount"]))
     if(($_COOKIE["security_level"] != "1" && $_COOKIE["security_level"] != "2"))
     {
 
-        $_SESSION["amount"] = $_SESSION["amount"] - $_GET["amount"];
+        $_SESSION["amount"] = $_SESSION["amount"] - (float)$_GET["amount"];
 
     }
 
@@ -38,7 +38,7 @@ if(isset($_GET["amount"]))
             if(($_GET["token"] == $_SESSION["token"]) && ($_GET["action"]) == "transfer")
             {
 
-                $_SESSION["amount"] = $_SESSION["amount"] - $_GET["amount"];
+                $_SESSION["amount"] = $_SESSION["amount"] - (float)$_GET["amount"];
 
             }
 

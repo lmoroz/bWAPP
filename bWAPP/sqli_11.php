@@ -149,6 +149,7 @@ if(isset($_GET["title"]))
     $title = $_GET["title"];
 
     $db = new PDO("sqlite:".$db_sqlite);
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_SILENT);
 
     $sql = "SELECT * FROM movies WHERE title LIKE '%" . sqli($title) . "%'";
 
