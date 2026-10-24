@@ -19,6 +19,7 @@ bWAPP is licensed under a Creative Commons Attribution-NonCommercial-NoDerivativ
 include("security.php");
 include("security_level_check.php");
 include("selections.php");
+include("functions_external.php");
 
 $message = "";
 
@@ -33,13 +34,13 @@ switch($_COOKIE["security_level"])
     case "1" :
 
         $message = "A certificate must be configured to fully function!";
-        $url = "https://" . $_SERVER["HTTP_HOST"] . $_SERVER["SCRIPT_NAME"];
+        $url = https_url($_SERVER["SCRIPT_NAME"]);
         break;
 
     case "2" :
 
         $message = "A certificate must be configured to fully function!";
-        $url = "https://" . $_SERVER["HTTP_HOST"] . $_SERVER["SCRIPT_NAME"];
+        $url = https_url($_SERVER["SCRIPT_NAME"]);
         break;
 
     default :

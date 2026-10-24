@@ -621,4 +621,16 @@ function little_endian($hex)
 
 }
 
+// Builds the HTTPS URL of a script on this host
+// The HTTPS port can differ from the HTTP one (the Docker setup maps 8080 and 8443), see BWAPP_HTTPS_PORT
+function https_url($path)
+{
+
+    $host = preg_replace("/:\d+$/", "", $_SERVER["HTTP_HOST"]);
+    $port = getenv("BWAPP_HTTPS_PORT") ?: "443";
+
+    return "https://" . $host . ($port == "443" ? "" : ":" . $port) . $path;
+
+}
+
 ?>

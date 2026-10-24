@@ -6,11 +6,14 @@ services:
     image: bwapp-php84:20261024
     ports:
       - "8080:80"
+      - "8443:443"
     depends_on:
       - db
     environment:
       - MYSQL_HOST=db
       - MYSQL_USER=root
+      # Host port of HTTPS, used by the transport layer labs to build their HTTPS URLs
+      - BWAPP_HTTPS_PORT=8443
 
   db:
     image: mysql:8.4

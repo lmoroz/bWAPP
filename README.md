@@ -14,6 +14,10 @@ or using Docker Desktop
    
 4. Enjoy
 
+HTTPS is served on [https://localhost:8443/bWAPP/](https://localhost:8443/bWAPP/) with a self-signed certificate generated at build time, so the browser will show a certificate warning.
+The transport layer labs (`insuff_transp_layer_protect_1.php`, `insuff_transport_layer_protect.php`, `sm_mitm_1.php`) post their forms there on the medium and high security levels.
+If you map HTTPS to another host port, set `BWAPP_HTTPS_PORT` in `docker-compose.yml` accordingly.
+
 ## Upgrading from the MySQL 5.7 setup
 
 Earlier versions of this repository used `mysql:5.7`.

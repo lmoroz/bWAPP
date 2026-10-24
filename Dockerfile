@@ -5,6 +5,8 @@ RUN docker-php-ext-install mysqli pdo pdo_mysql gd ldap
 RUN a2enmod rewrite include
 COPY ./apache2/bwapp-docker.conf /etc/apache2/conf-available/bwapp.conf
 RUN a2enconf bwapp
+RUN mkdir -p /etc/ssl/private && openssl req -x509 -nodes -newkey rsa:2048 -days 3650 -subj "/CN=localhost" -addext "subjectAltName=DNS:localhost,IP:127.0.0.1" -keyout /etc/ssl/private/ssl-cert-snakeoil.key -out /etc/ssl/certs/ssl-cert-snakeoil.pem
+RUN a2enmod ssl && a2ensite default-ssl
 COPY ./php/bwapp.ini /usr/local/etc/php/conf.d/bwapp.ini
 COPY ./bWAPP /var/www/html/bWAPP
 COPY ./evil /var/www/html/evil
@@ -14,4 +16,4 @@ RUN chmod 777 /var/www/html/bWAPP/passwords/
 RUN chmod 777 /var/www/html/bWAPP/images/
 RUN chmod 777 /var/www/html/bWAPP/documents/
 RUN chmod 777 /var/www/html/bWAPP/logs/
-EXPOSE 8080
+EXPOSE 80 443
