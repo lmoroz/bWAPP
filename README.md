@@ -1,5 +1,5 @@
 
-# bWAPP latest modification for PHP 8.4 bundled into Docker container
+# bWAPP latest modification for PHP 8.4 and MySQL 8.4 bundled into Docker container
 ## No preparation needed
 
 1. Run docker container with following command:
@@ -13,6 +13,19 @@ or using Docker Desktop
 3. Go to [http://localhost:8080/bWAPP/login.php](http://localhost:8080/bWAPP/login.php)
    
 4. Enjoy
+
+## Upgrading from the MySQL 5.7 setup
+
+Earlier versions of this repository used `mysql:5.7`.
+MySQL 8.4 cannot start on a data directory created by 5.7 (a direct 5.7 → 8.4 upgrade is not supported), so the `db` container will fail on an existing `db_data` volume.
+The volume only holds the bWAPP lab database, so recreate it and run the installer again:
+
+`docker-compose down -v`
+
+`docker-compose up -d --build`
+
+Then open [http://localhost:8080/bWAPP/install.php](http://localhost:8080/bWAPP/install.php) and press `here` again.
+Note that `down -v` deletes everything stored in the lab database (registered users, blog entries, changed passwords).
 
 --------------
 bWAPP - README
